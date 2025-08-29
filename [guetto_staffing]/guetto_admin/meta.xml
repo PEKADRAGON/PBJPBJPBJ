@@ -1,0 +1,61 @@
+<meta>
+    <min_mta_version server="1.5.8-9.20979" client="1.5.8-9.20979"/>
+    <info author="squady developer" version="1.0" name="[BVR]Admin" />
+
+    <!-- SCRIPT's -->
+    <script src="config.lua" type="shared" cache="false" />
+    <script src="assets/utils/c-utils.lua" type="client" cache="false" />
+    <script src="assets/utils/s-utils.lua" />
+    <script src="assets/main/server.lua" />
+    <script src="assets/main/client.lua" type="client" cache="false" />
+    <script src="assets/main/prison.lua" type="client" cache="false" />
+
+    <!-- GFX's -->
+    <file src="assets/images/bg_verification.png" cache="false" />
+    <file src="assets/images/shield.png" cache="false" />
+    <file src="assets/images/button_verification.png" cache="false" />
+    <file src="assets/images/background.png" cache="false" /> 
+    <file src="assets/images/user.png" cache="false" />
+    <file src="assets/images/resources.png" cache="false" />
+    <file src="assets/images/server.png" cache="false" />
+    <file src="assets/images/list.png" cache="false" />
+    <file src="assets/images/ban.png" cache="false" />
+    <file src="assets/images/bg_resources.png" cache="false" />
+    <file src="assets/images/bg_executecommand.png" cache="false" />
+    <file src="assets/images/computer.png" cache="false" />
+    <file src="assets/images/button_executecommand.png" cache="false" />
+    <file src="assets/images/line.png" cache="false" />
+    <file src="assets/images/bg_search.png" cache="false" />
+    <file src="assets/images/lupa.png" cache="false" />
+    <file src="assets/images/gridlist.png" cache="false" />
+    <file src="assets/images/bg_server.png" cache="false" />
+    <file src="assets/images/arrowleft.png" cache="false" />
+    <file src="assets/images/arrowright.png" cache="false" />
+    <file src="assets/images/punishment.png" cache="false" />
+    <file src="assets/images/aclconfig.png" cache="false" />
+    <file src="assets/images/bg_aclmanager.png" cache="false" />
+    <file src="assets/images/polygon.png" cache="false" />
+    <file src="assets/images/bg_aclselect.png" cache="false" />
+    <file src="assets/images/close.png" cache="false" />
+    <file src="assets/images/bg_prison.png" cache="false" />
+    <file src="assets/images/bg_bans.png" cache="false" />
+    <file src="assets/images/bg_registers.png" cache="false" /> 
+    <file src="assets/images/bg_players.png" cache="false" />
+    <file src="assets/images/bg_search2.png" cache="false" /> 
+    <file src="assets/images/gridlist_players.png" cache="false" />
+    <file src="assets/images/eye.png" cache="false" />
+    <file src="assets/images/bg_modal.png" cache="false" />
+
+    <!-- FONT's -->
+    <file src="assets/fonts/medium.ttf" cache="false" />
+    <file src="assets/fonts/semibold.ttf" cache="false" />
+    <file src="assets/fonts/regular.ttf" cache="false" />
+    <file src="assets/fonts/light.ttf" cache="false" />
+
+    <!--Export´s -->
+
+    <export function = "getPlayerPunished" type = "server"/>
+    <export function = "removePlayerFromPrison" type = "server"/>
+    
+    <download_priority_group>2</download_priority_group>
+</meta>

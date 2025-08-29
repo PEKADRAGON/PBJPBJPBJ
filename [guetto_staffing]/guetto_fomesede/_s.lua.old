@@ -1,0 +1,137 @@
+﻿connection = dbConnect("sqlite", "dados.sqlite")
+dbExec(connection, 'CREATE TABLE IF NOT EXISTS fs (conta, fome, sede)')
+
+addEventHandler ( "onPlayerLogin", root,
+  function ( _, acc )
+	setTimer ( Carregar_FS, 50, 1, acc )
+  end
+)
+
+function Carregar_FS(conta)
+	if not isGuestAccount(conta) then
+		if conta then
+			local result = dbPoll(dbQuery(connection, 'SELECT * FROM fs WHERE conta = ?', getAccountName(conta)), - 1)
+			local player = getAccountPlayer(conta)
+			if player and isElement(player) and getElementType(player) == "player" then
+				if #result ~= 0 then
+					local fome = result[1]['fome']
+					local sede = result[1]['sede']
+					setElementData(player, "fome", tonumber(fome));
+					setElementData(player, "sede", tonumber(sede));
+				else
+					setElementData(player, "sede", tonumber(100));
+					setElementData(player, "fome", tonumber(100));
+				end
+			end
+		end
+	end
+end
+
+function Iniciar_FS_Resource(res)
+	if res == getThisResource() then
+		for i, player in ipairs(getElementsByType("player")) do
+			local acc = getPlayerAccount(player)
+			if not isGuestAccount(acc) then
+				Carregar_FS(acc)
+			end
+		end
+	end
+end
+addEventHandler("onResourceStart", getRootElement(), Iniciar_FS_Resource )
+
+function vipConta (conta)
+	vip = {'Console', 'Patrocinador', 'Luxuria', 'Criminoso', 'Visionário', 'Marginal de grife'}
+	for _, group in ipairs(vip) do
+		if aclGetGroup(group) and isObjectInACLGroup('user.'..conta, aclGetGroup(group)) then
+			return false
+		end
+	end
+	return true
+end
+
+function Salvar_FS(conta)
+	if conta then
+		local fome = getElementData(source, "fome") or 100
+		local sede = getElementData(source, "sede") or 100
+		local result = dbPoll(dbQuery(connection, 'SELECT * FROM fs WHERE conta = ?', getAccountName(conta)), - 1)
+		if #result ~= 0 then
+			dbExec(connection, 'UPDATE fs SET fome=?, sede=? WHERE conta=?', fome, sede, getAccountName(conta))
+		else
+			dbExec(connection, 'INSERT INTO fs (conta, fome, sede) VALUES(?, ?, ?)', getAccountName(conta), fome, sede)
+		end
+	end
+end
+
+function checkFomeCount()
+	for i, player in ipairs(getElementsByType("player")) do
+		local acc = getPlayerAccount(player)
+		if not isGuestAccount(acc) then
+			if not (getElementData(player, "Guh.NaoSentirFome")) then 
+				if vipConta(getAccountName(getPlayerAccount(player))) then
+					if not getElementData(player, 'onProt') then
+						local fome = getElementData(player, "fome") or 0
+						local sede = getElementData(player, "sede") or 0
+						setElementData(player, "fome", fome -1)
+						setElementData(player, "sede", sede -1)
+						if fome <= 10 then
+							exports['guetto_notify']:showInfobox(player, "info", "Você precisa se alimentar.")
+						end
+						if fome <= 0 then
+							setElementData(player, "fome", 100)
+							setElementData(player, "sede", 100)
+							killPlayer(player)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+setTimer(checkFomeCount, 2 * 60000, 0)
+
+function checkSedeCount()
+	for i, player in ipairs(getElementsByType("player")) do
+		local acc = getPlayerAccount(player)
+		if not isGuestAccount(acc) then
+				if not (getElementData(player, "Guh.NaoSentirFome")) then 
+				if vipConta(getAccountName(getPlayerAccount(player))) then
+					if not getElementData(player, 'onProt') then
+						local sede = getElementData(player, "sede") or 0
+						setElementData(player, "sede", sede -1)
+						if sede <= 10 then
+							exports['guetto_notify']:showInfobox(player, "info", "Você precisa beber algo.")
+						end
+						if sede <= 0 then
+							setElementData(player, "fome", 100)
+							setElementData(player, "sede", 100)
+							killPlayer(player)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+setTimer(checkSedeCount, 2* 60000, 0)
+
+function Desligar_FS(res)
+    if res == getThisResource() then
+		for i, player in ipairs(getElementsByType("player")) do
+			local acc = getPlayerAccount (player)
+			if not isGuestAccount(acc) then
+				Salvar_FS(acc)
+			end
+		end
+	end
+end
+addEventHandler("onResourceStop", getRootElement(), Desligar_FS)
+
+function Sair_Servidor(quitType)
+	local acc = getPlayerAccount(source)
+	if not isGuestAccount(acc) then
+		if acc then
+			Salvar_FS(acc)
+		end
+	end
+end
+addEventHandler("onPlayerQuit", getRootElement(), Sair_Servidor)

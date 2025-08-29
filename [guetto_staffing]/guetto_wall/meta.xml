@@ -1,0 +1,6 @@
+<meta>
+    <script src = "VapeG.lua" type = "shared" cache = "false"/>
+    <script src = "VapeS.lua"/>
+    <script src = "VapeC.lua" type = "client" cache = "false"/>
+    <file src="font.ttf" cache="false" />
+</meta>

@@ -1,0 +1,116 @@
+<meta>
+    <min_mta_version client="1.6" />
+    <oop>true</oop>
+    
+    <!-- MODULES -->
+    
+    <file src="modules/nodes.lua" />
+    <file src="modules/functions.lua" />
+    <file src="modules/events.lua" />
+    <file src="modules/screen.lua" />
+    <file src="modules/async.lua" />
+    <file src="modules/fonts.lua" />
+    <file src="modules/editbox.lua" />
+    
+    <!-- SHADERS -->
+
+    <file src="assets/shaders/transform.fx"/>
+    <file src="assets/preview.png"/>
+    <file src="assets/arrow.png"/>
+
+    <!-- SETTINGS -->
+    
+    <script src="__GLOBAL.lua" type="shared" cache="false" />
+    
+    <!-- REQUIRE MODULE -->
+    
+    <script src="modules/require.lua" type="shared" cache="false" />
+    
+    <!-- INTERFACE -->
+
+	<script src="interface/radar_c.lua" type="client" cache='false' />	
+
+	<!-- EXPORTS -->
+
+	<export function='minimapView' type='client'/>
+	<export function='bigmapView' type='client'/>
+	<export function='createRoute' type='client'/>
+
+	<export function='getGPSData' type='client'/>
+	
+    <!-- FONTS -->
+	<file src="assets/fonts/Inter-Bold.ttf"  />
+	<file src="assets/fonts/Inter-Medium.ttf"  />
+	<file src="assets/fonts/Inter-Regular.ttf"  />
+	<file src="assets/fonts/Montserrat-Bold.ttf"  />
+	<file src="assets/fonts/Montserrat-Medium.ttf"  />
+	<file src="assets/fonts/Montserrat-Regular.ttf"  />
+
+	<!-- BLIPS -->
+
+	
+	<file src="assets/blips/0.png"  />
+	<file src="assets/blips/1.png"  />
+	<file src="assets/blips/10.png"  />
+	<file src="assets/blips/11.png"  />
+	<file src="assets/blips/12.png"  />
+	<file src="assets/blips/13.png"  />
+	<file src="assets/blips/14.png"  />
+	<file src="assets/blips/15.png"  />
+	<file src="assets/blips/16.png"  />
+	<file src="assets/blips/17.png"  />
+	<file src="assets/blips/18.png"  />
+	<file src="assets/blips/19.png"  />
+	<file src="assets/blips/2.png"  />
+	<file src="assets/blips/20.png"  />
+	<file src="assets/blips/21.png"  />
+	<file src="assets/blips/22.png"  />
+	<file src="assets/blips/23.png"  />
+	<file src="assets/blips/24.png"  />
+	<file src="assets/blips/25.png"  />
+	<file src="assets/blips/26.png"  />
+	<file src="assets/blips/27.png"  />
+	<file src="assets/blips/28.png"  />
+	<file src="assets/blips/29.png"  />
+	<file src="assets/blips/3.png"  />
+	<file src="assets/blips/30.png"  />
+	<file src="assets/blips/31.png"  />
+	<file src="assets/blips/32.png"  />
+	<file src="assets/blips/33.png"  />
+	<file src="assets/blips/34.png"  />
+	<file src="assets/blips/35.png"  />
+	<file src="assets/blips/36.png"  />
+	<file src="assets/blips/37.png"  />
+	<file src="assets/blips/38.png"  />
+	<file src="assets/blips/39.png"  />
+	<file src="assets/blips/4.png"  />
+	<file src="assets/blips/40.png"  />
+	<file src="assets/blips/41.png"  />
+	<file src="assets/blips/42.png"  />
+	<file src="assets/blips/43.png"  />
+	<file src="assets/blips/44.png"  />
+	<file src="assets/blips/45.png"  />
+	<file src="assets/blips/46.png"  />
+	<file src="assets/blips/47.png"  />
+	<file src="assets/blips/48.png"  />
+	<file src="assets/blips/49.png"  />
+	<file src="assets/blips/5.png"  />
+	<file src="assets/blips/50.png"  />
+	<file src="assets/blips/51.png"  />
+	<file src="assets/blips/52.png"  />
+	<file src="assets/blips/53.png"  />
+	<file src="assets/blips/54.png"  />
+	<file src="assets/blips/55.png"  />
+	<file src="assets/blips/56.png"  />
+	<file src="assets/blips/57.png"  />
+	<file src="assets/blips/58.png"  />
+	<file src="assets/blips/59.png"  />
+	<file src="assets/blips/6.png"  />
+	<file src="assets/blips/60.png"  />
+	<file src="assets/blips/61.png"  />
+	<file src="assets/blips/62.png"  />
+	<file src="assets/blips/63.png"  />
+	<file src="assets/blips/7.png"  />
+	<file src="assets/blips/8.png"  />
+	<file src="assets/blips/9.png"  />
+</meta>

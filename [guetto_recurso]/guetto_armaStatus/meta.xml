@@ -1,0 +1,65 @@
+<meta>
+    <!-- POO Functions -->
+    <oop>true</oop>
+
+    <!-- Config -->
+    <script src="gString.lua" type="shared" cache="false" />
+
+    <!-- Assets - 
+    
+    <file src="assets/models/ak47.txd" />
+    <file src="assets/models/ak47.dff" />
+    <file src="assets/models/ar15.dff" />
+    <file src="assets/models/ar15.txd" />
+    <file src="assets/models/glock.dff" />
+    <file src="assets/models/glock.txd" />
+    <file src="assets/models/Invisible.dff" />
+    <file src="assets/models/Invisible.txd" />
+    <file src="assets/models/mp5.dff" />
+    <file src="assets/models/mp5.txd" />
+    <file src="assets/models/glock2.dff" />
+    <file src="assets/models/glock2.txd" />
+    <file src="assets/models/shotgun.dff" />
+    <file src="assets/models/shotgun.txd" />
+    <file src="assets/models/sniper.dff" />
+    <file src="assets/models/sniper.txd" />
+    <file src="assets/models/sniper2.dff" />
+    <file src="assets/models/sniper2.txd" />
+    <file src="assets/models/usp.dff" />
+    <file src="assets/models/usp.txd" />
+    <file src="assets/models/deagle.dff" />
+    <file src="assets/models/deagle.txd" />
+    <file src="assets/models/tec9.dff" />
+    <file src="assets/models/tec9.txd" />
+    <file src="assets/models/jetpack.dff" />
+    <file src="assets/models/jetpack.txd" />
+
+
+    Models -->
+  
+
+    <!-- Assets - Sounds -->
+    <file src="assets/sounds/weapon/ak.wav" />
+	<file src="assets/sounds/weapon/deagle.wav" />
+	<file src="assets/sounds/weapon/m4.wav" />
+	<file src="assets/sounds/weapon/mp5.wav" />
+	<file src="assets/sounds/weapon/pistole.wav" />
+	<file src="assets/sounds/weapon/shotgun.wav" />
+	<file src="assets/sounds/weapon/sniper.wav" />
+	<file src="assets/sounds/weapon/tec-9.wav" />
+	<file src="assets/sounds/weapon/uzi.wav" />
+
+	<file src="assets/sounds/reload/mg_clipin.wav" />
+	<file src="assets/sounds/reload/mg_reload.wav" />
+	<file src="assets/sounds/reload/pistol_reload.wav" />
+	<file src="assets/sounds/reload/shotgun_reload.wav" />
+	<file src="assets/sounds/reload/shotgun_shell.wav" />
+
+	<file src="assets/sounds/explosion/explosion1.wav" />
+	<file src="assets/sounds/explosion/explosion2.wav" />
+	<file src="assets/sounds/explosion/explosion3.wav" />
+
+    <!-- Script Util -->
+    <script src="sString.lua" type="server" />
+    <script src="cString.lua" type="client" cache="false" />
+</meta>

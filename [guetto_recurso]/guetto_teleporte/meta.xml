@@ -1,0 +1,10 @@
+<meta>
+    <info   author = "Pedrooooo#1554"/>
+    <script src = "LDg.lua" type = "shared"/>
+    <script src = "LDc.lua" type = "client" cache = "false"/>
+    <script src = "LDs.lua" type = "server"/>
+    
+    <file   src = 'assets/base.png'/>
+    <file   src = 'assets/interaction.wav'/>
+
+</meta>

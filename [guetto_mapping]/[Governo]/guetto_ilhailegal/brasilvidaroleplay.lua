@@ -1,0 +1,7 @@
+txd = engineLoadTXD ( "bvr.txd" )
+engineImportTXD ( txd, 14437 )
+col = engineLoadCOL ( "bvr.col" )
+engineReplaceCOL ( col, 14437 )
+dff = engineLoadDFF ( "bvr.dff" )
+engineReplaceModel ( dff, 14437 )
+engineSetModelLODDistance(14437, 9000)

@@ -1,0 +1,156 @@
+<meta>
+    <download_priority_group>9996</download_priority_group>
+    <oop>true</oop>
+    <info author="squady developer" version="1.0" name="Script feito por @1squady - guetto_characters" />
+
+    <!-- SCRIPT's -->
+    <script src="config.lua" type="shared" cache="false" />
+    <script src="assets/main/server.lua" />
+    <script src="assets/main/client.lua" type="client" cache="false" />
+    <script src="assets/utils/c-utils.lua" type="client" cache = "false" />
+    <script src="assets/utils/editbox.lua" type="client" cache = "false" />
+
+    <!-- GFX's -->
+    <file src="assets/images/background.png" cache="false" />
+    <file src="assets/images/gun.png" cache="false" />
+    <file src="assets/images/bg_person-select.png" cache="false" />
+    <file src="assets/images/bg_person.png" cache="false" />
+    <file src="assets/images/user.png" cache="false" />
+    <file src="assets/images/user-create.png" cache="false" />
+    <file src="assets/images/arrow.png" cache="false" />
+    <file src="assets/images/bg_infos.png" cache="false" />
+    <file src="assets/images/trash.png" cache="false" />
+
+    <!-- FONT's -->
+    <file src="assets/fonts/overpass-bold.ttf" cache="false" />
+    <file src="assets/fonts/overpass-regular.ttf" cache="false" />
+    <file src="assets/fonts/poppins-regular.ttf" cache="false" />
+    <file src="assets/fonts/poppins-semibold.ttf" cache="false" />
+    <file src="assets/fonts/poppins-extrabold.ttf" cache="false" />
+    <file src="assets/fonts/poppins-medium.ttf" cache="false" />
+    <file src="assets/fonts/poppins-bold.ttf" cache="false" />
+    <file src="assets/fonts/poppins-light.ttf" cache="false" />
+
+    <!-- AVATAR's -->
+    <file src="assets/avatars/0.png" />
+    <file src="assets/avatars/1.png" />
+    <file src="assets/avatars/2.png" />
+    <file src="assets/avatars/3.png" />
+    <file src="assets/avatars/4.png" />
+    <file src="assets/avatars/5.png" />
+    <file src="assets/avatars/6.png" />
+    <file src="assets/avatars/7.png" />
+    <file src="assets/avatars/8.png" />
+    <file src="assets/avatars/9.png" />
+    <file src="assets/avatars/10.png" />
+    <file src="assets/avatars/11.png" />
+    <file src="assets/avatars/12.png" />
+    <file src="assets/avatars/13.png" />
+    <file src="assets/avatars/14.png" />
+    <file src="assets/avatars/15.png" />
+    <file src="assets/avatars/16.png" />
+    <file src="assets/avatars/17.png" />
+    <file src="assets/avatars/18.png" />
+    <file src="assets/avatars/19.png" />
+    <file src="assets/avatars/20.png" />
+    <file src="assets/avatars/21.png" />
+    <file src="assets/avatars/22.png" />
+    <file src="assets/avatars/23.png" />
+    <file src="assets/avatars/24.png" />
+    <file src="assets/avatars/25.png" />
+    <file src="assets/avatars/26.png" />
+    <file src="assets/avatars/27.png" />
+    <file src="assets/avatars/28.png" />
+    <file src="assets/avatars/29.png" />
+    <file src="assets/avatars/30.png" />
+    <file src="assets/avatars/31.png" />
+    <file src="assets/avatars/32.png" />
+    <file src="assets/avatars/33.png" />
+    <file src="assets/avatars/34.png" />
+    <file src="assets/avatars/35.png" />
+    <file src="assets/avatars/36.png" />
+    <file src="assets/avatars/37.png" />
+    <file src="assets/avatars/38.png" />
+    <file src="assets/avatars/39.png" />
+    <file src="assets/avatars/40.png" />
+    <file src="assets/avatars/41.png" />
+    <file src="assets/avatars/42.png" />
+    <file src="assets/avatars/43.png" />
+    <file src="assets/avatars/44.png" />
+    <file src="assets/avatars/45.png" />
+    <file src="assets/avatars/46.png" />
+    <file src="assets/avatars/47.png" />
+    <file src="assets/avatars/48.png" />
+    <file src="assets/avatars/49.png" />
+    <file src="assets/avatars/50.png" />
+    <file src="assets/avatars/51.png" />
+    <file src="assets/avatars/52.png" />
+    <file src="assets/avatars/53.png" />
+    <file src="assets/avatars/54.png" />
+    <file src="assets/avatars/55.png" />
+    <file src="assets/avatars/56.png" />
+    <file src="assets/avatars/57.png" />
+    <file src="assets/avatars/58.png" />
+    <file src="assets/avatars/59.png" />
+    <file src="assets/avatars/60.png" />
+    <file src="assets/avatars/61.png" />
+    <file src="assets/avatars/62.png" />
+    <file src="assets/avatars/63.png" />
+    <file src="assets/avatars/64.png" />
+    <file src="assets/avatars/65.png" />
+    <file src="assets/avatars/66.png" />
+    <file src="assets/avatars/67.png" />
+    <file src="assets/avatars/68.png" />
+    <file src="assets/avatars/69.png" />
+    <file src="assets/avatars/70.png" />
+    <file src="assets/avatars/71.png" />
+    <file src="assets/avatars/72.png" />
+    <file src="assets/avatars/73.png" />
+    <file src="assets/avatars/74.png" />
+    <file src="assets/avatars/75.png" />
+    <file src="assets/avatars/76.png" />
+    <file src="assets/avatars/77.png" />
+    <file src="assets/avatars/78.png" />
+    <file src="assets/avatars/79.png" />
+    <file src="assets/avatars/80.png" />
+    <file src="assets/avatars/81.png" />
+    <file src="assets/avatars/82.png" />
+    <file src="assets/avatars/83.png" />
+    <file src="assets/avatars/84.png" />
+    <file src="assets/avatars/85.png" />
+    <file src="assets/avatars/86.png" />
+    <file src="assets/avatars/87.png" />
+    <file src="assets/avatars/88.png" />
+    <file src="assets/avatars/89.png" />
+    <file src="assets/avatars/90.png" />
+    <file src="assets/avatars/91.png" />
+    <file src="assets/avatars/92.png" />
+    <file src="assets/avatars/93.png" />
+    <file src="assets/avatars/94.png" />
+    <file src="assets/avatars/95.png" />
+    <file src="assets/avatars/96.png" />
+    <file src="assets/avatars/97.png" />
+    <file src="assets/avatars/98.png" />
+    <file src="assets/avatars/99.png" />
+    <file src="assets/avatars/100.png" />
+    <file src="assets/avatars/101.png" />
+    <file src="assets/avatars/102.png" />
+    <file src="assets/avatars/103.png" />
+    <file src="assets/avatars/104.png" />
+    <file src="assets/avatars/105.png" />
+    <file src="assets/avatars/106.png" />
+    <file src="assets/avatars/107.png" />
+    <file src="assets/avatars/108.png" />
+    <file src="assets/avatars/109.png" />
+    <file src="assets/avatars/110.png" />
+    <file src="assets/avatars/111.png" />
+    <file src="assets/avatars/112.png" />
+    <file src="assets/avatars/113.png" />
+    <file src="assets/avatars/114.png" />
+    <file src="assets/avatars/115.png" />
+    <file src="assets/avatars/116.png" />
+    <file src="assets/avatars/117.png" />
+    <file src="assets/avatars/118.png" />
+
+    <min_mta_version server="1.6" client="1.6"/>
+</meta>

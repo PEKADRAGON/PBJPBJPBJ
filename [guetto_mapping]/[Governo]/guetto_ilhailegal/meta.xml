@@ -1,0 +1,11 @@
+<meta>
+    <file src="bvr.dff" type="client"></file>
+    <file src="bvr.col" type="client"></file>
+    <file src="bvr.txd" type="client"></file>
+    <script src="brasilvidaroleplay.lua" type="client"></script>
+    <oop>true</oop>
+    <info type="map" version="1.0.0"></info>
+    <map src="IlhaNova.map" dimension="0"></map>
+    <script src="mapEditorScriptingExtension_s.lua" type="server"></script>
+    <script src="mapEditorScriptingExtension_c.lua" type="client" validate="false"></script>
+</meta>

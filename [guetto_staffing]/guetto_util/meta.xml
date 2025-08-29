@@ -1,0 +1,18 @@
+<meta>
+	 <oop>true</oop>
+	 <script src='gSchootz.lua' type='shared' cache='false'/>
+	 <script src='cSchootz.lua' type='client' cache='false'/>
+     <script src='sSchootz.lua' type='server' cache='false'/>
+
+	 <export function='getPlayerFromID' type='server'/>
+	 <export function='isPlayerVip' type='server'/>
+	 <export function='messageDiscord' type='server'/>
+	 <export function='puxarNome' type='server'/>
+	 <export function='puxarID' type='server'/>
+	 <export function='infoServer' type='server' http="true"/>
+	 <export function='infoPlayer' type='server' http="true"/>
+	 <export function='hasResources' type='server' http="true"/>
+	 <export function='hasPlayers' type='server' http="true"/>
+
+	 <min_mta_version client='1.5.4-9.11413' server='1.5.4-9.11413'/>
+</meta>

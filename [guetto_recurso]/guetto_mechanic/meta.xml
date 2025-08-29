@@ -1,0 +1,23 @@
+<meta>
+    <info author='tr4jado' />
+    <oop>true</oop>
+
+    <script src='config.lua' type='shared' cache='false' />
+
+    <script src='me/tr4jado/Main.lua' type='shared' cache='false' />
+
+    <script src='me/tr4jado/client/utils.lua' type='client' cache='false' />
+    <script src='me/tr4jado/client/main.lua' type='client' cache='false' />
+
+    <script src='me/tr4jado/server/utils.lua' type='server'/>
+    <script src='me/tr4jado/server/main.lua' type='server' />
+    <script src='me/tr4jado/server/exports.lua' type='server' />
+
+    <file src='me/tr4jado/assets/fonts/Poppins-Light.ttf' />
+    <file src='me/tr4jado/assets/fonts/Poppins-Medium.ttf' />
+
+    <file src='me/tr4jado/assets/models/1210.txd' />
+    <file src='me/tr4jado/assets/models/1210.dff' />
+
+    <export function='isPlayerBag' type='server' />
+</meta>

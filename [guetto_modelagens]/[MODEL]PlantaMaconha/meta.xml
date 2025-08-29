@@ -1,0 +1,10 @@
+<meta>
+    <info author="Tigas" name="Modelagem" version="1.5.6" type="script" />
+
+	<script src="replace.lua" type="client" cache="false" />
+
+	<file src="CPX1.dff" />
+	<file src="CPX2.txd" />
+	<file src="CPX2.dff" />
+	<file src="CPX2.col" />
+</meta>

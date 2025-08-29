@@ -1,0 +1,6 @@
+<meta>
+    <info name="Trabalho Pedreiro" author="ber#8813" ></info>
+	<script src="server.lua" type="server" />
+	<script src="client.lua" type="client" />
+	<script src="edit.lua" type="shared" />
+</meta>

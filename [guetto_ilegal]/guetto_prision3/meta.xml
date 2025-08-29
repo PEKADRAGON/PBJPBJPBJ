@@ -1,0 +1,33 @@
+<meta>
+    <info author = 'Pedrooooo#1554' name = 'Sistema de prisão'/>
+
+    <script src = 'LDg.lua'  type = 'shared'/>
+    <script src = 'LDc.lua' type = 'client' cache = 'false'/>
+    <script src = 'LDs.lua' type = 'server'/>
+
+    <file src = 'assets/fonts/light.ttf'/>
+    <file src = 'assets/fonts/medium.ttf'/>
+    <file src = 'assets/fonts/hacking.ttf'/>
+
+    <file src = 'assets/sounds/click_hack.mp3'/>
+    
+    <file src = 'assets/prison/insert_infos.png'/>
+    <file src = 'assets/prison/select_articles.png'/>
+    <file src = 'assets/prison/article_check.png'/>
+    <file src = 'assets/prison/confirm_prison.png'/>
+    <file src = 'assets/prison/button.png'/>
+
+    <file src = 'assets/bail/select_prisioner.png'/>
+    <file src = 'assets/bail/pay_bail.png'/>
+    
+    <file src = 'assets/hacking/background.png'/>
+    <file src = 'assets/hacking/button_enable.png'/>
+    <file src = 'assets/hacking/button_disable.png'/>
+    <file src = 'assets/hacking/bar.png'/>
+
+    <file src = "assets/sound/alarm.mp3" />
+    <file src = "assets/sound/sound2.mp3" />
+    <file src = "assets/sound/sound3.mp3" />
+
+    <export function =  'getPrisioners' type = 'server'/>
+</meta>

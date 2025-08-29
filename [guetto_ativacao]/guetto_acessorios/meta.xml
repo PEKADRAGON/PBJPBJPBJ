@@ -1,0 +1,199 @@
+<meta>
+	<oop>true</oop>
+	<info author="Guh And MatteO" name="RBR_accesories" type="script" />
+
+	<script src="settings.lua" type="shared" cache="false"/>
+
+ 	<script src="src/camera/camera.lua" type="client" cache="false"/>
+
+	<script src="src/shader/shader.lua" type="client" cache="false"/>
+
+	<script src="src/main/main-s.lua" type="server" cache="false"/>
+	<script src="src/main/main-c.lua" type="client" cache="false"/>
+
+	<script src="src/objects/objects.lua" type="server" cache="false"/>
+
+	<file src = "arquivos/background.png"/>
+	<file src = "arquivos/cart-background.png"/>
+	<file src = "arquivos/faixa.png"/>
+	<file src = "arquivos/rectangle-window.png"/>
+
+	<file src="Modelos/mochila.cat/1.dds" />
+	<file src="Modelos/mochila.cat/2.dds" />
+	<file src="Modelos/mochila.cat/3.dds" />
+	<file src="Modelos/mochila.cat/4.dds" />
+
+	<file src="Modelos/cabeca.cap/1.dds" />
+	<file src="Modelos/cabeca.cap/2.dds" />
+	<file src="Modelos/cabeca.cap/3.dds" />
+	<file src="Modelos/cabeca.cap/4.dds" />
+
+	<file src="Modelos/mascara.1/2.dds" />
+	<file src="Modelos/mascara.1/3.dds" />
+	<file src="Modelos/mascara.1/4.dds" />
+	<file src="Modelos/mascara.1/5.dds" />
+
+	<file src="Modelos/mascara.2/2.dds" />
+	<file src="Modelos/mascara.2/3.dds" />
+
+	<file src="Modelos/mascara.5/2.dds" />
+	<file src="Modelos/mascara.5/3.dds" />
+	<file src="Modelos/mascara.5/4.dds" />
+	<file src="Modelos/mascara.5/5.dds" />
+	<file src="Modelos/mascara.5/6.dds" />
+	<file src="Modelos/mascara.5/7.dds" />
+	<file src="Modelos/mascara.5/8.dds" />
+	<file src="Modelos/mascara.5/9.dds" />
+	<file src="Modelos/mascara.5/10.dds" />
+
+	<file src="Modelos/mascara.6/2.dds" />
+	<file src="Modelos/mascara.6/3.dds" />
+	<file src="Modelos/mascara.6/4.dds" />
+	<file src="Modelos/mascara.6/5.dds" />
+	<file src="Modelos/mascara.6/6.dds" />
+
+	<file src="Modelos/mascara.11/2.dds" />
+	<file src="Modelos/mascara.11/3.dds" />
+	<file src="Modelos/mascara.11/4.dds" />
+	<file src="Modelos/mascara.11/5.dds" />
+	<file src="Modelos/mascara.11/6.dds" />
+	<file src="Modelos/mascara.11/7.dds" />
+	<file src="Modelos/mascara.11/8.dds" />
+	<file src="Modelos/mascara.11/9.dds" />
+	<file src="Modelos/mascara.11/10.dds" />
+	<file src="Modelos/mascara.11/11.dds" />
+	<file src="Modelos/mascara.11/12.dds" />
+	<file src="Modelos/mascara.11/13.dds" />
+	<file src="Modelos/mascara.11/14.dds" />
+	<file src="Modelos/mascara.11/15.dds" />
+	<file src="Modelos/mascara.11/16.dds" />
+  <file src="Modelos/mascara.11/17.dds" />
+
+	<file src="Modelos/mascara.12/2.dds" />
+	<file src="Modelos/mascara.12/3.dds" />
+	<file src="Modelos/mascara.12/4.dds" />
+
+	<file src="Modelos/bone.1/2.dds" />
+	<file src="Modelos/bone.1/3.dds" />
+	<file src="Modelos/bone.1/4.dds" />
+	<file src="Modelos/bone.1/5.dds" />
+	<file src="Modelos/bone.1/6.dds" />
+	<file src="Modelos/bone.1/7.dds" />
+	<file src="Modelos/bone.1/8.dds" />
+	<file src="Modelos/bone.1/9.dds" />
+	<file src="Modelos/bone.1/10.dds" />
+	<file src="Modelos/bone.1/11.dds" />
+	<file src="Modelos/bone.1/12.dds" />
+	<file src="Modelos/bone.1/13.dds" />
+  <file src="Modelos/bone.1/14.dds" />
+
+	<file src="Modelos/bone.reto/1.dds" />
+	<file src="Modelos/bone.reto/2.dds" />
+	<file src="Modelos/bone.reto/3.dds" />
+	<file src="Modelos/bone.reto/4.dds" />
+	<file src="Modelos/bone.reto/5.dds" />
+	<file src="Modelos/bone.reto/6.dds" />
+	<file src="Modelos/bone.reto/7.dds" />
+	<file src="Modelos/bone.reto/8.dds" />
+	<file src="Modelos/bone.reto/9.dds" />
+	<file src="Modelos/bone.reto/10.dds" />
+	<file src="Modelos/bone.reto/11.dds" />
+	<file src="Modelos/bone.reto/12.dds" />
+	<file src="Modelos/bone.reto/13.dds" />
+
+	<file src="Modelos/durag/2.dds" />
+	<file src="Modelos/durag/3.dds" />
+	<file src="Modelos/durag/4.dds" />
+	<file src="Modelos/durag/5.dds" />
+	<file src="Modelos/durag/6.dds" />
+	<file src="Modelos/durag/7.dds" />
+	<file src="Modelos/durag/8.dds" />
+	<file src="Modelos/durag/9.dds" />
+	<file src="Modelos/durag/10.dds" />
+	<file src="Modelos/durag/11.dds" />
+	<file src="Modelos/durag/12.dds" />
+	<file src="Modelos/durag/13.dds" />
+	<file src="Modelos/durag/14.dds" />
+	<file src="Modelos/durag/15.dds" />
+
+
+	<file src="Modelos/oculos.juliete/2.dds" />
+	<file src="Modelos/oculos.juliete/3.dds" />
+	<file src="Modelos/oculos.juliete/4.dds" />
+	<file src="Modelos/oculos.juliete/5.dds" />
+	<file src="Modelos/oculos.juliete/6.dds" />
+
+
+	<file src="Modelos/mochila.1/2.dds" />
+	<file src="Modelos/mochila.1/3.dds" />
+	<file src="Modelos/mochila.1/4.dds" />
+	<file src="Modelos/mochila.1/5.dds" />
+	<file src="Modelos/mochila.1/6.dds" />
+	<file src="Modelos/mochila.1/7.dds" />
+	<file src="Modelos/mochila.1/8.dds" />
+	<file src="Modelos/mochila.1/9.dds" />
+	<file src="Modelos/mochila.1/10.dds" />
+	<file src="Modelos/mochila.1/11.dds" />
+	<file src="Modelos/mochila.1/12.dds" />
+	<file src="Modelos/mochila.1/13.dds" />
+	<file src="Modelos/mochila.1/14.dds" />
+	<file src="Modelos/mochila.1/15.dds" />
+	<file src="Modelos/mochila.1/16.dds" />
+	<file src="Modelos/mochila.1/17.dds" />
+	<file src="Modelos/mochila.1/18.dds" />
+	<file src="Modelos/mochila.1/19.dds" />
+	<file src="Modelos/mochila.1/20.dds" />
+	<file src="Modelos/mochila.1/21.dds" />
+	<file src="Modelos/mochila.1/22.dds" />
+	<file src="Modelos/mochila.1/23.dds" />
+	<file src="Modelos/mochila.1/24.dds" />
+	<file src="Modelos/mochila.1/25.dds" />
+	<file src="Modelos/mochila.1/26.dds" />
+	<file src="Modelos/mochila.1/27.dds" />
+	<file src="Modelos/mochila.1/28.dds" />
+	<file src="Modelos/mochila.1/29.dds" />
+	<file src="Modelos/mochila.1/30.dds" />
+	<file src="Modelos/mochila.1/31.dds" />
+	<file src="Modelos/mochila.1/32.dds" />
+	<file src="Modelos/mochila.1/33.dds" />
+	<file src="Modelos/mochila.1/34.dds" />
+	<file src="Modelos/mochila.1/35.dds" />
+	<file src="Modelos/mochila.1/36.dds" />
+	<file src="Modelos/mochila.1/37.dds" />
+	<file src="Modelos/mochila.1/38.dds" />
+
+	<file src="Modelos/mochila.2/2.dds" />
+	<file src="Modelos/mochila.2/3.dds" />
+	<file src="Modelos/mochila.2/4.dds" />
+	<file src="Modelos/mochila.2/5.dds" />
+	<file src="Modelos/mochila.2/6.dds" />
+	<file src="Modelos/mochila.2/7.dds" />
+	<file src="Modelos/mochila.2/8.dds" />
+	<file src="Modelos/mochila.2/9.dds" />
+
+	<file src="Modelos/mochila.3/2.dds" />
+	<file src="Modelos/mochila.3/3.dds" />
+	<file src="Modelos/mochila.3/4.dds" />
+	<file src="Modelos/mochila.3/5.dds" />
+	<file src="Modelos/mochila.3/6.dds" />
+	<file src="Modelos/mochila.3/7.dds" />
+
+	<file src="Modelos/toca/1.dds" />
+	<file src="Modelos/toca/2.dds" />
+	<file src="Modelos/toca/3.dds" />
+	<file src="Modelos/toca/4.dds" />
+	<file src="Modelos/toca/5.dds" />
+	<file src="Modelos/toca/6.dds" />
+	<file src="Modelos/toca/7.dds" />
+	<file src="Modelos/toca/8.dds" />
+	<file src="Modelos/toca/9.dds" />
+	<file src="Modelos/toca/10.dds" />
+	<file src="Modelos/toca/11.dds" />
+
+
+	<!-- EXPORTS -->
+    <export function="returntabela" type="shared"/>
+	<export function="giveAccessorie" type="server"/>
+
+	<min_mta_version server="1.5.2-9.07903" client="1.5.2-9.07903"></min_mta_version>
+</meta>

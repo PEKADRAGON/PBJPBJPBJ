@@ -1,0 +1,147 @@
+﻿<meta>
+	
+	<info
+		name="Sistema de Objetos."
+		author="MatteO"
+		type="script"
+		version="v1.0"
+		serverName="Guetto City Roleplay"
+	/>
+	
+	<script src="guetto.lua" type="client" cache="false" />
+	
+	<!-- [[ OBJ ]] -->
+
+	<file src="model/caixaFleeca.dff" cache="false" />
+	<file src="model/caixaFleeca.txd" cache="false" />
+	<file src="model/caixaFleeca.col" cache="false" />
+
+	<file src="model/caixaFleeca.dff" cache="false" />
+	<file src="model/caixaFleeca.txd" cache="false" />
+	<file src="model/caixaFleeca.col" cache="false" />
+
+	<file src="model/MesaIlegal.dff" cache="false" />
+	<file src="model/MesaIlegal.txd" cache="false" />
+
+	<file src="model/2206.dff" cache="false" />
+	<file src="model/2206.txd" cache="false" />
+
+	<file src="model/asas.dff" cache="false" />
+	<file src="model/asas.txd" cache="false" />
+
+	<file src="model/colete1.dff" cache="false" />
+	<file src="model/colete1.txd" cache="false" />
+
+	<file src="model/wreath.dff" cache="false" />
+	<file src="model/wreath.txd" cache="false" />
+
+	<file src="model/2344.dff" cache="false" />
+	<file src="model/2344.txd" cache="false" />
+
+	<file src="model/5.dff" cache="false" />
+	<file src="model/5.txd" cache="false" />
+
+	<file src="model/2.dff" cache="false" />
+	<file src="model/2.txd" cache="false" />
+
+	<file src="model/assasblack.dff" cache="false" />
+	<file src="model/assasblack.txd" cache="false" />
+
+	<file src="model/assaswhite.dff" cache="false" />
+	<file src="model/assaswhite.txd" cache="false" />
+	
+	<file src="model/colete2.dff" cache="false" />
+	<file src="model/colete2.txd" cache="false" />
+
+	<file src="model/mergulho.dff" cache="false" />
+	<file src="model/mergulho.txd" cache="false" />
+
+	<file src="model/bagnike.dff" cache="false" />
+	<file src="model/bagnike.txd" cache="false" />
+
+	<file src="model/cinturao.dff" cache="false" />
+	<file src="model/cinturao.txd" cache="false" />
+	
+	<file src="model/cutelo.dff" cache="false" />
+	<file src="model/cutelo.txd" cache="false" />
+
+	<file src="model/lobby.dff" cache="false" />
+	<file src="model/lobby.txd" cache="false" />
+	<file src="model/lobby.col" cache="false" />
+
+	<file src="model/bombox.dff" cache="false" />
+	<file src="model/bombox.txd" cache="false" />
+	<file src="model/bombox.col" cache="false" />
+
+	<file src="model/4821.dff" cache="false" />
+	<file src="model/4821.txd" cache="false" />
+	<file src="model/4821.col" cache="false" />
+
+	<file src="model/bank2.dff" cache="false" />
+	<file src="model/bank2.txd" cache="false" />
+	<file src="model/bank2.col" cache="false" />
+
+	<file src="model/ilha.dff" cache="false" />
+	<file src="model/ilha.txd" cache="false" />
+	<file src="model/ilha.col" cache="false" />
+
+	<file src="model/wooden_box.dff" cache="false" />
+	<file src="model/wooden_box.txd" cache="false" />
+	<file src="model/wooden_box.col" cache="false" />
+	
+	<file src="model/tool_cupboard.dff" cache="false" />
+	<file src="model/tool_cupboard.txd" cache="false" />
+	<file src="model/tool_cupboard.col" cache="false" />
+
+	<file src="model/mall_base.dff" cache="false" />
+	<file src="model/mall_base.txd" cache="false" />
+	<file src="model/mall_base.col" cache="false" />
+
+	<file src="model/airdrop.dff" cache="false" />
+	<file src="model/airdrop.txd" cache="false" />
+
+	<file src="model/helmet.dff" cache="false" />
+	<file src="model/helmet.txd" cache="false" />
+
+	<file src="model/vest.dff" cache="false" />
+	<file src="model/vest.txd" cache="false" />
+
+	<file src="model/mochila3.dff" cache="false" />
+	<file src="model/mochila3.txd" cache="false" />
+
+	<file src="model/mochila4.dff" cache="false" />
+	<file src="model/mochila4.txd" cache="false" />
+
+	<file src="model/mochila5.dff" cache="false" />
+	<file src="model/mochila5.txd" cache="false" />
+
+	<file src="model/mochila6.dff" cache="false" />
+	<file src="model/mochila6.txd" cache="false" />
+
+	<file src="model/bag.dff" cache="false" />
+	<file src="model/bag.txd" cache="false" />
+
+	<file src="model/cavalo.dff" cache="false" />
+	<file src="model/cavalo.txd" cache="false" />
+
+	<file src="model/mesadj.dff" cache="false" />
+	<file src="model/mesadj.txd" cache="false" />
+	<file src="model/mesadj.col" cache="false" />
+
+	<file src="model/gun_para.dff" cache="false" />
+	<file src="model/gun_para.txd" cache="false" />
+
+	<file src="model/katana.dff" cache="false" />
+	<file src="model/katana.txd" cache="false" />
+
+	<file src="model/DemonGold.dff" cache="false" />
+	<file src="model/DemonGold.txd" cache="false" />
+
+	<file src="model/gang.dff" cache="false" />
+	<file src="model/gang.txd" cache="false" />
+	<file src="model/gang1.txd" cache="false" />
+	<file src="model/gang2.txd" cache="false" />
+
+
+	
+</meta>

@@ -1,0 +1,14 @@
+<meta>
+    <script src="sourceC.lua" type="client" cache="false" />
+    <file src="texreplace.fx" />
+    <file src="crosshairs/1.png" />
+    <file src="crosshairs/2.png" />
+    <file src="crosshairs/3.png" />
+    <file src="crosshairs/4.png" />
+    <file src="crosshairs/5.png" />
+    
+    <export function="changeCrosshair" type="client" />
+    <export function="resetCrosshair" type="client" />
+    
+    <download_priority_group>-42</download_priority_group>
+</meta>

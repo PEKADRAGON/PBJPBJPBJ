@@ -1,0 +1,34 @@
+<meta>
+
+    <script src = "config.lua" type = "shared" cache = "false"/>
+
+    <script src = "src/modules/moduleS.lua" type = "server" cache = "false"/>
+    <script src = "src/modules/moduleC.lua" type = "client" cache = "false"/>
+    <script src = "src/modules/box-c.lua" type = "client" cache = "false"/>
+
+    <script src = "src/main/mainS.lua" type = "server" cache = "false"/>
+    <script src = "src/main/mainC.lua" type = "client" cache = "false"/>
+
+    <!--Files-->
+
+    <file src = "assets/images/fundo.png"/>
+    <file src = "assets/images/martelo.png"/>
+    <file src = "assets/images/comida.png"/>
+
+    <file src = "assets/images/slot.png"/>
+    <file src = "assets/images/detail.png"/>
+
+    <file src = "assets/images/+.png"/>
+
+    <file src = "assets/images/circle.png"/>
+    <file src = "assets/images/cart.png"/>
+
+    <file src = "assets/images/money.png"/>
+    <file src = "assets/images/coin.png"/>
+
+    <file src = "assets/images/blur.png"/>
+    <file src = "assets/images/modal.png"/>
+
+    <file src = "assets/images/icon-slide.png"/>
+    <file src = "assets/images/rectangle-button.png"/>
+</meta>

@@ -1,0 +1,26 @@
+<meta>
+    <script src="gJoao.lua" type="shared" cache="false" />
+    <script src="cJoao.lua" type="client" cache="false" />
+    <script src="sJoao.lua" type="server" />
+
+    <file src="files/fonts/Roboto-Medium.ttf" />
+    <file src="files/fonts/Roboto-Regular.ttf" />
+    <file src="files/fonts/Roboto-Bold.ttf" />
+    <file src="files/fonts/Roboto-Light.ttf" />
+    <file src="files/fonts/Roboto-Black.ttf" />
+
+    <file src="files/imgs/base.png" />
+    <file src="files/imgs/giveporte/base.png" />
+    <file src="files/imgs/giveporte/enviar.png" />
+    <file src="files/imgs/giveporte/enviar_select.png" />
+    <file src="files/imgs/giveporte/close.png" />
+    <file src="files/imgs/removeporte/base.png" />
+    <file src="files/imgs/removeporte/remover.png" />
+    <file src="files/imgs/removeporte/remover_select.png" />
+    <file src="files/imgs/button.png" />
+    <file src="files/imgs/cancelar.png" />
+    <file src="files/imgs/select.png" />
+    <file src="files/imgs/base_questions.png" />
+    <file src="files/imgs/success.png" />
+    <file src="files/imgs/close.png" />
+</meta>

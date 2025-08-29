@@ -1,0 +1,20 @@
+<meta>
+    <script src = 'general.lua' type = 'shared' cache = 'false'/>
+    <script src = 'core/utils/async.lua' type = 'shared' cache = 'false'/>
+
+    <script src = 'core/utils/utils-g.lua' type = 'shared' cache = 'false'/>
+    <script src = 'core/utils/utils-c.lua' type = 'client' cache = 'false'/>
+    <script src = 'core/utils/editbox.lua' type = 'client' cache = 'false'/>
+    
+    <script src = 'core/client/main-c.lua' type = 'client' cache = 'false'/>
+    <script src = 'core/server/main-s.lua' type = 'server' cache = 'false'/>
+
+    <!--Assets-->
+
+    <file src = 'core/assets/rectangle.png'/>
+    <file src = 'core/assets/rectangle-stroke.png'/>
+    <file src = 'core/assets/icon-vip.png'/>
+    <file src = 'core/assets/icon-money.png'/>
+    <file src = 'core/assets/icon-data.png'/>
+    <file src = 'core/assets/icon-time.png'/>
+</meta>

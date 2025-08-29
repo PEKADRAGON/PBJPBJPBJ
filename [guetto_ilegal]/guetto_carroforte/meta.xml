@@ -1,0 +1,11 @@
+<meta>
+	<info author="[M]ister - mtabrasil.com.br" type="script" version="1.0" name="Assalto a Carro Forte" />
+	
+	<script src="path.lua" type="server" />
+	<script src="script.lua" type="server" />
+	
+	<settings>
+		<setting name="*timerRestart" value="30" desc="Intervalo de tempo(minutos) para o carro forte ser re-ativado." />
+		<setting name="*moneyAmount" value="20000" desc="Quantia de dinheiro máxima que o carro forte pode transportar." />
+	</settings>
+</meta>

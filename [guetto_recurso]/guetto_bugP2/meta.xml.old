@@ -1,0 +1,4 @@
+<meta>
+	<script src="cVieira.lua" type="client" />
+	<script src="sVieira.lua" type="server" />
+</meta>

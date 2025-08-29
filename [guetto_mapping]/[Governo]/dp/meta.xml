@@ -1,0 +1,36 @@
+<meta>
+	<info author="!Patrick" name="mtaclub.eu/pcrypt" type="script" version="1.0"/>
+	<min_mta_version client="1.5.7" server="1.5.7"/>
+
+	<script src="key.pcrypt" type="client"/>
+	<script src="loader.lua"  type="client"/>
+	
+
+	<file src="pcrypted/dp2.col.pcrypt"  />
+	<file src="pcrypted/dp2.dff.pcrypt"  />
+	<file src="pcrypted/dp2.txd.pcrypt"  />
+	<file src="pcrypted/dp2_2.col.pcrypt"  />
+	<file src="pcrypted/dp2_2.dff.pcrypt"  />
+	<file src="pcrypted/dp2_2lod.dff.pcrypt"  />
+	<file src="pcrypted/dp2_alpha.col.pcrypt"  />
+	<file src="pcrypted/dp2_alpha.dff.pcrypt"  />
+	<file src="pcrypted/dp2_alpha.txd.pcrypt"  />
+	<file src="pcrypted/dp2_canais.col.pcrypt"  />
+	<file src="pcrypted/dp2_canais.dff.pcrypt"  />
+	<file src="pcrypted/dp2_canais2.col.pcrypt"  />
+	<file src="pcrypted/dp2_canais2.dff.pcrypt"  />
+	<file src="pcrypted/dp2_fios.dff.pcrypt"  />
+	<file src="pcrypted/dp2_lod.dff.pcrypt"  />
+	<file src="pcrypted/dp2_lod.txd.pcrypt"  />
+	<file src="pcrypted/dp2_porta.dff.pcrypt"  />
+	<file src="pcrypted/dp2_porta.txd.pcrypt"  />
+	<file src="pcrypted/dp2_portao.col.pcrypt"  />
+	<file src="pcrypted/dp2_portao.dff.pcrypt"  />
+	<file src="pcrypted/dp2_portao.txd.pcrypt"  />
+	<file src="pcrypted/dp2_ruas.col.pcrypt"  />
+	<file src="pcrypted/dp2_ruas.dff.pcrypt"  />
+	<file src="pcrypted/dp2_ruas.txd.pcrypt"  />
+
+	<file src="pcrypted/portadp.dff.pcrypt"  />
+	<file src="pcrypted/portadp.txd.pcrypt"  />
+</meta>

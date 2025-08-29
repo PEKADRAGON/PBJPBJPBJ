@@ -1,0 +1,9 @@
+<meta>
+    <info author="Gustav" name="Batalhão" version="1.5.7" type="script" />
+    <script src="replace.lua" type="client" cache="false" />
+	<file src="rota.dff" />
+	<file src="rota.col" />
+	<file src="rota.txd" />
+
+</meta>
+

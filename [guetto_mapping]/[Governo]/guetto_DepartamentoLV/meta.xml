@@ -1,0 +1,11 @@
+<meta>
+    <min_mta_version server="1.5.8-9.20957"></min_mta_version>
+    <info type="map" version="1.0.0"></info>
+    <map src="Mapper-DP-LV.map" dimension="0"></map>
+    <script src="gate.lua" type="server"></script>
+    <script src="mapEditorScriptingExtension_s.lua" type="server"></script>
+    <script src="mapEditorScriptingExtension_c.lua" type="client" validate="false"></script>
+    <file src="ByCorleone.txd" />
+    <file src="ByCorleone.dff" />
+    <file src="ByCorleone.col" />
+</meta>

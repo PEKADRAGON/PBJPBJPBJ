@@ -1,0 +1,87 @@
+<meta>
+
+    <script src = 'config.lua' type = 'shared' />
+
+    <script src = 'src/modules/moduleC.lua' type = 'client' />
+    <script src = 'src/modules/box-c.lua' type = 'client' />
+    <script src = 'src/modules/slidebar.lua' type = 'client' />
+    <script src = 'src/modules/colorpicker.lua' type = 'client' />
+
+    <script src = 'src/main/mainS.lua' type = 'server' />
+    <script src = 'src/main/mainC.lua' type = 'client' />
+
+    <script src = 'src/garagem/mainS.lua' type = 'server' />
+    <script src = 'src/garagem/mainC.lua' type = 'client' />
+
+    <script src = 'src/manage/mainS.lua' type = 'server' />
+    <script src = 'src/manage/mainC.lua' type = 'client' />
+
+    <script src = 'src/detran/mainS.lua' type = 'server' />
+    <script src = 'src/detran/mainC.lua' type = 'client' />
+
+    <!--Images-->
+
+    <file src = 'assets/images/slot.png'/>
+    <file src = 'assets/images/engine.png'/>
+    <file src = 'assets/images/banner.png'/>
+    <file src = 'assets/images/arrow.png'/>
+    <file src = 'assets/images/rectangle-specs.png'/>
+    <file src = 'assets/images/button.png'/>
+    <file src = 'assets/images/button-action.png'/>
+    <file src = 'assets/images/modal.png'/>
+    <file src = 'assets/images/icon-alarme.png'/>
+    <file src = 'assets/images/bg-infos.png'/>
+    <file src = 'assets/images/input-text.png'/>
+    <file src = 'assets/images/rectangle-select.png'/>
+    <file src = 'assets/images/blur.png'/>
+    <file src = 'assets/images/rectangle-slide.png'/>
+    <file src = 'assets/images/icon-circle.png'/>
+    <file src = 'assets/images/icon-localizar.png'/>
+    <file src = 'assets/images/icon-market.png'/>
+    <file src = 'assets/images/button-modal.png'/>
+    <file src = 'assets/images/$.png'/>
+    <file src = 'assets/images/cursor.png'/>
+    <file src = 'assets/images/rectangle-price.png'/>
+    <file src = 'assets/images/fundo-garagem.png'/>
+    <file src = 'assets/images/colorpicker.png'/>
+    <file src = 'assets/images/rectangle-specs.png'/>
+    <file src = 'assets/images/specs-fundo.png'/>
+    <file src = 'assets/images/icon-garagem.png'/>
+    <file src = 'assets/images/rectangle-vehicle.png'/>
+    <file src = 'assets/images/icon-coins.png'/>
+    <file src = 'assets/images/icon-gas.png'/>
+    <file src = 'assets/images/icon-arrow.png'/>
+    <file src = 'assets/images/conce-text.png'/>
+
+    <file src = 'assets/images/engine-icon.png'/>
+    <file src = 'assets/images/weight-icon.png'/>
+
+    <file src = 'assets/images/CARROS.png'/>
+    <file src = 'assets/images/MOTOS.png'/>
+    <file src = 'assets/images/EXCLUSIVO.png'/>
+    <file src = 'assets/images/ESPECIAIS.png'/>
+    <file src = 'assets/images/circle.png'/>
+    <file src = 'assets/images/icon-detran.png'/>
+    <file src = 'assets/images/icon-recuperar.png'/>
+    <file src = 'assets/images/icon-ipva.png'/>
+
+    <file src = 'assets/fonts/bold.ttf' />
+    <file src = 'assets/fonts/italic.ttf' />
+    <file src = 'assets/fonts/light.ttf' />
+    <file src = 'assets/fonts/medium.ttf' />
+    <file src = 'assets/fonts/regular.ttf' />
+
+    <!--Export´s-->
+    <export function = "setVehicleGaragem" type = "server"/>
+    <export function = "getVehicleOwner" type = "server"/>
+    <export function = "setVehicleState" type = "server"/>
+    <export function = "getVehicleConfigFromModel" type = "server"/>
+    <export function = "getPlayerVehicle" type = "server"/>
+    <export function = "getVehicleDadosFromPlate" type = "server"/>
+    <export function = "getPlayerTotalVehicles" type = "server"/>
+    <export function = "getCountSlots" type = "server"/>
+
+    <export function = "getDb" type = "server"/>
+    
+    <min_mta_version server="1.6" client="1.6" />
+</meta>

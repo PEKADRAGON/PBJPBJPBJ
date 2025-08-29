@@ -1,0 +1,6 @@
+<meta>
+	<info author="+iLuccasSCR" version="1.0.0" type="script" name="ac_txd-vidro" />
+	<script src="iLuccas_C.lua" type="client" cache="false"/>
+
+	<file src="files/wglass.txd" />
+</meta>

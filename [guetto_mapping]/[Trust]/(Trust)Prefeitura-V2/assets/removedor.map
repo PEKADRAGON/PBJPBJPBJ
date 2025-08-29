@@ -1,0 +1,20 @@
+<map edf:definitions="editor_main">
+    <removeWorldObject id="removeWorldObject (countclubTr_LAw2) (1)" radius="105.36157" interior="-1" model="6489" lodModel="0" posX="715.40625" posY="-1236.2187" posZ="19.16406" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (country_law2) (1)" radius="44.547909" interior="-1" model="6522" lodModel="6523" posX="702.86719" posY="-1276.0312" posZ="20.90625" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (veg_palm04) (1)" radius="22.657042" interior="-1" model="620" lodModel="0" posX="746.49219" posY="-1303.4141" posZ="11.67188" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (tree_hipoly10) (1)" radius="12.53206" interior="-1" model="732" lodModel="0" posX="782.79688" posY="-1304.0781" posZ="12.39063" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (tree_hipoly19) (1)" radius="20.921576" interior="-1" model="726" lodModel="0" posX="680.85938" posY="-1293.3984" posZ="12.39844" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (ClubGate01_LAx) (1)" radius="14.403762" interior="-1" model="3749" lodModel="3750" posX="664.92188" posY="-1309.3516" posZ="18.36719" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (ClubGate01_LAx) (2)" radius="14.403762" interior="-1" model="3749" lodModel="3750" posX="659.78125" posY="-1227.2734" posZ="19.91406" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (ClubGate01_LAx) (3)" radius="14.403762" interior="-1" model="3749" lodModel="3750" posX="785.375" posY="-1152.4453" posZ="28.4375" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (tree_hipoly11) (1)" radius="21.661509" interior="-1" model="733" lodModel="0" posX="717.11719" posY="-1236.2266" posZ="12.0625" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (veg_palm04) (2)" radius="22.657042" interior="-1" model="620" lodModel="0" posX="783.0625" posY="-1245.7969" posZ="12.59375" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (veg_palm04) (3)" radius="22.657042" interior="-1" model="620" lodModel="0" posX="782.34375" posY="-1277.8359" posZ="12.20313" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (countclub01_LAw2) (1)" radius="106.91513" interior="-1" model="6487" lodModel="6493" posX="713.5625" posY="-1236.2187" posZ="17.82031" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (tree_hipoly07) (1)" radius="12.792648" interior="-1" model="729" lodModel="0" posX="731.39063" posY="-1223.1641" posZ="12.50781" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+    <removeWorldObject id="removeWorldObject (tree_hipoly19) (2)" radius="20.921576" interior="-1" model="726" lodModel="0" posX="743.24219" posY="-1151.4766" posZ="20.875" rotX="0" rotY="0" rotZ="0"></removeWorldObject>
+
+    <object id="object (vgsbighngrdoor) (1)" breakable="false" interior="0" alpha="255" dimension="0" model="8378" scale="0" doublesided="false" collisions="true" posX="688.21027" posY="-1297.5499" posZ="11.79676" rotX="90" rotY="0" rotZ="0"></object>
+    <object id="object (vgsbighngrdoor) (2)" breakable="false" interior="0" alpha="255" dimension="0" model="8378" scale="0" doublesided="false" collisions="true" posX="753.78156" posY="-1297.5498" posZ="11.79676" rotX="90" rotY="0" rotZ="-0.011"></object>
+
+</map>

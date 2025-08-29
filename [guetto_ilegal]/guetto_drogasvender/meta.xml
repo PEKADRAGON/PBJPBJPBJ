@@ -1,0 +1,10 @@
+<meta>
+    <script src="cSchootz.lua" type="client" cache="false" />
+    <script src="gSchootz.lua" type="shared"/>
+    <script src="sSchootz.lua" type="server"/>
+
+    <file src="files/icon.png"/>
+    <file src="files/font.ttf"/>
+
+    <min_mta_version server="1.5.4-9.11413"></min_mta_version>
+</meta>

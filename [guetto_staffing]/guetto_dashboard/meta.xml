@@ -1,0 +1,49 @@
+<meta>
+    <info author="squady developer" version="1.0" name="guetto_dashboard" />
+
+    <!-- SCRIPT's -->
+    <script src="config.lua" type="shared" cache="false" />
+    <script src="assets/utils/s-utils.lua" />
+    <script src="assets/utils/c-utils.lua" type="client" cache="false" />
+    <script src="assets/utils/editbox.lua" type="client" cache="false" />
+    <script src="assets/main/server.lua" />
+    <script src="assets/main/client.lua" type="client" cache="false" />
+
+    <!-- GFX's -->
+    <file src="assets/images/background.png" cache="false" />
+    <file src="assets/images/list.png" cache="false" />
+    <file src="assets/images/user.png" cache="false" />
+    <file src="assets/images/ranking.png" cache="false" />
+    <file src="assets/images/users.png" cache="false" />
+    <file src="assets/images/mechanic.png" cache="false" />
+    <file src="assets/images/police.png" cache="false" />
+    <file src="assets/images/medic.png" cache="false" />
+    <file src="assets/images/search.png" cache="false" />
+    <file src="assets/images/game.png" cache="false" />
+    <file src="assets/images/nivel.png" cache="false" />
+    <file src="assets/images/ping.png" cache="false" />
+    <file src="assets/images/bg_person.png" cache="false" />
+    <file src="assets/images/rank.png" cache="false" />
+    <file src="assets/images/missions.png" cache="false" />
+    <file src="assets/images/icon-missions.png" cache="false" />
+
+    <!-- BANNER's -->
+    <file src="assets/cards/fundador.png" cache="false" />
+    <file src="assets/cards/everyone.png" cache="false" />
+    <file src="assets/cards/diretor.png" cache="false" />
+    <file src="assets/cards/vdiretor.png" cache="false" />
+    <file src="assets/cards/criminoso.png" cache="false" />
+    <file src="assets/cards/luxuria.png" cache="false" />
+    <file src="assets/cards/marginal.png" cache="false" />
+    <file src="assets/cards/moderador.png" cache="false" />
+    <file src="assets/cards/patrocinador.png" cache="false" />
+    <file src="assets/cards/youtube.png" cache="false" />
+    <file src="assets/cards/visionario.png" cache="false" />
+    <file src="assets/cards/suporte.png" cache="false" />
+
+
+    <!-- FONT's -->
+    <file src="assets/fonts/medium.ttf" cache="false" />
+    <file src="assets/fonts/light.ttf" cache="false" />
+    <file src="assets/fonts/regular.ttf" cache="false" />
+</meta>

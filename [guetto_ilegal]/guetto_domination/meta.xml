@@ -1,0 +1,15 @@
+<atlas-mtasa>
+    <!-- RESOURCE's POO's -->
+    <oop>true</oop>
+    <info author = 'sh4dowDEV' script = 'Domination' version = 'v1' description = 'Domination System.'/>
+    <!-- RESOURCE's CONFIG's -->
+    <script type = 'shared' cache = 'false' src = 'config.lua'/>
+    <!-- RESOURCE's SRC's -->
+    <script type = 'shared' cache = 'false' src = 'assets/utils/s-utils.lua'/>
+    <script type = 'client' cache = 'false' src = 'assets/utils/c-utils.lua'/>
+
+    <script type = 'server' cache = 'false' src = 'assets/main/server.lua'/>
+    <script type = 'client' cache = 'false' src = 'assets/main/client.lua'/>
+    <!-- ASSET's IMAGE's -->
+    <!-- EXPORT's RESOURCE's -->
+</atlas-mtasa>

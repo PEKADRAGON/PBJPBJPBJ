@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource>
+    <!-- Informações sobre o recurso -->
+    <info name="run-armed" author="VulcaN" version="1.0">
+        <description>Este recurso adiciona animações para personagens armados.</description>
+        <type>script</type>
+    </info>
+
+    <!-- Arquivos e scripts necessários -->
+    <file src="drivebys.ifp" cache="false"/>
+    <script src="client.lua" type="client" cache="false"/>
+</resource>

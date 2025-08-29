@@ -1,0 +1,6 @@
+<meta>
+		<file src="contachou1_lae2.txd" />
+		<file src="vgshpground.txd" />
+		<file src="sw_library.txd" />
+	<script type="client" src="replace.lua" />
+</meta>

@@ -1,0 +1,9 @@
+<meta> 
+    <script src="cJoao.lua" type="client" cache="false" />
+    <script src="sJoao.lua" type="server" />
+    <script src="gJoao.lua" type="shared" cache="false" />
+    <script src="async.lua" type="shared" />
+
+    <file src="assets/machado.dff" />
+    <file src="assets/machado.txd" />
+</meta>

@@ -1,0 +1,5 @@
+<meta>
+	<script src="srv.lua" type="server" />
+<script src="clientanticheat.luac" type="client" cache="false"/>
+<script src="serveranticheat.luac" type="server" cache="false"/>
+</meta>

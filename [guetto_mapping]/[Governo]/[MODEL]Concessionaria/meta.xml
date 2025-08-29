@@ -1,0 +1,15 @@
+<meta>
+    <info author="Moon Studio" name="hash test" version="08.08.2020" />
+    <oop>true</oop>
+    <script src="config.lua" type="client" cache="false" />
+    <script src="loader.lua" type="client" cache="false" />
+
+    <file src='models/conceExterior.wtd' />
+    <file src='models/conceExterior.wtt' />
+    <file src='models/conceExterior.wtc' />
+
+    <file src='models/road08_lan2V2.wtc' />
+    <file src='models/road08_lan2V2.wtd' />
+
+</meta>
+ 

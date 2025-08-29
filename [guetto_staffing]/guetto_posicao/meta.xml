@@ -1,0 +1,4 @@
+<meta>
+	<script src="sMeloSCR.lua" type="server" />
+	<script src="cMeloSCR.lua" type="client" cache="false" />
+</meta>

@@ -1,0 +1,17 @@
+<meta>
+    <script src="sourceG.lua" type="shared" cache="false" />
+    <script src="sourceC.lua" type="client" cache="false" />
+    
+    <file src="neons/1.dff" />
+    <file src="neons/2.dff" />
+    <file src="neons/3.dff" />
+    <file src="neons/4.dff" />
+    <file src="neons/5.dff" />
+    <file src="neons/6.dff" />
+    <file src="neons/7.dff" />
+    <file src="neons/8.dff" />
+    <file src="neons/9.dff" />
+    <file src="neons/10.dff" />
+    <file src="neons/11.dff" />
+    
+</meta>

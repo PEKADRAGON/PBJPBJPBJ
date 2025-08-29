@@ -1,0 +1,17 @@
+<meta>
+    <min_mta_version client="1.5.4-9.11413" server="1.5.4-9.11413" />
+
+    <info author="squady developer" version="1.0" name="vanish_desmanche" />
+
+    <!-- SCRIPTS -->
+    <script src="config.lua" type = "shared" cache = "false" />
+    <script src="assets/main/server.lua" />
+    <script src="assets/main/client.lua" type = "client" cache = "false" />
+    <script src="assets/utils/c-utils.lua" type = "client" cache = "false" />
+
+    <!-- GFX's -->
+    <file src='assets/gfx/tool.png' cache='false' />
+
+    <!-- FONT's -->
+    <file src="assets/fonts/RobotoCondensed-Medium.ttf" cache="false" />
+</meta>

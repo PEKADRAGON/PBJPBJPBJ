@@ -1,0 +1,10 @@
+<meta>
+	<info author="Wielebny" type="script" name="mta-billiard" website="https://github.com/lpiob/mta-billiard" version="1.0.2" />
+
+	<file src="audio/ball.ogg" />
+
+	<script src="settings.lua" type="shared" cache="false" />
+
+	<script src="c.lua" type="client" cache="false" />
+	<script src="s.lua" type="server" />
+</meta>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<meta>
+     <info author="mapa_hospital" type="misc" name="mapa_hospital" />
+     <script src="client.lua" type="client" />
+	 
+     <file src="hospitalFull1.txd" />
+     <file src="hospitalFull2.dff" />
+     <file src="hospitalFull1Col.col" />
+
+</meta>

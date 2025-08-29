@@ -1,0 +1,17 @@
+<meta>
+    <oop>true</oop>
+    <script src="shaders/shader.lua" type="client" cache="false"/>
+    <script src="client.lua" type="client" cache="false"/>
+    
+    <!-- <file src="sounds/11.wav" /> -->
+    
+    <file src="textures/flame.dds" />
+    
+    <export function="addOtstrel" type="client" />
+    
+    <!-- 
+		exports.car_backfire:addOtstrel (vehicle, isDownShift)
+		
+		-- isDownShift [true/false] - понижена передача или повышена
+	-->
+</meta>

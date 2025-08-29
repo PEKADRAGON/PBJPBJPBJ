@@ -1,0 +1,828 @@
+---[[
+    --» sᴄʀɪᴘᴛ ғᴇɪᴛᴏ ᴘᴏʀ » Pedrooooo#1554
+---]]
+
+x, y = guiGetScreenSize() 
+local tick_effect = {}
+
+local fonts = {
+    dxCreateFont('assets/fonts/medium.ttf', 10), 
+    dxCreateFont('assets/fonts/light.ttf', 12), 
+    dxCreateFont('assets/fonts/light.ttf', 10), 
+    dxCreateFont('assets/fonts/light.ttf', 15), 
+}
+
+function draw_prison()
+    local alpha = interpolateBetween(interpolate[1], 0, 0, interpolate[2], 0, 0, ((getTickCount() - tick) / 500), 'Linear')
+    if (window == 'insert infos') then 
+        dxDrawImage(x / 2 - 224, y / 2 - 137, 448, 273, 'assets/prison/insert_infos.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+        
+        dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+        if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+            if not (tick_effect['cancel']) then tick_effect['cancel'] = getTickCount() end 
+            local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['cancel']) / 250), 'Linear')
+            dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+            dxDrawText('CANCELAR', (x / 2- 104) - (dxGetTextWidth('CANCELAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        else 
+            tick_effect['cancel'] = nil 
+            dxDrawText('CANCELAR', (x / 2- 104) - (dxGetTextWidth('CANCELAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        end
+
+        dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+        if (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+            if not (tick_effect['next window']) then tick_effect['next window'] = getTickCount() end 
+            local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['next window']) / 250), 'Linear')
+            dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+            dxDrawText('AVANÇAR', (x / 2 + 102) - (dxGetTextWidth('AVANÇAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+        else 
+            tick_effect['next window'] = nil 
+            dxDrawText('AVANÇAR', (x / 2 + 102) - (dxGetTextWidth('AVANÇAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        end
+
+        if (guiGetText(id_edit) ~= last_id_edited) then 
+            last_id_edited = guiGetText(id_edit)
+            if (tonumber(last_id_edited) and getPlayerFromID(tonumber(last_id_edited))) then 
+                receiver = getPlayerFromID(tonumber(last_id_edited))
+            else 
+                receiver = nil 
+            end
+        end
+
+        dxDrawText(select == 1 and guiGetText(id_edit)..'|' or guiGetText(id_edit), (x / 2 + 180) - dxGetTextWidth(select == 1 and guiGetText(id_edit)..'|' or guiGetText(id_edit), 1, exports['guetto_assets']:dxCreateFont("light", 12)), y / 2 - 79, 0, 0, (isElement(receiver) and tocolor(193, 159, 114, alpha) or tocolor(34, 34, 34, alpha)), 1, exports['guetto_assets']:dxCreateFont("light", 12))
+        dxDrawText(select == 2 and guiGetText(organization_edit)..'|' or guiGetText(organization_edit), (x / 2 + 180) - dxGetTextWidth(select == 2 and guiGetText(organization_edit)..'|' or guiGetText(organization_edit), 1, exports['guetto_assets']:dxCreateFont("light", 12)), y / 2 - 32, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("light", 12))
+        dxDrawText(select == 3 and guiGetText(reason_edit)..'|' or guiGetText(reason_edit), x / 2 - 180, y / 2 + 25, x * 0.5964, y * 0.5713, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("light", 10), 'left', 'top', false, true)
+    elseif (window == 'select articles') then 
+        if (isElement(receiver)) then 
+            local pos_player, pos_receiver = {getElementPosition(localPlayer)}, {getElementPosition(receiver)} 
+            if (getDistanceBetweenPoints3D(pos_player[1], pos_player[2], pos_player[3], pos_receiver[1], pos_receiver[2], pos_receiver[3]) <= 5) then 
+                dxDrawImage(x / 2 - 224, y / 2 - 137, 448, 273, 'assets/prison/select_articles.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+        
+                dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+                if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                    if not (tick_effect['back']) then tick_effect['back'] = getTickCount() end 
+                    local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['back']) / 250), 'Linear')
+                    dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+                    dxDrawText('VOLTAR', (x / 2- 104) - (dxGetTextWidth('VOLTAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                else 
+                    tick_effect['back'] = nil 
+                    dxDrawText('VOLTAR', (x / 2- 104) - (dxGetTextWidth('VOLTAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                end
+        
+                dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+                if (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+                    if not (tick_effect['next window']) then tick_effect['next window'] = getTickCount() end 
+                    local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['next window']) / 250), 'Linear')
+                    dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+                    dxDrawText('AVANÇAR', (x / 2 + 102) - (dxGetTextWidth('AVANÇAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+                else 
+                    tick_effect['next window'] = nil 
+                    dxDrawText('AVANÇAR', (x / 2 + 102) - (dxGetTextWidth('AVANÇAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                end
+
+                dxDrawRectangle(x / 2 + 192, y / 2 - 91, 5, 174, tocolor(119, 126, 147, alpha))
+                dxDrawRectangle(x / 2 + 192, (y / 2 - 91) + (78 * (move_page / max_page)), 5, 96, tocolor(193, 159, 114, alpha))
+
+                if (moving) then 
+                    local posStart, posFinish = y / 2 - 91, y / 2 + 82 
+                    local cx, cy = getCursorPosition() 
+                    local my = cy * y 
+        
+                    if (my < posStart) then 
+                        move_page, page = 0, 0 
+                    elseif (my > posFinish) then 
+                        move_page, page = max_page, max_page 
+                    else
+                        local progress = my - posStart
+                        local percentage  = (progress / 174) * 100
+                        local new_page = (max_page / 100) * percentage 
+                        page, move_page = math.floor(new_page), new_page 
+                    end
+                end
+
+                local line = 0 
+                for i, v in ipairs(config.articles) do 
+                    if (i > page and line < 6) then 
+                        line = (line + 1) 
+                        dxDrawRectangle(x / 2 - 194, (y / 2 - 73) + (25 * (line - 1)), 385, 23, tocolor(59, 59, 65, alpha))
+                        dxDrawText('ARTIGO '..v[1], x / 2 - 187, (y / 2 - 67) + (25 * (line - 1)), 0, 0, tocolor(255, 255, 255, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                        dxDrawText(v[2]..' ANOS', x / 2 + 18, (y / 2 - 67) + (25 * (line - 1)), 0, 0, tocolor(255, 255, 255, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                        
+                        if (isArticleSelected(v[1])) then 
+                            dxDrawImage(x / 2 + 170, (y / 2 - 67) + (25 * (line - 1)), 11, 11, 'assets/prison/article_check.png', 0, 0, 0, tocolor(193, 159, 114, alpha))
+                        elseif (isMouseInPosition(x / 2 + 170, (y / 2 - 67) + (25 * (line - 1)), 11, 11)) then 
+                            dxDrawImage(x / 2 + 170, (y / 2 - 67) + (25 * (line - 1)), 11, 11, 'assets/prison/article_check.png', 0, 0, 0, tocolor(193, 159, 114, alpha))
+                        else
+                            dxDrawImage(x / 2 + 170, (y / 2 - 67) + (25 * (line - 1)), 11, 11, 'assets/prison/article_check.png', 0, 0, 0, tocolor(140, 146, 163, alpha))
+                        end
+                    end
+                end
+            else
+                window = 'insert infos' 
+                messageC('O cidadão foi para muito longe de você!', 'error')
+            end
+        else 
+            window = 'insert infos' 
+            messageC('O cidadão saiu da cidade!', 'error')
+        end
+    elseif (window == 'confirm prison') then 
+        if (isElement(receiver)) then 
+            local pos_player, pos_receiver = {getElementPosition(localPlayer)}, {getElementPosition(receiver)} 
+            if (getDistanceBetweenPoints3D(pos_player[1], pos_player[2], pos_player[3], pos_receiver[1], pos_receiver[2], pos_receiver[3]) <= 5) then 
+                dxDrawImage(x / 2 - 224, y / 2 - 137, 448, 273, 'assets/prison/confirm_prison.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+        
+                dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+                if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                    if not (tick_effect['back']) then tick_effect['back'] = getTickCount() end 
+                    local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['back']) / 250), 'Linear')
+                    dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+                    dxDrawText('VOLTAR', (x / 2- 104) - (dxGetTextWidth('VOLTAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                else 
+                    tick_effect['back'] = nil 
+                    dxDrawText('VOLTAR', (x / 2- 104) - (dxGetTextWidth('VOLTAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                end
+        
+                dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+                if (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+                    if not (tick_effect['next window']) then tick_effect['next window'] = getTickCount() end 
+                    local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['next window']) / 250), 'Linear')
+                    dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+                    dxDrawText('PRENDER', (x / 2 + 102) - (dxGetTextWidth('PRENDER', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+                else 
+                    tick_effect['next window'] = nil 
+                    dxDrawText('PRENDER', (x / 2 + 102) - (dxGetTextWidth('PRENDER', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                end
+
+                local name = string.gsub(getPlayerName(receiver), '_', ' ') 
+                dxDrawText(name, x / 2 - 190, y / 2 - 85, 0, 0, tocolor(196, 196, 196, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                dxDrawText((getElementData(receiver, 'ID') or 'N/A'), (x / 2 + 191) - (dxGetTextWidth((getElementData(receiver, 'ID') or 'N/A'), 1, exports['guetto_assets']:dxCreateFont("medium", 10))), y / 2 - 85, 0, 0, tocolor(196, 196, 196, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+
+                local time = getAllTimeSelect()
+                if (time > config.prison.max_years) then 
+                    dxDrawText(config.prison.max_years..' ANOS', (x / 2 + 201) - (dxGetTextWidth(config.prison.max_years..' ANOS', 1, exports['guetto_assets']:dxCreateFont("medium", 10))), y / 2 - 41, 0, 0, tocolor(193, 159, 114, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                else 
+                    dxDrawText(time..' ANOS', (x / 2 + 201) - (dxGetTextWidth(time..' ANOS', 1, exports['guetto_assets']:dxCreateFont("medium", 10))), y / 2 - 41, 0, 0, tocolor(193, 159, 114, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                end
+
+                dxDrawText(#selected_articles, (x / 2 + 201) - (dxGetTextWidth(#selected_articles, 1, exports['guetto_assets']:dxCreateFont("medium", 10))), y / 2 - 13, 0, 0, tocolor(193, 159, 114, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+            else
+                window = 'insert infos' 
+                messageC('O cidadão foi para muito longe de você!', 'error')
+            end
+        else 
+            window = 'insert infos' 
+            messageC('O cidadão saiu da cidade!', 'error')
+        end
+    end
+end 
+
+addEventHandler('onClientClick', root, 
+    function(b, s) 
+        if (isEventHandlerAdded('onClientRender', root, draw_prison)) then 
+            if (b == 'left' and s == 'down') then 
+                if (window == 'insert infos') then 
+                    select = 0 
+                    if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                        closePrison()
+                    elseif (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+                        if (isElement(receiver)) then
+                            local pos_player, pos_receiver = {getElementPosition(localPlayer)}, {getElementPosition(receiver)} 
+                            if (getDistanceBetweenPoints3D(pos_player[1], pos_player[2], pos_player[3], pos_receiver[1], pos_receiver[2], pos_receiver[3]) <= 5) then 
+                                if (receiver == localPlayer) then return messageC('Você não pode prender a sí mesmo!', 'error') end 
+                                window, selected_articles = 'select articles', {} 
+                                messageC('Insira os artigos!', 'success')
+                            else
+                                messageC('Cidadão está muito longe!', 'error')
+                            end
+                        else 
+                            messageC('Cidadão com identificação não encontrada!', 'error')
+                        end  
+                    elseif (isMouseInPosition(x / 2 - 194, y / 2 - 91, 387, 41)) then 
+                        if (guiEditSetCaretIndex(id_edit, #guiGetText(id_edit))) then 
+                            guiBringToFront(id_edit) 
+                            guiSetInputMode('no_binds_when_editing')
+                            select = 1
+                        end
+                    elseif (isMouseInPosition(x / 2 - 194, y / 2 - 44, 387, 41)) then 
+                        if (guiEditSetCaretIndex(organization_edit, #guiGetText(organization_edit))) then 
+                            guiBringToFront(organization_edit) 
+                            guiSetInputMode('no_binds_when_editing')
+                            select = 2
+                        end
+                    elseif (isMouseInPosition(x / 2 - 194, y / 2 + 2, 387, 80)) then 
+                        if (guiEditSetCaretIndex(reason_edit, #guiGetText(reason_edit))) then 
+                            guiBringToFront(reason_edit) 
+                            guiSetInputMode('no_binds_when_editing')
+                            select = 3
+                        end
+                    end
+                elseif (window == 'select articles') then 
+                    if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                        window, receiver = 'insert infos', nil 
+                    elseif (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then
+                        if (#selected_articles > 0) then 
+                            window = 'confirm prison'
+                        else 
+                            messageC('Selecione pelo menos um artigo para continuar!', 'error')
+                        end
+                    elseif (isMouseInPosition(x / 2 + 192, (y / 2 - 91) + (78 * (move_page / max_page)), 5, 96)) then 
+                        moving = true
+                    else
+                        local line = 0 
+                        for i, v in ipairs(config.articles) do 
+                            if (i > page and line < 6) then 
+                                line = (line + 1) 
+                                if (isMouseInPosition(x / 2 + 170, (y / 2 - 67) + (25 * (line - 1)), 11, 11)) then 
+                                    if (isArticleSelected(v[1])) then 
+                                        table.remove(selected_articles, isArticleSelected(v[1]))
+                                    else
+                                        table.insert(selected_articles, v)
+                                    end
+                                return end
+                            end 
+                        end
+                    end
+                elseif (window == 'confirm prison') then 
+                    if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                        window, receiver = 'insert infos', nil 
+                    elseif (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then
+                        local time_receiver = getAllTimeSelect()
+                        if (time_receiver > config.prison.max_years) then 
+                            time_receiver = config.prison.max_years
+                        end
+                        
+                        local articles = getArticles()
+                        window = 'insert infos' 
+                        triggerServerEvent('onPlayerArrestReceiver', localPlayer, localPlayer, receiver, time_receiver, guiGetText(organization_edit), articles)
+                    end
+                end
+            elseif (b == 'left' and s == 'up') then 
+                if (moving) then 
+                    moving = nil 
+                end
+            end
+        end
+    end
+)
+
+addEvent('onClientDrawPrison', true)
+addEventHandler('onClientDrawPrison', root, 
+    function()
+        if not (isEventHandlerAdded('onClientRender', root, draw_prison)) then 
+            tick, interpolate, window, select, last_id_edited, receiver, page, move_page, max_page = getTickCount(), {0, 255}, 'insert infos', 0, '', nil, 0, 0, (#config.articles - 6)
+            addEventHandler('onClientRender', root, draw_prison) 
+            showCursor(true)
+
+            if (isElement(id_edit)) then destroyElement(id_edit) end 
+            id_edit = guiCreateEdit(1000, 1000, 0, 0, '', false) 
+            guiEditSetMaxLength(id_edit, 6) 
+            guiSetProperty(id_edit, 'ValidationString', '[0-9]*') 
+
+            if (isElement(organization_edit)) then destroyElement(organization_edit) end 
+            organization_edit = guiCreateEdit(1000, 1000, 0, 0, '', false) 
+            guiEditSetMaxLength(organization_edit, 10) 
+
+            if (isElement(reason_edit)) then destroyElement(reason_edit) end 
+            reason_edit = guiCreateEdit(1000, 1000, 0, 0, '', false) 
+            guiEditSetMaxLength(reason_edit, 170) 
+
+        end
+    end
+)
+
+function closePrison()
+    if (isEventHandlerAdded('onClientRender', root, draw_prison)) then 
+        if (interpolate[1] == 0) then 
+            tick, interpolate = getTickCount(), {255, 0} 
+            showCursor(false)
+            setTimer(function()
+                removeEventHandler('onClientRender', root, draw_prison)
+            end, 500, 1)
+        end 
+    end
+end
+bindKey('backspace', 'down', closePrison)
+
+function draw_bail() 
+    local alpha = interpolateBetween(interpolate[1], 0, 0, interpolate[2], 0, 0, ((getTickCount() - tick) / 500), 'Linear')
+    if (window == 'select prisioner') then 
+        dxDrawImage(x / 2 - 224, y / 2 - 137, 447, 273, 'assets/bail/select_prisioner.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+
+        dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+        if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+            if not (tick_effect['back']) then tick_effect['back'] = getTickCount() end 
+            local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['back']) / 250), 'Linear')
+            dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+            dxDrawText('VOLTAR', (x / 2- 104) - (dxGetTextWidth('VOLTAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        else 
+            tick_effect['back'] = nil 
+            dxDrawText('VOLTAR', (x / 2- 104) - (dxGetTextWidth('VOLTAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        end
+
+        dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+        if (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+            if not (tick_effect['next window']) then tick_effect['next window'] = getTickCount() end 
+            local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['next window']) / 250), 'Linear')
+            dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+            dxDrawText('PAGAR FIANÇA', (x / 2 + 102) - (dxGetTextWidth('PAGAR FIANÇA', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+        else 
+            tick_effect['next window'] = nil 
+            dxDrawText('PAGAR FIANÇA', (x / 2 + 102) - (dxGetTextWidth('PAGAR FIANÇA', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        end 
+
+
+        dxDrawRectangle(x / 2 + 192, y / 2 - 91, 5, 174, tocolor(119, 126, 147, alpha))
+        dxDrawRectangle(x / 2 + 192, (y / 2 - 91) + (78 * (move_page / max_page)), 5, 96, tocolor(193, 159, 114, alpha))
+
+        if (moving) then 
+            local posStart, posFinish = y / 2 - 91, y / 2 + 82 
+            local cx, cy = getCursorPosition() 
+            local my = cy * y 
+
+            if (my < posStart) then 
+                move_page, page = 0, 0 
+            elseif (my > posFinish) then 
+                move_page, page = max_page, max_page 
+            else
+                local progress = my - posStart
+                local percentage  = (progress / 174) * 100
+                local new_page = (max_page / 100) * percentage 
+                page, move_page = math.floor(new_page), new_page 
+            end
+        end
+
+        local line = 0 
+        for i, v in ipairs(data) do 
+            if (isElement(v[1])) then 
+                if (i > page and line < 6) then 
+                    line = (line + 1) 
+
+                    if (select == i) then 
+                        dxDrawRectangle(x / 2 - 193, (y / 2 - 74) + (25 * (line - 1)), 385, 23, tocolor(193, 159, 114, alpha))
+                        dxDrawText(getPlayerName(v[1]), x / 2 - 186, (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                        dxDrawText((getElementData(v[1], 'ID') or 'N/A'), (x / 2) - (dxGetTextWidth((getElementData(v[1], 'ID') or 'N/A'), 1, exports['guetto_assets']:dxCreateFont("medium", 10))), (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+
+                        local min, sec =  convertTime(v[2])
+                        dxDrawText(min..':'..sec, x / 2 + 155, (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                    elseif (isMouseInPosition(x / 2 - 193, (y / 2 - 74) + (25 * (line - 1)), 385, 23)) then 
+                        dxDrawRectangle(x / 2 - 193, (y / 2 - 74) + (25 * (line - 1)), 385, 23, tocolor(193, 159, 114, alpha))
+                        dxDrawText(getPlayerName(v[1]), x / 2 - 186, (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                        dxDrawText((getElementData(v[1], 'ID') or 'N/A'), (x / 2) - (dxGetTextWidth((getElementData(v[1], 'ID') or 'N/A'), 1, exports['guetto_assets']:dxCreateFont("medium", 10))), (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+
+                        local min, sec =  convertTime(v[2])
+                        dxDrawText(min..':'..sec, x / 2 + 155, (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+                    else 
+                        dxDrawRectangle(x / 2 - 193, (y / 2 - 74) + (25 * (line - 1)), 385, 23, tocolor(59, 59, 65, alpha))
+                        dxDrawText(getPlayerName(v[1]), x / 2 - 186, (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(193, 159, 114, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                        dxDrawText((getElementData(v[1], 'ID') or 'N/A'), (x / 2) - (dxGetTextWidth((getElementData(v[1], 'ID') or 'N/A'), 1, exports['guetto_assets']:dxCreateFont("medium", 10))), (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(193, 159, 114, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+
+                        local min, sec =  convertTime(v[2])
+                        dxDrawText(min..':'..sec, x / 2 + 155, (y / 2 - 68) + (25 * (line - 1)), 0, 0, tocolor(193, 159, 114, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+                    end
+                end
+            else 
+                table.remove(data, i)
+            end
+        end
+    elseif (window == 'pay bail') then 
+        dxDrawImage(x / 2 - 224, y / 2 - 137, 447, 273, 'assets/bail/pay_bail.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+
+        dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+        if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+            if not (tick_effect['back']) then tick_effect['back'] = getTickCount() end 
+            local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['back']) / 250), 'Linear')
+            dxDrawImage(x / 2 - 194, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+            dxDrawText('CANCELAR', (x / 2- 104) - (dxGetTextWidth('CANCELAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        else 
+            tick_effect['back'] = nil 
+            dxDrawText('CANCELAR', (x / 2- 104) - (dxGetTextWidth('CANCELAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        end
+
+        dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(52, 57, 72, alpha))
+        if (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+            if not (tick_effect['next window']) then tick_effect['next window'] = getTickCount() end 
+            local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_effect['next window']) / 250), 'Linear')
+            dxDrawImage(x / 2 + 13, y / 2 + 88, 179, 30, 'assets/prison/button.png', 0, 0, 0, tocolor(193, 159, 114, animation))
+            dxDrawText('PAGAR', (x / 2 + 102) - (dxGetTextWidth('PAGAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(18, 18, 18, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+        else 
+            tick_effect['next window'] = nil 
+            dxDrawText('PAGAR', (x / 2 + 102) - (dxGetTextWidth('PAGAR', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y / 2 + 94, 0, 0, tocolor(34, 34, 34, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+        end 
+
+        if (data[select]) then 
+            dxDrawText('R$ '..data[select][3], (x / 2) - (dxGetTextWidth('R$ '..data[select][3], 1, exports['guetto_assets']:dxCreateFont("light", 15)) / 2), y / 2 + 18, 0, 0, tocolor(196, 196, 196, alpha), 1, exports['guetto_assets']:dxCreateFont("light", 15))
+        end
+    end 
+end
+
+addEventHandler('onClientClick', root, 
+    function(b, s)
+        if (isEventHandlerAdded('onClientRender', root, draw_bail)) then 
+            if (b == 'left' and s == 'down') then 
+                if (window == 'select prisioner') then 
+                    if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                        closeBail()  
+                    elseif (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+                        if (select ~= 0) then 
+                            window = 'pay bail'
+                        else 
+                            messageC('Selecione algum detento!', 'error') 
+                        end
+                    elseif (isMouseInPosition(x / 2 + 192, (y / 2 - 91) + (78 * (move_page / max_page)), 5, 96)) then 
+                        moving = true 
+                    else
+                        local line = 0 
+                        for i, v in ipairs(data) do 
+                            if (isElement(v[1])) then 
+                                if (i > page and line < 6) then 
+                                    line = (line + 1) 
+                                    if (isMouseInPosition(x / 2 - 193, (y / 2 - 74) + (25 * (line - 1)), 385, 23)) then
+                                        if (select ~= i) then 
+                                            select = i 
+                                        end  
+                                    return end 
+                                end 
+                            end
+                        end
+                    end
+                elseif (window == 'pay bail') then 
+                    if (isMouseInPosition(x / 2 - 194, y / 2 + 88, 179, 30)) then 
+                        window = 'select prisioner'
+                    elseif (isMouseInPosition(x / 2 + 13, y / 2 + 88, 179, 30)) then 
+                        triggerServerEvent('onPlayerPayBail', localPlayer, localPlayer, data[select][1], data[select][3])
+                        closeBail()  
+                    end 
+                end
+            elseif (b == 'left' and s == 'up') then 
+                if (moving) then 
+                    moving = nil 
+                end 
+            end
+        end
+    end
+)
+
+addEvent('onClientDrawBail', true)
+addEventHandler('onClientDrawBail', root, 
+    function(data_) 
+        if not (isEventHandlerAdded('onClientRender', root, draw_bail)) then 
+            tick, interpolate, window, data, page, move_page, max_page, moving, select = getTickCount(), {0, 255}, 'select prisioner', data_, 0, 0, (#data_ - 6), nil, 0
+            addEventHandler('onClientRender', root, draw_bail) 
+            showCursor(true) 
+        end
+    end
+)
+
+function closeBail()
+    if (isEventHandlerAdded('onClientRender', root, draw_bail)) then 
+        if (interpolate[1] == 0) then 
+            tick, interpolate = getTickCount(), {255, 0} 
+            showCursor(false)
+            setTimer(function()
+                removeEventHandler('onClientRender', root, draw_bail)
+            end, 500, 1)
+        end
+    end
+end
+bindKey('backspace', 'down', closeBail)
+
+function draw_timer()
+    local alpha = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_timer) / 250), 'Linear')
+    local time_remain = interpolateBetween(time, 0, 0, 0, 0, 0, ((getTickCount() - tick_timer) / time), 'Linear')
+    local min, sec = convertTime(time_remain)
+    dxDrawRectangle(x / 2 - 192, y - 165, 382, 142, tocolor(18, 18, 18, alpha))
+    dxDrawRectangle(x / 2 - 192, y - 165, 382, 3, tocolor(193, 159, 114, alpha))
+    dxDrawText('TEMPO DE PRISÃO:', (x / 2) - (dxGetTextWidth('TEMPO DE PRISÃO :', 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y - 157, 0, 0, tocolor(150, 153, 159, alpha, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10)) 
+    dxDrawRectangle(x / 2 - 192, y - 140, 382, 26, tocolor(40, 45, 58, alpha))
+    dxDrawRectangle(x / 2 - 106, y - 114, 210, 3, tocolor(193, 159, 114, alpha))
+    dxDrawRectangle(x / 2 - 192, y - 93, 382, 26, tocolor(40, 45, 58, alpha))
+    dxDrawRectangle(x / 2 - 106, y - 67, 210, 3, tocolor(193, 159, 114, alpha))
+    dxDrawText(min..':'..sec, (x / 2) - (dxGetTextWidth(min..':'..sec, 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y - 134, 0, 0, tocolor(150, 153, 159, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+    dxDrawText(articles, (x / 2) - (dxGetTextWidth(articles, 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y - 87, 0, 0, tocolor(150, 153, 159, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+    dxDrawText(organization, (x / 2) - (dxGetTextWidth(organization, 1, exports['guetto_assets']:dxCreateFont("medium", 10)) / 2), y - 53, 0, 0, tocolor(150, 153, 159, alpha), 1, exports['guetto_assets']:dxCreateFont("medium", 10))
+
+    if (time_remain == 0) then 
+        removeEventHandler('onClientRender', root, draw_timer) 
+    end
+end
+
+addEvent('onClientDrawYearsTimer', true)
+addEventHandler('onClientDrawYearsTimer', root, 
+    function(time_, organization_, articles_)
+        tick_timer, time, articles, organization = getTickCount(), time_, articles_, organization_
+        if not (isEventHandlerAdded('onClientRender', root, draw_timer)) then 
+            addEventHandler('onClientRender', root, draw_timer)
+        end
+    end
+)
+
+addEvent('onClientRemoveYearsTimer', true)
+addEventHandler('onClientRemoveYearsTimer', root, 
+    function()
+        if (isEventHandlerAdded('onClientRender', root, draw_timer)) then 
+            removeEventHandler('onClientRender', root, draw_timer)
+        end
+    end
+)
+
+local numbers_hacking = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+local number_hacking_font = dxCreateFont('assets/fonts/hacking.ttf', 25)
+
+function draw_hacking()
+    local alpha = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick) / 500), 'Linear')
+    dxDrawImage(x / 2 - 249, y / 2 - 168, 497, 336, 'assets/hacking/background.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+
+    for i, v in ipairs(numbers_hacking) do 
+        if (progress >= v) then 
+            dxDrawImage(positions_hacking[i][1], positions_hacking[i][2], positions_hacking[i][3], positions_hacking[i][4], 'assets/hacking/button_enable.png', 0, 0, 0, tocolor(255, 255, 255, alpha))
+            dxDrawText(v, (positions_hacking[i][1] + 30) - (dxGetTextWidth(v, 1, number_hacking_font) / 2), positions_hacking[i][2] + 12, 0, 0, tocolor(34, 220, 103, alpha), 1, number_hacking_font)
+        else 
+            dxDrawImage(positions_hacking[i][1], positions_hacking[i][2], positions_hacking[i][3], positions_hacking[i][4], (isMouseInPosition(positions_hacking[i][1], positions_hacking[i][2], positions_hacking[i][3], positions_hacking[i][4]) and 'assets/hacking/button_enable.png' or 'assets/hacking/button_disable.png'), 0, 0, 0, tocolor(255, 255, 255, alpha))
+            dxDrawText(v, (positions_hacking[i][1] + 30) - (dxGetTextWidth(v, 1, number_hacking_font) / 2), positions_hacking[i][2] + 12, 0, 0, (isMouseInPosition(positions_hacking[i][1], positions_hacking[i][2], positions_hacking[i][3], positions_hacking[i][4]) and tocolor(34, 220, 103, alpha) or tocolor(90, 92, 98, alpha)), 1, number_hacking_font)
+        end
+    end
+
+    dxDrawImage(x / 2 - 158, y / 2 + 135, 316, 9, 'assets/hacking/bar.png', 0, 0, 0, tocolor(49, 52, 62, alpha))
+    if (remain_time > 0) then 
+        dxDrawImageSection(x / 2 - 158, y / 2 + 135, remain_time, 9, 0, 0, remain_time, 9, 'assets/hacking/bar.png', 0, 0, 0, tocolor(196, 145, 57, alpha)) 
+    end
+
+    if (warning) then
+        local animation = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick_warning) / 500), 'Linear')
+        local time = interpolateBetween(3000, 0, 0, 0, 0, 0, ((getTickCount() - tick_warning) / 3000), 'Linear')
+        dxDrawImage(x / 2 - 249, y / 2 - 168, 497, 336, 'assets/hacking/background.png', 0, 0, 0, tocolor(255, 255, 255, animation * 0.9)) 
+
+        if (warning == 'success') then 
+            dxDrawText('ACESSO LIBERADO', x / 2 - (dxGetTextWidth('ACESSO LIBERADO', 1, number_hacking_font) / 2), y / 2 - 15, 0, 0, tocolor(34, 220, 103, animation), 1, number_hacking_font)
+        elseif (warning == 'error') then 
+            dxDrawText('ACESSO NEGADO', x / 2 - (dxGetTextWidth('ACESSO NEGADO', 1, number_hacking_font) / 2), y / 2 - 15, 0, 0, tocolor(255, 84, 84, animation), 1, number_hacking_font)
+        end
+
+        if (time == 0) then 
+            removeEventHandler('onClientRender', root, draw_hacking) 
+            showCursor(false) 
+        end
+    else
+        remain_time = remain_time - 0.5
+
+        if (remain_time <= 0) then 
+            tick_warning, warning = getTickCount(), 'error' 
+            playSound("assets/sound/sound2.mp3", false)
+        end 
+    end 
+end
+
+addEventHandler('onClientClick', root, 
+    function(b, s) 
+        if (b == 'left' and s == 'down') then 
+            if (isEventHandlerAdded('onClientRender', root, draw_hacking)) then 
+                if not (warning) then
+                    for i, v in ipairs(numbers_hacking) do 
+                        if (isMouseInPosition(positions_hacking[i][1], positions_hacking[i][2], positions_hacking[i][3], positions_hacking[i][4])) then 
+                            if (progress < v) then 
+                                if ((progress + 1) == v) then
+                                    progress = v 
+                                    for i = 1, 3 do 
+                                        numbers_hacking = table.shuffle(numbers_hacking) 
+
+                                        if ((remain_time + 10) > 316) then 
+                                            remain_time = 316 
+                                        else 
+                                            remain_time = (remain_time + 10) 
+                                        end
+                                    end
+
+                                    if (progress == 20) then 
+                                        tick_warning, warning = getTickCount(), 'success' 
+                                        triggerServerEvent('onPlayerHackedPrison', localPlayer)
+                                    end
+                                else 
+                                    remain_time = (remain_time - 10) 
+                                end
+
+                            end
+                            playSound('assets/sounds/click_hack.mp3')
+                        return end
+                    end   
+                end 
+            end
+        end
+    end
+)
+
+addEvent("DL.drawnSound3d", true)
+addEventHandler("DL.drawnSound3d", root, function (pos)
+    local sound = playSound3D("assets/sound/alarm.mp3", pos[1], pos[2], pos[3], true)
+    setSoundMaxDistance(sound, 420)
+    setSoundVolume(sound, 7)
+
+    setTimer(function (sound)
+        destroyElement(sound)
+    end, 50000, 1, sound)
+end)
+addEvent('onClientDrawHacking', true)
+addEventHandler('onClientDrawHacking', root, 
+    function()
+        if not (isEventHandlerAdded('onClientRender', root, draw_hacking)) then 
+            tick, progress, warning, remain_time = getTickCount(), 0, nil, 316
+
+            for i = 1, 3 do 
+                numbers_hacking = table.shuffle(numbers_hacking) 
+            end
+
+            triggerServerEvent('onPlayerCallCopsPrison', localPlayer)
+            addEventHandler('onClientRender', root, draw_hacking)
+            showCursor(true)
+        end
+    end
+)
+
+positions_hacking = {}
+local height = y / 2 - 131
+local times = 1
+
+for i = 1, 20 do 
+    if (times > 5) then 
+        height = (height + 63)
+        times = 1
+    end
+
+    positions_hacking[i] = {(x / 2 - 158) + (64 * (times - 1)), height, 60, 59}  
+    times = times + 1
+end
+
+addEventHandler('onClientPedDamage', root, 
+    function()
+        cancelEvent()
+    end
+)
+
+
+local box_anim = {}
+addEvent('onClientPickupPrisonBox', true)
+addEventHandler('onClientPickupPrisonBox', root, 
+    function(player)
+        for i, v in ipairs(box_anim) do 
+            if (isElement(v)) then 
+                if (v == player) then 
+                    table.remove(box_anim, i)
+                end
+            else
+                table.remove(box_anim, i)
+            end
+        end
+        table.insert(box_anim, player)
+    end
+)
+
+addEvent('onClientLeavePrisonBox', true)
+addEventHandler('onClientLeavePrisonBox', root, 
+    function(player)
+        for i, v in ipairs(box_anim) do 
+            if (isElement(v)) then 
+                if (v == player) then 
+                    table.remove(box_anim, i)
+                end
+            else
+                table.remove(box_anim, i)
+            end
+        end
+    end
+)
+
+addEventHandler('onClientPedsProcessed', root, 
+    function()
+        for i, v in ipairs(box_anim) do 
+            if (isElement(v)) then 
+                setElementBoneRotation(v, 22, 60, -30, -70)
+                setElementBoneRotation(v, 23, -10, -70, -50)
+                setElementBoneRotation(v, 24, 160, 0, 0)
+                setElementBoneRotation(v, 25, 0, -10, 0)
+                setElementBoneRotation(v, 32, -60, -40, 70)
+                setElementBoneRotation(v, 33, 10, -70, 50)
+                setElementBoneRotation(v, 34, -160, 0, 0)
+                setElementBoneRotation(v, 35, 0, -10, 0)
+                setElementBoneRotation(v, 201, 0, 0, 0)
+				updateElementRpHAnim(v)
+            end
+        end
+    end
+)
+
+------------------------------------------------
+function isMouseInPosition(x,y,w,h)
+	if isCursorShowing() then
+		local sx,sy = guiGetScreenSize()
+		local cx,cy = getCursorPosition()
+		local cx,cy = (cx*sx),(cy*sy)
+		if (cx >= x and cx <= x+w) and (cy >= y and cy <= y+h) then
+			return true
+		end
+	end
+end
+function table.shuffle(array)
+    local output = { }
+    local random = math.random
+ 
+    for index = 1, #array do
+        local offset = index - 1
+        local value = array[index]
+        local randomIndex = offset*random()
+        local flooredIndex = randomIndex - randomIndex%1
+ 
+        if flooredIndex == offset then
+            output[#output + 1] = value
+        else
+            output[#output + 1] = output[flooredIndex + 1]
+            output[flooredIndex + 1] = value
+        end
+    end
+    return output
+end
+
+function isEventHandlerAdded( sEventName, pElementAttachedTo, func )
+    if type( sEventName ) == 'string' and isElement( pElementAttachedTo ) and type( func ) == 'function' then
+        local aAttachedFunctions = getEventHandlers( sEventName, pElementAttachedTo )
+        if type( aAttachedFunctions ) == 'table' and #aAttachedFunctions > 0 then
+            for i, v in ipairs( aAttachedFunctions ) do
+                if v == func then
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+
+function convertTime(ms) 
+    local min = math.floor ( ms/60000 ) 
+    local sec = math.floor( (ms/1000)%60 ) 
+    if (min < 10) then min = '0'..min end 
+    if (sec < 10) then sec = '0'..sec end 
+    return min, sec 
+end
+
+function isArticleSelected(article) 
+    for i, v in ipairs(selected_articles) do 
+        if (v[1] == article) then 
+            return i 
+        end
+    end
+end
+
+function getArticles()
+    local string = '' 
+    for i, v in ipairs(selected_articles) do 
+        if (i == #selected_articles) then 
+            string = string..v[1]
+        else
+            string = string..v[1]..', '
+        end
+    end
+
+    return string
+end
+
+function getAllTimeSelect() 
+    local time = 0 
+    for i, v in ipairs(selected_articles) do 
+        time = v[2] + time 
+    end
+    return time
+end
+
+function scroll (b)
+    if isEventHandlerAdded('onClientRender', root, draw_prison) then 
+        if (config.articles) then 
+            if (b == 'mouse_wheel_down') then
+                page = page + 1
+                if (page > #config.articles - 6) then
+                    page = #config.articles - 6
+                end
+                move_page = page
+            elseif (b == 'mouse_wheel_up')  then
+                if (page > 0) then
+                    page = page - 1
+                end
+                move_page = page
+            end
+        end
+    elseif (isEventHandlerAdded('onClientRender', root, draw_bail)) then 
+        if (data) then 
+            if (b == 'mouse_wheel_down') then
+                page = page + 1
+                if (page > #data - 6) then
+                    page = #data - 6
+                end
+                move_page = page
+            elseif (b == 'mouse_wheel_up')  then
+                if (page > 0) then
+                    page = page - 1
+                end
+                move_page = page
+            end
+        end
+    end
+end
+bindKey('mouse_wheel_up', 'down', scroll)
+bindKey('mouse_wheel_down', 'down', scroll)
+------------------------------------------------        

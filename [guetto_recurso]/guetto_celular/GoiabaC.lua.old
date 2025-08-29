@@ -1,0 +1,1872 @@
+﻿local screen = {guiGetScreenSize()} local x, y = (screen[1]/1366), (screen[2]/768) local tick = {} local wallpaper = 1 local font = {dxCreateFont('Files/font.ttf', 10, false), dxCreateFont('Files/font.ttf', 20, false), dxCreateFont('Files/font.ttf', 8, false), dxCreateFont('Files/font.ttf', 13, false), dxCreateFont('Files/font.ttf', 35, false)} local windowConfig = nil local edits = {} local plano = 0 notas = {} notaselect = false n1 = false n2 = {} logoMusica = {}
+local font2 = dxCreateFont('Files/font.ttf', 10, true)
+local font4 = dxCreateFont('Files/font.ttf', 20, true)
+ultimasTocada = {} edits = {}
+edits[1] = {guiCreateEdit(screen[1] - 1000, screen[2] - 1000, 0, 0, '', false), false}
+edits[2] = {guiCreateEdit(screen[1] - 1000, screen[2] - 1000, 0, 0, '', false), false}
+edits[3] = {guiCreateEdit(screen[1] - 1000, screen[2] - 1000, 0, 0, '', false), false}
+
+guiEditSetMaxLength(edits[1][1], 13)
+guiEditSetMaxLength(edits[2][1], 13)
+guiEditSetMaxLength(edits[3][1], 55)
+
+musicasSearch = {}
+
+proximaPagina2 = 0
+maxLinhas2 = 5
+
+proximaPagina2 = 0
+maxLinhas2 = 7
+
+local infoswpp = {} 
+local personswpp = {} 
+local indexapp = {}
+
+icons = {       -- trigger para para triggar event, window para mudar de janela
+    {'Configuração', 'Files/Imagens/icons/config.png', 'window'                     },
+    {'Camera', 'Files/Imagens/icons/camera.png', 'trigger', 'client', 'Pedro.Selfie'},
+    {'Informações', 'Files/Imagens/icons/info.png', 'window'                        },
+
+    {'Contatos', 'Files/Imagens/icons/contatos.png', 'window'                       },
+    {'GPS', 'Files/Imagens/icons/gps.png', 'window'                                 },
+    {'Spotify', 'Files/Imagens/icons/spotify.png', 'window'                         },
+ 
+    {'Telefone', 'Files/Imagens/icons/chamada.png', 'window'                        },
+    {'Whatsapp', 'Files/Imagens/icons/whatsapp.png', 'window'                       },
+    {'Banco', 'Files/Imagens/icons/banco.png', 'window'                             },
+    {'Bloco de Notas', 'Files/Imagens/icons/Notas.png', 'window'                    },
+    {'Calculadora', 'Files/Imagens/icons/calculadora.png', 'window'                 },
+}
+
+wallpapers = {
+    {x * 1106, y * 324, x * 55, y * 119, '1'},
+    {x * 1183, y * 324, x * 55, y * 119, '2'},
+    {x * 1259, y * 324, x * 55, y * 119, '3'},
+}
+
+ative = {
+    {x * 1115, y * 339, x * 31, y * 20, 'Ligação', x * 1149, y * 340, x * 1311, y * 358},
+    {x * 1115, y * 370, x * 31, y * 20, 'Ligação de estranhos', x * 1149, y * 372, x * 1311, y * 390},
+    {x * 1115, y * 401, x * 31, y * 20, 'Mensagens', x * 1149, y * 400, x * 1311, y * 418},
+    {x * 1115, y * 432, x * 31, y * 20, 'Mensagens de estranhos', x * 1149, y * 432, x * 1311, y * 450},
+}
+
+slots = {
+    {x * 1121, y * 273, x * 40, y * 40},
+    {x * 1167, y * 273, x * 40, y * 40},
+    {x * 1213, y * 273, x * 40, y * 40},
+    {x * 1258, y * 273, x * 40, y * 40},
+
+    {x * 1121, y * 326, x * 40, y * 40},
+    {x * 1167, y * 326, x * 40, y * 40},
+    {x * 1213, y * 326, x * 40, y * 40},
+    {x * 1258, y * 326, x * 40, y * 40},
+
+    {x * 1121, y * 379, x * 40, y * 40},
+    {x * 1167, y * 379, x * 40, y * 40},
+    {x * 1213, y * 379, x * 40, y * 40},
+    {x * 1258, y * 379, x * 40, y * 40},
+
+    {x * 1121, y * 432, x * 40, y * 40},
+    {x * 1167, y * 432, x * 40, y * 40},
+    {x * 1213, y * 432, x * 40, y * 40},
+    {x * 1258, y * 432, x * 40, y * 40},
+
+    {x * 1121, y * 485, x * 40, y * 40},
+    {x * 1167, y * 485, x * 40, y * 40},
+    {x * 1213, y * 485, x * 40, y * 40},
+    {x * 1258, y * 485, x * 40, y * 40},
+
+    {x * 1121, y * 538, x * 40, y * 40},
+    {x * 1167, y * 538, x * 40, y * 40},
+    {x * 1213, y * 538, x * 40, y * 40},
+    {x * 1258, y * 538, x * 40, y * 40},
+
+    {x * 1121, y * 591, x * 40, y * 40},
+    {x * 1167, y * 591, x * 40, y * 40},
+    {x * 1213, y * 591, x * 40, y * 40},
+    {x * 1258, y * 591, x * 40, y * 40},
+
+    {x * 1121, y * 677, x * 40, y * 40},
+    {x * 1167, y * 677, x * 40, y * 40},
+    {x * 1213, y * 677, x * 40, y * 40},
+    {x * 1259, y * 677, x * 40, y * 40},
+}
+
+setTimer(function()
+    windows = {
+
+        ['Configuração'] = {
+            --// x, y, x, y, se é texto, imagem, rectangle ou rectangle-border, se for texto coloque o texto imagem, coloque a imagem, e a cor
+            {x * 1095.91, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1096, y * 338, x * 228, y * 76, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1103, y * 463, x * 215, y * 2, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1103, y * 510, x * 215, y * 2, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1115, y * 297, x * 1284, y * 331, 'texto', 'Ajustes', 2, 'default-bold', 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1165, y * 355, x * 1305, y * 380, 'texto', '${nome}', 1.5, 'default-bold', 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1165, y * 380, x * 1305, y * 405, 'texto', 'guetto@icloud.com', 1, 'default-bold', 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1103, y * 418, x * 43, y * 43, 'imagem', 'Files/Imagens/icons/notificacao.png', tocolor(255, 255, 255, alpha)},
+            {x * 1103, y * 466, x * 43, y * 43, 'imagem', 'Files/Imagens/icons/wallpaper.png', tocolor(255, 255, 255, alpha)},
+            {x * 1106, y * 348, x * 55, y * 55, 'imagem', ':guetto_characters/assets/avatars/${avatar}.png', tocolor(255, 255, 255, alpha)},
+            {x * 1154, y * 421, x * 1315, y * 458, 'texto', 'Notificações', 1.3, 'default-bold', 'left', tocolor(255, 255, 255, 255)},
+            {x * 1154, y * 468, x * 1315, y * 505, 'texto', 'Wallpapers', 1.3, 'default-bold', 'left', tocolor(255, 255, 255, 255)},
+        },
+
+        ['Informações'] = {
+            {x * 1095.91, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1096, y * 335, x * 228, y * 48, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1096, y * 388, x * 228, y * 48, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1096, y * 441, x * 228, y * 48, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1096, y * 494, x * 228, y * 48, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1096, y * 547, x * 228, y * 48, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1095, y * 277, x * 1324, y * 315, 'texto', 'Informações', 2, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+
+            {x * 1094, y * 334, x * 1324, y * 384, 'texto', 'Nome: ${nome}', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1094, y * 384, x * 1324, y * 434, 'texto', 'Emprego: ${emprego}', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1094, y * 440, x * 1324, y * 490, 'texto', 'Dinheiro: ${dinheiro}', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1094, y * 494, x * 1324, y * 544, 'texto', 'Banco: ${banco}', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1094, y * 548, x * 1324, y * 598, 'texto', 'Passaporte: ${passaporte}', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['GPS'] = { 
+            {x * 1095.91, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1132, y * 396, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1161, y * 474, x * 100, y * 30, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1138, y * 396, x * 1285, y * 420, 'texto', 'ID', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1160, y * 473, x * 1262, y * 505, 'texto', 'Enviar', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 295, x * 1324, y * 347, 'texto', 'GPS', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 394, x * 1286, y * 423, 'editbox', 1, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+        }, 
+
+        ['Banco'] = { 
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1132, y * 396, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1132, y * 427, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1161, y * 474, x * 100, y * 30, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1138, y * 396, x * 1285, y * 420, 'texto', 'ID', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1138, y * 427, x * 1285, y * 454, 'texto', 'Valor', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1160, y * 473, x * 1262, y * 505, 'texto', 'Enviar', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 295, x * 1324, y * 347, 'texto', 'Banco', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 394, x * 1286, y * 423, 'editbox', 1, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 427, x * 1286, y * 454, 'editbox', 2, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['Telefone'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1107, y * 381, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 1},
+            {x * 1186, y * 381, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 2},
+            {x * 1263, y * 381, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 3},
+            {x * 1107, y * 456, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 4},
+            {x * 1186, y * 456, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 5},
+            {x * 1263, y * 456, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 6},
+            {x * 1107, y * 531, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 7},
+            {x * 1186, y * 531, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 8},
+            {x * 1263, y * 531, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 9},
+            {x * 1107, y * 606, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), '*'},
+            {x * 1186, y * 606, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), 0},
+            {x * 1263, y * 606, x * 50, y * 50, 'circle', tocolor(65, 65, 65, alpha), '#'},
+            {x * 1186, y * 674, x * 50, y * 50, 'circle', tocolor(107, 215, 111, alpha), false},
+            {x * 1095, y * 295, x * 1324, y * 347, 'number', 1, 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+
+            {x * 1108, y * 379, x * 1157, y * 432, 'texto', '1', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1186, y * 379, x * 1235, y * 432, 'texto', '2', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1263, y * 379, x * 1312, y * 432, 'texto', '3', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1108, y * 452, x * 1157, y * 505, 'texto', '4', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1186, y * 452, x * 1235, y * 505, 'texto', '5', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1263, y * 452, x * 1312, y * 505, 'texto', '6', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1108, y * 528, x * 1157, y * 581, 'texto', '7', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1186, y * 531, x * 1235, y * 581, 'texto', '8', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1263, y * 528, x * 1312, y * 581, 'texto', '9', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1108, y * 605, x * 1157, y * 658, 'texto', '*', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1186, y * 605, x * 1235, y * 658, 'texto', '0', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1263, y * 605, x * 1312, y * 658, 'texto', '#', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1198, y * 688, x * 25, y * 25, 'imagem', 'Files/Imagens/Icons/telefone2.png', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['Calculadora'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(0, 0, 0, alpha)},
+            {x * 1096, y * 409, x * 229, y * 290, 'imagem', 'Files/Imagens/Calc.png', tocolor(255, 255, 255, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 295, x * 1324, y * 347, 'number', 1, 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['Chamando'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1135, y * 309, x * 150, y * 150, 'imagem', ':guetto_characters/assets/avatars/${avatar}.png', tocolor(255, 255, 255, alpha)},
+            {x * 1190, y * 638, x * 50, y * 50, 'circle', tocolor(252, 61, 61, alpha), false},
+            {x * 1094, y * 476, x * 1326, y * 509, 'texto', 'Chamando...', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1202, y * 650, x * 25, y * 25, 'imagem', 'Files/Imagens/Icons/telefone2.png', tocolor(255, 255, 255, alpha)},
+        }, 
+
+        ['Recebendo'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1131, y * 638, x * 50, y * 50, 'circle', tocolor(107, 215, 111, alpha), false},
+            {x * 1245, y * 638, x * 50, y * 50, 'circle', tocolor(252, 61, 61, alpha), false},
+
+            {x * 1135, y * 309, x * 150, y * 150, 'imagem', ':guetto_characters/assets/avatars/${avatar}.png', tocolor(255, 255, 255, alpha)},
+            {x * 1094, y * 476, x * 1326, y * 509, 'texto', 'Recebendo...', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+
+            {x * 1143, y * 650, x * 25, y * 25, 'imagem', 'Files/Imagens/Icons/telefone2.png', tocolor(255, 255, 255, alpha)},
+            {x * 1258, y * 650, x * 25, y * 25, 'imagem', 'Files/Imagens/Icons/telefone2.png', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['Ligação'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1135, y * 309, x * 150, y * 150, 'imagem', ':guetto_characters/assets/avatars/${avatar}.png', tocolor(255, 255, 255, alpha)},
+            {x * 1190, y * 638, x * 50, y * 50, 'circle', tocolor(252, 61, 61, alpha), false},
+            {x * 1091, y * 435, x * 1325, y * 522, 'timer', 'a', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1202, y * 650, x * 25, y * 25, 'imagem', 'Files/Imagens/Icons/telefone2.png', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 551, x * 1324, y * 593, 'texto', 'Pressione \'Z\' para falar', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['Whatsapp'] = {
+            {x * 1095.91, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 295, x * 1324, y * 347, 'texto', 'Whatsapp', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1096, y * 342, x * 230, y * 16, 'rectangle', tocolor(65, 65, 65, alpha)},
+            {x * 1103, y * 341, x * 1284, y * 359, 'texto', 'Conversas', 1.00, 'default-bold', 'left', tocolor(130, 130, 130, alpha)},
+        },
+
+        ['Adicionar contato'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1132, y * 396, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1132, y * 427, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1161, y * 474, x * 100, y * 30, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1138, y * 396, x * 1285, y * 420, 'texto', 'ID', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1138, y * 427, x * 1285, y * 454, 'texto', 'Contato', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1160, y * 473, x * 1262, y * 505, 'texto', 'Adicionar', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 295, x * 1324, y * 347, 'texto', 'Contatos', 1, font[2], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 394, x * 1286, y * 423, 'editbox', 1, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 427, x * 1286, y * 454, 'editbox', 2, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+        },
+
+        ['Adicionar Nota'] = {
+            {x * 1096, y * 236, x * 228.51, y * 495.11, 'imagem', 'Files/Imagens/interface.png', tocolor(41, 41, 41, alpha)},
+            {x * 1102, y * 257, x * 1162, y * 281, 'texto', 'Voltar', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1095, y * 284, x * 1325, y * 307, 'texto', 'Adicionador de Notas', 1, 'default-bold', 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1132, y * 396, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1132, y * 427, x * 153, y * 26, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1161, y * 474, x * 100, y * 30, 'rectangle-border', tocolor(65, 65, 65, alpha)},
+            {x * 1138, y * 396, x * 1285, y * 420, 'texto', 'Titulo', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1138, y * 427, x * 1285, y * 454, 'texto', 'Nota', 1, font[1], 'left', tocolor(255, 255, 255, alpha)},
+            {x * 1160, y * 473, x * 1262, y * 505, 'texto', 'Salvar', 1, font[1], 'center', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 394, x * 1286, y * 423, 'editbox', 1, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+            {x * 1130, y * 427, x * 1286, y * 454, 'editbox', 2, 1, font[1], 'right', tocolor(255, 255, 255, alpha)},
+        },
+    }
+end, 500, 1)
+
+posTextContato = {
+    {x * 1102, y * 455, x * 1288, y * 477},
+    {x * 1102, y * 477, x * 1288, y * 499},
+    {x * 1102, y * 499, x * 1288, y * 521},
+    {x * 1102, y * 521, x * 1288, y * 543},
+    {x * 1102, y * 543, x * 1288, y * 565},
+    {x * 1102, y * 565, x * 1288, y * 587},
+    {x * 1102, y * 587, x * 1288, y * 609},
+    {x * 1102, y * 609, x * 1288, y * 631},
+}
+
+posBarraEmergencia = {
+    {x * 1096, y * 359, x * 230, y * 16, 'STAFF'},
+    {x * 1096, y * 378, x * 230, y * 16, 'Policial'},
+    {x * 1096, y * 396, x * 230, y * 16, 'MEC'},
+}
+
+posBarraContato = {
+    {x * 1096, y * 457, x * 230, y * 16, x * 1286, y * 460, x * 11, y * 9, x * 1300, y * 460, x * 9, y * 9, x * 1315, y * 460, x * 8, y * 9},
+    {x * 1096, y * 480, x * 230, y * 16, x * 1286, y * 483, x * 11, y * 9, x * 1300, y * 483, x * 9, y * 9, x * 1315, y * 483, x * 8, y * 9},
+    {x * 1096, y * 501, x * 230, y * 16, x * 1286, y * 505, x * 11, y * 9, x * 1300, y * 505, x * 9, y * 9, x * 1315, y * 505, x * 8, y * 9},
+    {x * 1096, y * 523, x * 230, y * 16, x * 1286, y * 526, x * 11, y * 9, x * 1300, y * 526, x * 9, y * 9, x * 1315, y * 526, x * 8, y * 9},
+    {x * 1096, y * 545, x * 230, y * 16, x * 1286, y * 548, x * 11, y * 9, x * 1300, y * 548, x * 9, y * 9, x * 1315, y * 548, x * 8, y * 9},
+    {x * 1096, y * 569, x * 230, y * 16, x * 1286, y * 572, x * 11, y * 9, x * 1300, y * 572, x * 9, y * 9, x * 1315, y * 572, x * 8, y * 9},
+    {x * 1096, y * 590, x * 230, y * 16, x * 1286, y * 593, x * 11, y * 9, x * 1300, y * 593, x * 9, y * 9, x * 1315, y * 593, x * 8, y * 9},
+    {x * 1096, y * 611, x * 230, y * 16, x * 1286, y * 614, x * 11, y * 9, x * 1300, y * 614, x * 9, y * 9, x * 1315, y * 614, x * 8, y * 9},
+}
+
+posMsgsEnviadas = {
+    {x * 1157, y * 369, x * 163, y * 56, y * 368, x * 1322, y * 427},
+    {x * 1157, y * 433, x * 163, y * 56, y * 432, x * 1322, y * 491},
+    {x * 1157, y * 497, x * 163, y * 56, y * 496, x * 1322, y * 555},
+    {x * 1157, y * 561, x * 163, y * 56, y * 561, x * 1322, y * 620},
+    {x * 1157, y * 625, x * 163, y * 56, y * 624, x * 1322, y * 683},
+}
+
+posMsgsRecebidas = {
+    {x * 1102, y * 369, x * 163, y * 56, y * 368, x * 1266, y * 427},
+    {x * 1102, y * 433, x * 163, y * 56, y * 432, x * 1266, y * 491},
+    {x * 1102, y * 497, x * 163, y * 56, y * 496, x * 1266, y * 555},
+    {x * 1102, y * 561, x * 163, y * 56, y * 561, x * 1266, y * 620},
+    {x * 1102, y * 625, x * 163, y * 56, y * 624, x * 1266, y * 683},
+}
+
+posBarrasConversas = {
+    {x * 1096, y * 358 + 5, x * 229, y * 40},
+    {x * 1096, y * 408 + 5, x * 229, y * 40},
+    {x * 1096, y * 458 + 5, x * 229, y * 40},
+    {x * 1096, y * 508 + 5, x * 229, y * 40},
+    {x * 1096, y * 558 + 5, x * 229, y * 40},
+    {x * 1096, y * 608 + 5, x * 229, y * 40},
+    {x * 1096, y * 658 + 5, x * 229, y * 40},
+}
+
+posTextConversas = {
+    {x * 1141, y * 358 + 5, x * 1325, y * 398},
+    {x * 1141, y * 408 + 5, x * 1325, y * 448},
+    {x * 1141, y * 458 + 5, x * 1325, y * 498},
+    {x * 1141, y * 508 + 5, x * 1325, y * 548},
+    {x * 1141, y * 558 + 5, x * 1325, y * 598},
+    {x * 1141, y * 608 + 5, x * 1325, y * 648},
+    {x * 1141, y * 658 + 5, x * 1325, y * 698},
+}
+
+posAvatarConversas = {
+    {y * 365 + 5}, 
+    {y * 415 + 5}, 
+    {y * 465 + 5},
+    {y * 515 + 5},
+    {y * 565 + 5}, 
+    {y * 615 + 5},
+    {y * 665 + 5},
+}
+
+proximaPagina = 0
+maxLinhas = #posBarraContato
+
+spotifyPosition = {
+    {x * 1103, y * 357, x * 213, y * 58, x * 1110, y * 356, x * 1309, y * 416},
+    {x * 1103, y * 417, x * 213, y * 58, x * 1110, y * 416, x * 1309, y * 476},
+    {x * 1103, y * 477, x * 213, y * 58, x * 1110, y * 476, x * 1309, y * 536},
+    {x * 1103, y * 537, x * 213, y * 58, x * 1110, y * 536, x * 1309, y * 596},
+    {x * 1103, y * 597, x * 213, y * 58, x * 1110, y * 596, x * 1309, y * 656},
+}
+
+proximaPagina3 = 0
+maxLinhas3 = 7
+
+indexPag = 0
+
+--bloco de notas 
+local posBarrasNotas = {
+    {x * 1096, y * 302 + 15, x * 227, y * 50}, 
+    {x * 1096, y * 359 + 15, x * 227, y * 50}, 
+    {x * 1096, y * 416 + 15, x * 227, y * 50}, 
+    {x * 1096, y * 473 + 15, x * 227, y * 50}, 
+    {x * 1096, y * 530 + 15, x * 227, y * 50}, 
+    {x * 1096, y * 587 + 15, x * 227, y * 50}, 
+    {x * 1096, y * 644 + 15, x * 227, y * 50}, 
+}
+
+local posTextNotas = {
+    {x * 1110, y * 315, x * 1255, y * 365},
+    {x * 1110, y * 375, x * 1255, y * 425},
+    {x * 1110, y * 429, x * 1255, y * 479},
+    {x * 1110, y * 489, x * 1255, y * 539},
+    {x * 1110, y * 544, x * 1255, y * 594},
+    {x * 1110, y * 604, x * 1255, y * 654},
+}
+
+-- calculadora  
+posCalc = {
+    {x * 1108, y * 639, x * 99, y * 45, 0},
+
+    {x * 1108, y * 585, x * 45, y * 45, 1},
+    {x * 1162, y * 585, x * 45, y * 45, 2},
+    {x * 1216, y * 585, x * 45, y * 45, 3},
+    
+    {x * 1108, y * 531, x * 45, y * 45, 4},
+    {x * 1162, y * 531, x * 45, y * 45, 5},
+    {x * 1216, y * 531, x * 45, y * 45, 6},
+
+    {x * 1108, y * 477, x * 45, y * 45, 7},
+    {x * 1162, y * 477, x * 45, y * 45, 8},
+    {x * 1216, y * 477, x * 45, y * 45, 9},
+
+    {x * 1216, y * 639, x * 45, y * 45, '.'},
+    
+    {x * 1108, y * 423, x * 45, y * 45, 'AC'},
+    
+    {x * 1270, y * 423, x * 45, y * 45, '/'},
+    {x * 1270, y * 477, x * 45, y * 45, '*'},
+    {x * 1270, y * 531, x * 45, y * 45, '-'},
+    {x * 1270, y * 585, x * 45, y * 45, '+'},
+    {x * 1270, y * 639, x * 45, y * 45, '='},
+}
+
+-- posições de veiculos 
+vehiclesPositions = {
+
+    {x * 1103, y * 297, x * 217, y * 36};
+    {x * 1103, y * 336, x * 217, y * 36};
+    {x * 1103, y * 375, x * 217, y * 36};
+    {x * 1103, y * 414, x * 217, y * 36};
+    {x * 1103, y * 453, x * 217, y * 36};
+    {x * 1103, y * 492, x * 217, y * 36};
+    {x * 1103, y * 531, x * 217, y * 36};
+    {x * 1103, y * 570, x * 217, y * 36};
+    {x * 1103, y * 609, x * 217, y * 36};
+    {x * 1103, y * 648, x * 217, y * 36};
+
+}
+
+vehiclesTextPositions = {
+
+    {x * 1111, y * 293, x * 1208, y * 334},
+    {x * 1111, y * 334, x * 1208, y * 375},
+    {x * 1111, y * 375, x * 1208, y * 416},
+    {x * 1111, y * 412, x * 1208, y * 453},
+    {x * 1111, y * 453, x * 1208, y * 494},
+    {x * 1111, y * 494, x * 1208, y * 535},
+    {x * 1111, y * 530, x * 1208, y * 571},
+    {x * 1111, y * 567, x * 1208, y * 608},
+    {x * 1111, y * 608, x * 1208, y * 649},
+    {x * 1111, y * 649, x * 1208, y * 690},
+
+}
+
+local fontVehicles = {
+
+    dxCreateFont('Files/font.ttf', 10);
+
+}
+
+function dxDraw()
+
+    if (painel == true) then 
+        alpha = interpolateBetween(0, 0, 0, 255, 0, 0, ((getTickCount() - tick[1]) / 1000), 'Linear')
+    else 
+        alpha = interpolateBetween(255, 0, 0, 0, 0, 0, ((getTickCount() - tick[1]) / 1000), 'Linear')
+    end
+
+    dxDrawImage(x * 1083, y * 226, x * 254.98, y * 518.35, 'Files/Imagens/Base.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+    
+    if (window == 'Bloqueio') then 
+        dxDrawImage(x * 1094.5, y * 236, x * 230, y * 496, 'Files/Imagens/'..wallpaper..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+        dxDrawImage(x * 1194, y * 669, x * 29.22, y * 33.03, 'Files/Imagens/Icons/Digital.png', 0, 0, 0, (isMouseInPosition(x * 1194, y * 669, x * 29.22, y * 33.03) and tocolor(39, 0, 255, alpha) or tocolor(255, 255, 255, alpha)), false)
+    elseif (window == 'inicio') then
+        dxDrawImage(x * 1094.5, y * 236, x * 230, y * 496, 'Files/Imagens/'..wallpaper..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+        dxDrawImage(x * 1110, y * 671, x * 200, y * 53, 'Files/Imagens/rodape.png', 0, 0, 0, tocolor(255, 255, 255, (alpha < 180 and alpha or 180)), false)
+        for i, v in ipairs(icons) do
+            if selectapp ~= v[1] then 
+                if indexapp[v[1]] then 
+                    if not isMouseInPosition(slots[indexapp[v[1]]][1], slots[indexapp[v[1]]][2], slots[indexapp[v[1]]][3], slots[indexapp[v[1]]][4]) then
+                        dxDrawImage(slots[indexapp[v[1]]][1], slots[indexapp[v[1]]][2], slots[indexapp[v[1]]][3], slots[indexapp[v[1]]][4], v[2], 0, 0, 0, tocolor(255, 255, 255, alpha), false) 
+                    else
+                        dxDrawImage(slots[indexapp[v[1]]][1] - 1, slots[indexapp[v[1]]][2] - 1, slots[indexapp[v[1]]][3] + 2, slots[indexapp[v[1]]][4] + 2, v[2], 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+                        if isCursorShowing() then
+                            local cx, cy = getCursorPosition()
+                            local mx, my = cx * screen[1], cy * screen[2]
+                            dxDrawText(v[1], mx - x*30, my + y*10, x*240, y*30, tocolor(255, 255, 255, 255), 1.00, font[1], 'left', 'top', false, false, false, true, false)
+                        end
+                    end
+                else 
+                    if not isMouseInPosition(slots[i][1], slots[i][2], slots[i][3], slots[i][4]) then
+                        dxDrawImage(slots[i][1], slots[i][2], slots[i][3], slots[i][4], v[2], 0, 0, 0, tocolor(255, 255, 255, alpha), false) 
+                    else
+                        dxDrawImage(slots[i][1] - 1, slots[i][2] - 1, slots[i][3] + 2, slots[i][4] + 2, v[2], 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+                        if isCursorShowing() then
+                            local cx, cy = getCursorPosition()
+                            local mx, my = cx * screen[1], cy * screen[2]
+                            dxDrawText(v[1], mx - x*30, my + y*10, x*240, y*30, tocolor(255, 255, 255, 255), 1.00, font[1], 'left', 'top', false, false, false, true, false)
+                        end
+                    end
+                end
+            else
+                local cx, cy = getCursorPosition()
+                local mx, my = cx * screen[1], cy * screen[2]
+                dxDrawImage(mx, my, x * 40, y * 40, v[2], 0, 0, 0, tocolor(255, 255, 255, alpha), false) 
+            end
+        end
+    elseif (window == 'Spotify') then
+        dxDrawImage(x * 1096, y * 236, x * 228.51, y * 495.11, 'Files/Imagens/interface.png', 0, 0, 0, tocolor(18, 18, 18, alpha))
+        dxDrawImage(x * 1096, y * 283, x * 229, y * 447, 'Files/Imagens/icons/spotify_fundo.png', 0, 0, 0, tocolor(255, 255, 255, alpha))
+        if editSpotify[1] == false and isElement(editSpotify[2]) and guiGetText(editSpotify[2]) == '' then
+            dxDrawImage(x * 1102, y * 315, x * 214, y * 31, 'Files/Imagens/icons/spotify_edit.png', 0, 0, 0, tocolor(255, 255, 255, alpha))
+        else
+            dxDrawText((isElement(editSpotify[2]) and (editSpotify[1] and guiGetText(editSpotify[2])..'|' or guiGetText(editSpotify[2])) or ''), x * 1109, y * 318, x * 1302, y * 342, tocolor(112, 112, 112, alpha), 1.00, font[4], 'left', 'center', false, false, false, false, false)
+            dxDrawImage(x * 1296, y * 324, x * 13, y * 13, 'files/Imagens/icons/search.png', 0, 0, 0, tocolor(255, 255, 255, (isMouseInPosition(x * 1296, y * 324, x * 13, y * 13) and alpha - 80 or alpha)), false)
+        end
+
+        dxDrawText('Voltar', x * 1102, y * 257, x * 1162, y * 281, tocolor(255, 255, 255, alpha), 1, 'default-bold', 'center', 'center', false, false, false, false, false) 
+
+        linha = 0
+        for i, v in ipairs(musicasSearch) do
+            if (i > indexPag and linha < #spotifyPosition) then
+                linha = linha + 1
+                dxDrawImage(spotifyPosition[linha][1], spotifyPosition[linha][2], spotifyPosition[linha][3], spotifyPosition[linha][4], 'Files/barrac.png', 0, 0, 0, (isMouseInPosition(spotifyPosition[linha][1], spotifyPosition[linha][2], spotifyPosition[linha][3], spotifyPosition[linha][4]) and tocolor(141, 106, 240, alpha) or tocolor(112, 112, 112, alpha)), false)
+                dxDrawText(v[1]..'\n'..secondsToMinutes(v[2]), spotifyPosition[linha][5], spotifyPosition[linha][6], spotifyPosition[linha][7], spotifyPosition[linha][8], tocolor(255, 255, 255, alpha), 0.80, font[1], 'center', 'center', false, true, false, false, false)
+            end
+        end
+
+        if #musicasSearch > 0 then
+            dxDrawImage(x * 1188, y * 646, x * 43, y * 43, 'files/'..(isElement(soundSpotify) and (isSoundPaused(soundSpotify) and 'play' or 'pause') or 'play')..'.png', 0, 0, 0, (isMouseInPosition(x * 1188, y * 646, x * 43, y * 43) and tocolor(255, 255, 255, alpha) or tocolor(141, 106, 240, alpha)), false)
+        end
+
+    elseif (window == 'Conversa Zap') then
+        if isElement(conversando) then
+            dxDrawImage(x * 1096, y * 236, x * 228.51, y * 495.11, 'Files/Imagens/interface.png', 0, 0, 0, tocolor(41, 41, 41, alpha), false)
+            dxDrawText('Voltar', x * 1102, y * 257, x * 1162, y * 281, tocolor(255, 255, 255, alpha), 1, 'default-bold', 'center', 'center', false, false, false, false, false) 
+            dxDrawRectangle(x * 1096, y * 342, x * 230, y * 16, tocolor(65, 65, 65, alpha), false)
+            dxDrawText('Mensagens', x * 1103, y * 341, x * 1284, y * 359, tocolor(130, 130, 130, alpha), 1.00, 'default-bold', 'left', 'center', false, false, false, false, false)  
+            dxDrawImage(x * 1268, y * 284, x * 50, y * 50, ':guetto_characters/assets/avatars/'..(getElementData(conversando, 'Avatar') or 0)..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+            dxDrawText(getPlayerName(conversando), x * 1112, y * 285, x * 1261, y * 310, tocolor(255, 255, 255, alpha), 1.00, font[1], 'right', 'bottom', false, false, true, false, false)
+            dxDrawText('Online', x * 1112, y * 310, x * 1261, y * 335, tocolor(255, 255, 255, alpha), 1.00, font[1], 'right', 'top', false, false, true, false, false)
+            
+            dxDrawRectangle(x * 1122, y * 694, x * 178, y * 26, tocolor(60, 60, 60, alpha), false)
+            dxDrawRectangle(x * 1122, y * 720, x * 178, y * 1, (edits[3][2] and tocolor(141, 106, 240, alpha) or tocolor(80, 80, 80, alpha)), false)
+            dxDrawText((edits[3][2] and guiGetText(edits[3][1])..'|' or (guiGetText(edits[3][1]) == '' and 'Mensagem' or guiGetText(edits[3][1]))), x * 1126, y * 694, x * 1295, y * 721, (guiGetText(edits[3][1]) == '' and tocolor(180, 180, 180, alpha) or tocolor(255, 255, 255, alpha)), 1.00, font[3], 'left', 'center', false, true, true, false, false)
+
+            linha = 0
+            for i, v in ipairs(infoswpp) do
+                if v[1] == getPlayerName(conversando)..getPlayerName(localPlayer) then
+                    if (i > proximaPagina2 and linha < maxLinhas2) then
+                        linha = linha + 1
+                        if v[3] == 'enviado' then
+                            drawBorde(posMsgsEnviadas[linha][1], posMsgsEnviadas[linha][2], posMsgsEnviadas[linha][3], posMsgsEnviadas[linha][4], tocolor(89, 116, 95, alpha))
+                            dxDrawText(' '..v[2], posMsgsEnviadas[linha][1], posMsgsEnviadas[linha][5], posMsgsEnviadas[linha][6], posMsgsEnviadas[linha][7], tocolor(255, 255, 255, alpha), 1.00, font[3], 'left', 'top', false, true, true, false, false)
+                        else
+                            drawBorde(posMsgsRecebidas[linha][1], posMsgsRecebidas[linha][2], posMsgsRecebidas[linha][3], posMsgsRecebidas[linha][4], tocolor(141, 106, 240, alpha))
+                            dxDrawText(' '..v[2], posMsgsRecebidas[linha][1], posMsgsRecebidas[linha][5], posMsgsRecebidas[linha][6], posMsgsRecebidas[linha][7], tocolor(255, 255, 255, alpha), 1.00, font[3], 'left', 'top', false, true, true, false, false)
+                        end
+                    end
+                end
+            end
+
+        else
+            window = 'Whatsapp'
+        end
+    elseif (window == 'Whatsapp') then
+        for i, v in ipairs(windows[window]) do
+            if (v[5] == 'imagem') then
+                if string.find(v[6], '${avatar}') then
+                    dxDrawImage(v[1], v[2], v[3], v[4], ':guetto_characters/assets/avatars/'..(getElementData(localPlayer, 'Avatar') or 0)..'.png', 0, 0, 0, v[7], false)
+                elseif string.find(v[6], '${avatarfdp}') then
+                    dxDrawImage(v[1], v[2], v[3], v[4], ':guetto_characters/assets/avatars/'..avatar..'.png', 0, 0, 0, v[7], false)
+                else
+                    dxDrawImage(v[1], v[2], v[3], v[4], v[6], 0, 0, 0, v[7], false)
+                end
+            elseif (v[5] == 'texto') then
+                if string.find(v[6], '${nome}') then
+                    dxDrawText(string.gsub(v[6], '${nome}', '')..''..cortName(getPlayerName(localPlayer)), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                elseif string.find(v[6], '${emprego}') then
+                    dxDrawText(string.gsub(v[6], '${emprego}', '')..''..(getElementData(localPlayer, 'Emprego') or 'Desempregado'), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                elseif string.find(v[6], '${dinheiro}') then
+                    dxDrawText(string.gsub(v[6], '${dinheiro}', '')..''..getPlayerMoney(localPlayer), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                elseif string.find(v[6], '${banco}') then
+                    dxDrawText(string.gsub(v[6], '${banco}', '')..'R$ '..config.convertNumber((getElementData(localPlayer, 'guetto.bank.balance') or 0)), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                elseif string.find(v[6], '${passaporte}') then
+                    dxDrawText(string.gsub(v[6], '${passaporte}', '')..''..(getElementData(localPlayer, 'ID') or 'N/A'), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                elseif string.find(v[6], '${créditos}') then 
+                    dxDrawText(string.gsub(v[6], '${créditos}', '')..''..(getElementData(localPlayer, 'Mbs') or 0), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                else
+                    dxDrawText(v[6], v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                end
+            elseif (v[5] == 'rectangle') then
+                dxDrawRectangle(v[1], v[2], v[3], v[4], v[6], false)
+            elseif (v[5] == 'rectangle-border') then
+                drawBorde(v[1], v[2], v[3], v[4], isMouseInPosition(v[1], v[2], v[3], v[4]) and tocolor(141, 106, 240, alpha) or v[6], isMouseInPosition(v[1], v[2], v[3], v[4]) and tocolor(141, 106, 240, alpha) or v[6], true)
+            elseif (v[5] == 'editbox') then
+                dxDrawText((edits[v[6]][2] and guiGetText(edits[v[6]][1])..'|' or guiGetText(edits[v[6]][1])), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+            elseif (v[5] == 'circle') then
+                if (v[7] ~= false) then 
+                    dxDrawImage(v[1], v[2], v[3], v[4], 'Files/Imagens/Icons/Bola.png', 0, 0, 0, isMouseInPosition(v[1], v[2], v[3], v[4]) and tocolor(141, 106, 240, alpha) or v[6])
+                else 
+                    dxDrawImage(v[1], v[2], v[3], v[4], 'Files/Imagens/Icons/Bola.png', 0, 0, 0, v[6]) 
+                end
+            elseif (v[5] == 'number') then 
+                dxDrawText((number or ''), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+            elseif (v[5] == 'timer') then 
+                dxDrawText((min or 0)..':'..(sec or 0), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+            end
+        end
+
+        linha = 0
+        for i, v in ipairs(personswpp) do
+            if (i > proximaPagina2 and linha < maxLinhas2) then
+                linha = linha + 1
+                dxDrawRectangle(posBarrasConversas[linha][1], posBarrasConversas[linha][2], posBarrasConversas[linha][3], posBarrasConversas[linha][4], isMouseInPosition(posBarrasConversas[linha][1], posBarrasConversas[linha][2], posBarrasConversas[linha][3], posBarrasConversas[linha][4]) and tocolor(141, 106, 240, alpha) or tocolor(60, 60, 60, alpha))
+                dxDrawImage(x * 1282, y * 373, x * 20, y * 20, 'Files/Imagens/Icons/Bola.png', 0, 0, 0, tocolor(107, 215, 111, alpha))
+                dxDrawText(v[2], posTextConversas[linha][1], posTextConversas[linha][2], posTextConversas[linha][3], posTextConversas[linha][4], tocolor(255, 255, 255, alpha), 1.00, font[4], 'left', 'center', false, true, true, false, false)
+                dxDrawImage(x * 1108, posAvatarConversas[linha][1], x * 25, y * 25, ':guetto_characters/assets/avatars/'..v[1]..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha)) 
+            end
+        end
+    elseif (window == 'Bloco de Notas') then 
+        dxDrawImage(x * 1096, y * 236, x * 228.51, y * 495.11, 'Files/Imagens/interface.png', 0, 0, 0, tocolor(41, 41, 41, alpha), false)
+        dxDrawText('Bloco de Notas', x * 1095, y * 284, x * 1325, y * 307, tocolor(255, 255, 255, alpha), 1.00, font[2], 'center', 'center', false, false, false, false, false)
+        dxDrawText('Voltar', x * 1102, y * 257, x * 1162, y * 281, tocolor(255, 255, 255, alpha), 1, 'default-bold', 'center', 'center', false, false, false, false, false) 
+
+        if notaselect == false then 
+            drawBorde(x * 1135, y * 700, x * 150, y * 25, isMouseInPosition(x * 1135, y * 700, x * 150, y * 25) and tocolor(141, 106, 240, alpha) or tocolor(65, 65, 65, alpha))
+            dxDrawText('Adicionar', x * 1134, y * 700, x * 1285, y * 724, tocolor(255, 255, 255, alpha), 1.00, font[3], 'center', 'center', false, false, false, false, false)
+            linha = 0
+            for i, v in ipairs(notas) do
+                if (i > proximaPagina3 and linha < 6) then
+                    linha = linha + 1 
+                    dxDrawRectangle(posBarrasNotas[linha][1], posBarrasNotas[linha][2], posBarrasNotas[linha][3], posBarrasNotas[linha][4], tocolor(65, 65, 65, alpha))
+                    dxDrawImage(x * 1273, posBarrasNotas[linha][2], x * 50, y * 50, 'Files/Imagens/Icons/Lixeira.png', 0, 0, 0, isMouseInPosition(x * 1273, posBarrasNotas[linha][2], x * 50, y * 50) and tocolor(255, 255, 255, alpha) or tocolor(255, 255, 255, alpha - 80))
+                    dxDrawText(v[1], posTextNotas[linha][1], posTextNotas[linha][2], posTextNotas[linha][3], posTextNotas[linha][4], tocolor(255, 255, 255, alpha), 1.00, font[1], 'left', 'center', false, true, false, false, false)
+                end
+            end
+        else
+            drawBorde(x * 1106, y * 350, x * 200, y * 300, tocolor(65, 65, 65, alpha)) 
+            drawBorde(x * 1131, y * 317, x * 150, y * 25, isMouseInPosition(x * 1131, y * 317, x * 150, y * 25) and tocolor(141, 106, 240, alpha) or tocolor(65, 65, 65, alpha))
+            dxDrawText('Retornar', x * 1131, y * 315, x * 1281, y * 344, tocolor(255, 255, 255, alpha), 1.00, font[3], 'center', 'center', false, false, false, false, false)
+
+            dxDrawText('Nota', x * 1104, y * 350, x * 1306, y * 374, tocolor(255, 255, 255, alpha), 1.00, font[2], 'center', 'center', false, false, false, false, false)
+            dxDrawText(notaselect, x * 1115, y * 388, x * 1291, y * 640, tocolor(255, 255, 255, alpha), 1.00, font[1], 'left', 'top', false, true, false, false, false)
+        end
+    else
+        if window ~= 'Contatos' then
+            if windowConfig == nil then 
+                if windows[window] then
+                    for i, v in ipairs(windows[window]) do
+                        if (v[5] == 'imagem') then
+                            if string.find(v[6], '${avatar}') then
+                                dxDrawImage(v[1], v[2], v[3], v[4], ':guetto_characters/assets/avatars/'..(getElementData(localPlayer, 'Avatar') or 0)..'.png', 0, 0, 0, v[7], false)
+                            elseif string.find(v[6], '${avatarfdp}') then
+                                dxDrawImage(v[1], v[2], v[3], v[4], ':guetto_characters/assets/avatars/'..avatar..'.png', 0, 0, 0, v[7], false)
+                            else
+                                dxDrawImage(v[1], v[2], v[3], v[4], v[6], 0, 0, 0, v[7], false)
+                            end
+                        elseif (v[5] == 'texto') then
+                            if string.find(v[6], '${nome}') then
+                                dxDrawText(string.gsub(v[6], '${nome}', '')..''..cortName(getPlayerName(localPlayer)), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            elseif string.find(v[6], '${emprego}') then
+                                dxDrawText(string.gsub(v[6], '${emprego}', '')..''..(getElementData(localPlayer, 'Emprego') or 'Desempregado'), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            elseif string.find(v[6], '${dinheiro}') then
+                                dxDrawText(string.gsub(v[6], '${dinheiro}', '')..''..getPlayerMoney(localPlayer), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            elseif string.find(v[6], '${banco}') then
+                                dxDrawText(string.gsub(v[6], '${banco}', '')..'R$ '..config.convertNumber((getElementData(localPlayer, 'guetto.bank.balance') or 0)), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            elseif string.find(v[6], '${passaporte}') then
+                                dxDrawText(string.gsub(v[6], '${passaporte}', '')..''..(getElementData(localPlayer, 'ID') or 'N/A'), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            elseif string.find(v[6], '${créditos}') then 
+                                dxDrawText(string.gsub(v[6], '${créditos}', '')..''..(getElementData(localPlayer, 'Mbs') or 0), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            else
+                                dxDrawText(v[6], v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                            end
+                        elseif (v[5] == 'rectangle') then
+                            dxDrawRectangle(v[1], v[2], v[3], v[4], v[6], false)
+                        elseif (v[5] == 'rectangle-border') then
+                            drawBorde(v[1], v[2], v[3], v[4], isMouseInPosition(v[1], v[2], v[3], v[4]) and tocolor(141, 106, 240, alpha) or v[6], isMouseInPosition(v[1], v[2], v[3], v[4]) and tocolor(141, 106, 240, alpha) or v[6], true)
+                        elseif (v[5] == 'editbox') then
+                            dxDrawText((edits[v[6]][2] and guiGetText(edits[v[6]][1])..'|' or guiGetText(edits[v[6]][1])), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                        elseif (v[5] == 'circle') then
+                            if (v[7] ~= false) then 
+                                dxDrawImage(v[1], v[2], v[3], v[4], 'Files/Imagens/Icons/Bola.png', 0, 0, 0, isMouseInPosition(v[1], v[2], v[3], v[4]) and tocolor(141, 106, 240, alpha) or v[6])
+                            else 
+                                dxDrawImage(v[1], v[2], v[3], v[4], 'Files/Imagens/Icons/Bola.png', 0, 0, 0, v[6]) 
+                            end
+                        elseif (v[5] == 'number') then 
+                            dxDrawText((number or ''), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                        elseif (v[5] == 'timer') then 
+                            dxDrawText((min or 0)..':'..(sec or 0), v[1], v[2], v[3], v[4], v[10], v[7], v[8], v[9], 'center', false, false, false, false, false)
+                        end
+                    end
+                end
+            else
+                dxDrawImage(x * 1095.91, y * 236, x * 228.51, y * 495.11, 'Files/Imagens/interface.png', 0, 0, 0, tocolor(41, 41, 41, alpha), false)
+                if windowConfig == 'Wallpapers' then
+                    dxDrawText('Wallpapers', x * 1095, y * 277, x * 1324, y * 315, tocolor(255, 255, 255, 255), 2.00, 'default-bold', 'center', 'center', false, false, false, false, false)
+                    for i, v in ipairs(wallpapers) do
+                        if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                            dxDrawImage(v[1] - 1, v[2] - 1, v[3] + 2, v[4] + 2, 'Files/Imagens/'..v[5]..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+                        else
+                            dxDrawImage(v[1], v[2], v[3], v[4], 'Files/Imagens/'..v[5]..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+                        end
+                    end
+                elseif windowConfig == 'Notificações' then
+                    dxDrawText('Notificações', x * 1095, y * 277, x * 1324, y * 315, tocolor(255, 255, 255, 255), 2.00, 'default-bold', 'center', 'center', false, false, false, false, false)
+                    for i, v in ipairs(ative) do
+                        dxDrawImage(v[1], v[2], v[3], v[4], 'Files/Imagens/icons/'..((getElementData(localPlayer, v[5]) or 'sim') == 'sim' and 'on' or 'off')..'.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+                        dxDrawText(v[5], v[6], v[7], v[8], v[9], tocolor(255, 255, 255, alpha), 1, font[1], 'left', 'center', false, false, false, false, false)
+                    end
+                end
+                dxDrawText('Voltar', x * 1102, y * 257, x * 1162, y * 281, tocolor(255, 255, 255, alpha), 1, 'default-bold', 'center', 'center', false, false, false, false, false)
+            end
+        else
+            dxDrawImage(x * 1095.91, y * 236, x * 228.51, y * 495.11, 'Files/Imagens/interface.png', 0, 0, 0, tocolor(41, 41, 41, alpha), false)
+            dxDrawRectangle(x * 1096, y * 342, x * 230, y * 16, tocolor(65, 65, 65, alpha))
+            dxDrawRectangle(x * 1096, y * 437, x * 230, y * 16, tocolor(65, 65, 65, alpha))
+            dxDrawText('Voltar', x * 1102, y * 257, x * 1162, y * 281, tocolor(255, 255, 255, alpha), 1, 'default-bold', 'center', 'center', false, false, false, false)
+            dxDrawText('Contatos', x * 1095, y * 295, x * 1324, y * 347, tocolor(255, 255, 255, alpha), 1, font[2], 'center', 'center', false, false, false, false)
+            dxDrawText('Emergência', x * 1103, y * 341, x * 1284, y * 359, tocolor(130, 130, 130, alpha), 1, 'default-bold', 'left', 'center', false, false, false, false)
+            dxDrawText('Contatos', x * 1103, y * 437, x * 1284, y * 453, tocolor(130, 130, 130, alpha), 1.00, 'default-bold', 'left', 'center', false, false, false, false, false)
+            dxDrawText('+', x * 1302, y * 434, x * 1329, y * 455, tocolor(255, 255, 255, alpha), 1.00, 'default-bold', 'center', 'center', false, false, true, false, false)
+
+            for i, v in ipairs(posBarraEmergencia) do
+                if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                    dxDrawRectangle(v[1], v[2], v[3], v[4], tocolor(141, 106, 240, alpha), false)
+                end
+            end 
+
+            dxDrawText('Deus [0]', x * 1102, y * 360, x * 1288, y * 378, tocolor(200, 200, 200, alpha), 1.00, 'default', 'left', 'top', false, false, false, false, false)
+            dxDrawText('Policia [190]', x * 1102, y * 378, x * 1288, y * 396, tocolor(200, 200, 200, alpha), 1.00, 'default', 'left', 'top', false, false, false, false, false)
+            dxDrawText('Mecânico [193]', x * 1102, y * 396, x * 1288, y * 414, tocolor(200, 200, 200, alpha), 1.00, 'default', 'left', 'top', false, false, false, false, false)
+
+            linha = 0
+            for i, v in ipairs(contatos) do
+                if (i > proximaPagina and linha < maxLinhas) then
+                    linha = linha + 1
+
+                    if isMouseInPosition(posBarraContato[linha][1], posBarraContato[linha][2], posBarraContato[linha][3], posBarraContato[linha][4]) then
+                        dxDrawRectangle(posBarraContato[linha][1], posBarraContato[linha][2], posBarraContato[linha][3], posBarraContato[linha][4], tocolor(141, 106, 240, 100), false)
+                    end
+
+                    dxDrawImage(posBarraContato[linha][5], posBarraContato[linha][6], posBarraContato[linha][7], posBarraContato[linha][8], 'Files/Imagens/Icons/enviarmensagem.png', 0, 0, 0, (isMouseInPosition(posBarraContato[linha][5], posBarraContato[linha][6], posBarraContato[linha][7], posBarraContato[linha][8]) and tocolor(141, 106, 240, alpha) or tocolor(255, 255, 255, alpha)), false)
+                    dxDrawImage(posBarraContato[linha][9], posBarraContato[linha][10], posBarraContato[linha][11], posBarraContato[linha][12], 'Files/Imagens/Icons/telefone.png', 0, 0, 0, (isMouseInPosition(posBarraContato[linha][9], posBarraContato[linha][10], posBarraContato[linha][11], posBarraContato[linha][12]) and tocolor(141, 106, 240, alpha) or tocolor(255, 255, 255, alpha)), false)
+                    dxDrawImage(posBarraContato[linha][13], posBarraContato[linha][14], posBarraContato[linha][15], posBarraContato[linha][16], 'Files/Imagens/Icons/lixo.png', 0, 0, 0, (isMouseInPosition(posBarraContato[linha][13], posBarraContato[linha][14], posBarraContato[linha][15], posBarraContato[linha][16]) and tocolor(141, 106, 240, alpha) or tocolor(255, 255, 255, alpha)), false)
+
+                    dxDrawText(v[1]..' ['..v[2]..']', posTextContato[linha][1], posTextContato[linha][2], posTextContato[linha][3], posTextContato[linha][4], tocolor(200, 200, 200, alpha), 1.00, 'default', 'left', 'center', false, false, true, false, false)
+                    
+                end
+            end
+        end
+    end
+
+    dxDrawImage(x * 1267, y * 241, x * 47, y * 10, 'Files/Imagens/status_bar.png', 0, 0, 0, tocolor(255, 255, 255, alpha), false)
+    if window == 'Bloqueio' then 
+        dxDrawText(getTimer(),  x * 1093, y * 310, x * 1319, y * 374, tocolor(255, 255, 255, alpha), 1.00, font[5], 'center', 'center', false, false, false, false, false) 
+    else 
+        dxDrawText(getTimer(), x * 1108, y * 236, x * 1155, y * 252, tocolor(255, 255, 255, alpha), 1.00, font[1], 'center', 'center', false, false, false, false, false)  
+    end 
+
+end
+
+addEventHandler('onClientClick', root, 
+    function(b, s)
+        if (b == 'right') then 
+            if isEventHandlerAdded('onClientRender', root, dxDraw) then 
+                if window == 'inicio' then 
+                    if (s == 'down') then 
+                        for i, v in ipairs(icons) do
+                            if isMouseInPosition(slots[indexapp[v[1]]][1], slots[indexapp[v[1]]][2], slots[indexapp[v[1]]][3], slots[indexapp[v[1]]][4]) then 
+                                selectapp = v[1]
+                            end
+                        end
+                    elseif (s == 'up') then 
+                        for i, v in ipairs(slots) do
+                            if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                                for ii, vv in ipairs(icons) do 
+                                    if indexapp[vv[1]] == i then 
+                                        selectapp = ''
+                                        return 
+                                    end
+                                end
+
+                                indexapp[selectapp] = i
+                                break
+                            end
+                        end
+
+                        selectapp = ''
+                    end
+                end
+            end
+        end
+    end
+)
+
+addEventHandler('onClientDoubleClick', root, function (button)
+    if button == 'left' and isEventHandlerAdded('onClientRender', root, dxDraw) then
+        if window == 'Spotify' then 
+            linha = 0
+            for i, v in ipairs(musicasSearch) do
+                if (i > indexPag and linha < #spotifyPosition) then
+                    linha = linha + 1
+                    if isMouseInPosition(spotifyPosition[linha][1], spotifyPosition[linha][2], spotifyPosition[linha][3], spotifyPosition[linha][4]) then
+                        if isElement(soundSpotify) then
+                            stopSound(soundSpotify)
+                        end
+                        soundSpotify = playSound('https://music.pegasusac.xyz/download/'..tostring(v[3])..'')
+                    end
+                end
+            end
+        end
+    end
+end)
+
+bindKey('enter', 'down',
+    function ()
+        if isEventHandlerAdded('onClientRender', root, dxDraw) then
+            if window == 'Conversa Zap' then
+                if isElement(conversando) then
+                    if guiGetText(edits[3][1]) ~= '' then
+                        triggerServerEvent('Goiaba.onSendMessage', resourceRoot, getElementData(conversando, 'ID'), guiGetText(edits[3][1]))
+                        guiSetText(edits[3][1], '')
+                    end
+                end
+            end
+        end
+    end
+)
+
+function UpDown (b)
+    if isEventHandlerAdded('onClientRender', root, dxDraw) then
+        if window == 'Spotify' then 
+            if isMouseInPosition(x * 1103, y * 357, x * 213, y * 298) then
+                if b == 'mouse_wheel_down' then
+                    indexPag = indexPag + 1
+                    if (indexPag > #musicasSearch - #spotifyPosition) then
+                        indexPag = #musicasSearch - #spotifyPosition
+                    end
+                elseif b == 'mouse_wheel_up'  then
+                    if (indexPag > 0) then
+                        indexPag = indexPag - 1
+                    end
+                end
+            end
+        elseif window == 'Whatsapp' then 
+            if isMouseInPosition(x * 1095.91, y * 236, x * 228.51, y * 495.11) then
+                if b == 'mouse_wheel_down' then
+                    proximaPagina = proximaPagina + 1
+                    if (proximaPagina > #contatos - maxLinhas) then
+                        proximaPagina = #contatos - maxLinhas
+                    end
+                elseif b == 'mouse_wheel_up'  then
+                    if (proximaPagina > 0) then
+                        proximaPagina = proximaPagina - 1
+                    end
+                end
+            end
+        elseif window == 'Bloco de Notas' then 
+            if b == 'mouse_wheel_down' then
+                proximaPagina3 = proximaPagina3 + 1
+                if (proximaPagina3 > #notas - 6) then
+                    proximaPagina3 = #notas - 6
+                end
+            elseif b == 'mouse_wheel_up'  then
+                if (proximaPagina3 > 0) then
+                    proximaPagina3 = proximaPagina3 - 1
+                end
+            end
+        else 
+            if b == 'mouse_wheel_down' then
+                proximaPagina = proximaPagina2 + 1
+                if (proximaPagina > #personswpp - maxLinhas2) then
+                    proximaPagina = #personswpp - maxLinhas2
+                end
+            elseif b == 'mouse_wheel_up'  then
+                if (proximaPagina > 0) then
+                    proximaPagina = proximaPagina2 - 1
+                end
+            end
+        end
+    end
+end
+bindKey('mouse_wheel_up', 'down', UpDown)
+bindKey('mouse_wheel_down', 'down', UpDown)
+
+TimerDownload = false
+
+addEventHandler('onClientClick', root, 
+    function(b, s)
+        if (b == 'left') and (s == 'down') then 
+            if isEventHandlerAdded('onClientRender', root, dxDraw) then
+                edits[1][2] = false
+                edits[2][2] = false
+                edits[3][2] = false
+                if (window == 'Bloqueio') then 
+                    if isMouseInPosition(x * 1194, y * 669, x * 29.22, y * 33.03) then 
+                        window = 'inicio'
+                        playSoundFrontEnd(32)
+                    end
+                elseif (window == 'inicio') then
+                    for i, v in ipairs(icons) do
+                        if isMouseInPosition(slots[indexapp[v[1]]][1], slots[indexapp[v[1]]][2], slots[indexapp[v[1]]][3], slots[indexapp[v[1]]][4]) then
+                            if (v[3]) then
+                                if (v[3] == 'trigger') then
+                                    if (v[4] == 'client') then
+                                        triggerEvent(v[5], localPlayer)
+                                    end
+                                elseif (v[3] == 'window') then
+                                    window = v[1]
+                                    if window == 'Telefone' then
+                                        number = ''
+                                    end
+                                end
+                            end
+
+                        end
+                    end
+                elseif (window == 'Spotify') then
+                    editSpotify[1] = false
+                    if isMouseInPosition(x * 1102, y * 315, x * 188, y * 31) then
+                        if guiEditSetCaretIndex(editSpotify[2], string.len(guiGetText(editSpotify[2]))) then
+                            guiBringToFront(editSpotify[2])
+                            editSpotify[1] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1296, y * 324, x * 13, y * 13) then
+                        indexPag = 0
+                        triggerServerEvent('Caio.searchMusics', resourceRoot, guiGetText(editSpotify[2]))
+                    elseif isMouseInPosition(x * 1188, y * 636, x * 43, y * 43) then
+                        if isElement(soundSpotify) then
+                            setSoundPaused(soundSpotify, not isSoundPaused(soundSpotify))
+                        end
+                    elseif isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    end
+                elseif (window == 'Configuração') then
+                    if windowConfig ~= nil then
+                        if windowConfig == 'Notificações' then
+                            if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                                windowConfig = nil
+                            else
+                                for i, v in ipairs(ative) do
+                                    if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                                        if getElementData(localPlayer, v[5]) == 'sim' then
+                                            setElementData(localPlayer, v[5], 'não')
+                                        else
+                                            setElementData(localPlayer, v[5], 'sim')
+                                        end
+                                    end
+                                end
+                            end
+                        elseif windowConfig == 'Wallpapers' then
+                            if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                                windowConfig = nil
+                            else
+                                for i, v in ipairs(wallpapers) do
+                                    if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                                        wallpaper = v[5]
+                                        triggerServerEvent('Caio.onSetNewWallpaper', resourceRoot, wallpaper)
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                            window = 'inicio'
+                        elseif isMouseInPosition(x * 1103, y * 418, x * 43, y * 43) then
+                            windowConfig = 'Notificações'
+                        elseif isMouseInPosition(x * 1103, y * 466, x * 43, y * 43) then
+                            windowConfig = 'Wallpapers'
+                        end
+                    end
+                elseif window == 'Informações' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    end
+                elseif window == 'GPS' then 
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    elseif isMouseInPosition(x * 1132, y * 396, x * 153, y * 26) then 
+                        if guiEditSetCaretIndex(edits[1][1], string.len(guiGetText(edits[1][1]))) then
+                            guiBringToFront(edits[1][1])
+                            edits[1][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1161, y * 474, x * 100, y * 30) then 
+                        triggerServerEvent('Pedro.enviarLocalização', resourceRoot, guiGetText(edits[1][1]))
+                    end
+                elseif window == 'Banco' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    elseif isMouseInPosition(x * 1132, y * 396, x * 153, y * 26) then 
+                        if guiEditSetCaretIndex(edits[1][1], string.len(guiGetText(edits[1][1]))) then
+                            guiBringToFront(edits[1][1])
+                            edits[1][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1132, y * 427, x * 153, y * 26) then
+                        if guiEditSetCaretIndex(edits[2][1], string.len(guiGetText(edits[2][1]))) then
+                            guiBringToFront(edits[2][1])
+                            edits[2][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1161, y * 474, x * 100, y * 30) then 
+                        if string.find(guiGetText(edits[2][1]), '+') or string.find(guiGetText(edits[2][1]), '-') then return end
+                        local text = guiGetText(edits[2][1])
+                        local number = tonumber(text)
+                        
+                        if not number or tostring(number) ~= text or string.find(text, '%.') then
+                            config.notify_client('Não utilize "." para enviar dinheiro.', 'info')
+                            return
+                        end
+                        
+                        setElementData(localPlayer, "onPlayerMoneyClick", true)
+                        triggerServerEvent('Caio.onEnviar', resourceRoot, guiGetText(edits[1][1]), guiGetText(edits[2][1]))
+                    end
+                elseif window == 'Telefone' then 
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    else 
+                        for i, v in ipairs(windows['Telefone']) do 
+                            if (v[5] == 'circle') then 
+                                if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                                    if (v[7] ~= false) then 
+                                        if not tonumber(number) then 
+                                            number = v[7]
+                                        else 
+                                            number = (number)..v[7]
+                                        end
+                                    else 
+                                        triggerServerEvent('Pedro.ligar', resourceRoot, tonumber(number))
+                                    end
+                                end
+                            end
+                        end
+                    end
+                elseif window == 'Recebendo' then 
+                    if isMouseInPosition(x * 1131, y * 638, x * 50, y * 50) then 
+                        triggerServerEvent('Pedro.atender', resourceRoot)
+                    elseif isMouseInPosition(x * 1245, y * 638, x * 50, y * 50) then 
+                        triggerServerEvent('Pedro.recusar', resourceRoot)
+                    end
+                elseif window == 'Chamando' then 
+                    if isMouseInPosition(x * 1190, y * 638, x * 50, y * 50) then  
+                        triggerServerEvent('Pedro.encerrar', resourceRoot)
+                    end
+                elseif window == 'Ligação' then 
+                    if isMouseInPosition(x * 1190, y * 638, x * 50, y * 50) then 
+                        triggerServerEvent('Pedro.encerrar', resourceRoot)
+                    end
+                elseif window == 'Whatsapp' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    else 
+                        linha = 0
+                        for i, v in ipairs(personswpp) do
+                            if (i > proximaPagina2 and linha < maxLinhas2) then
+                                linha = linha + 1
+                                if isMouseInPosition(posBarrasConversas[linha][1], posBarrasConversas[linha][2], posBarrasConversas[linha][3], posBarrasConversas[linha][4]) then 
+                                    local receiver = getPlayerFromID(tonumber(v[3]))
+                                    if isElement(receiver) then
+                                        window = 'Conversa Zap'
+                                        conversando = receiver
+                                    else
+                                        config.notify_client('Este jogador está ausente da cidade.', 'info')
+                                    end
+                                    triggerEvent('Pedro.deleteMessage', localPlayer, v[2])
+                                end
+                            end
+                        end
+                    end
+                elseif window == 'Contatos' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    elseif isMouseInPosition(x * 1304, y * 437, x * 22, y * 16) then
+                        window = 'Adicionar contato'
+                    else
+                        for i, v in ipairs(posBarraEmergencia) do
+                            if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                                if v[5] == 'STAFF' then
+                                    triggerEvent('onCall', resourceRoot, localPlayer)
+                                else
+                                    triggerServerEvent('Caio.onChamarOcorrencia', resourceRoot, v[5])
+                                end
+                            end
+                        end
+
+                        linha = 0
+                        for i, v in ipairs(contatos) do
+                            if (i > proximaPagina and linha < maxLinhas) then
+                                linha = linha + 1
+                                if isMouseInPosition(posBarraContato[linha][5], posBarraContato[linha][6], posBarraContato[linha][7], posBarraContato[linha][8]) then
+                                    local receiver = getPlayerFromID(tonumber(v[2]))
+                                    if isElement(receiver) then
+                                        window = 'Conversa Zap'
+                                        conversando = receiver
+                                    else
+                                        config.notify_client('Este jogador está ausente da cidade.', 'info')
+                                    end
+                                elseif isMouseInPosition(posBarraContato[linha][9], posBarraContato[linha][10], posBarraContato[linha][11], posBarraContato[linha][12]) then
+                                    triggerServerEvent('Pedro.ligar', resourceRoot, v[2])
+                                elseif isMouseInPosition(posBarraContato[linha][13], posBarraContato[linha][14], posBarraContato[linha][15], posBarraContato[linha][16]) then
+                                    triggerServerEvent('Caio.onDeleteContato', resourceRoot, v[2])
+                                    table.remove(contatos, i)
+                                end
+                            end
+                        end            
+                    end
+                elseif window == 'Conversa Zap' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'
+                    elseif isMouseInPosition(x * 1122, y * 694, x * 178, y * 26) then
+                        if guiEditSetCaretIndex(edits[3][1], string.len(guiGetText(edits[3][1]))) then
+                            guiBringToFront(edits[3][1])
+                            edits[3][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    end
+                elseif window == 'Adicionar contato' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'Contatos'
+                    elseif isMouseInPosition(x * 1132, y * 396, x * 153, y * 26) then 
+                        if guiEditSetCaretIndex(edits[1][1], string.len(guiGetText(edits[1][1]))) then
+                            guiBringToFront(edits[1][1])
+                            edits[1][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1132, y * 427, x * 153, y * 26) then
+                        if guiEditSetCaretIndex(edits[2][1], string.len(guiGetText(edits[2][1]))) then
+                            guiBringToFront(edits[2][1])
+                            edits[2][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1161, y * 474, x * 100, y * 30) then 
+                        triggerServerEvent('Caio.onAdicionarContato', resourceRoot, guiGetText(edits[1][1]), guiGetText(edits[2][1]))
+                    end
+                elseif window == 'Bloco de Notas' then
+                    if notaselect == false then
+                        if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                            window = 'inicio' 
+                        elseif isMouseInPosition(x * 1135, y * 700, x * 150, y * 25) then 
+                            window = 'Adicionar Nota' 
+                        else
+                            linha = 0
+                            for i, v in ipairs(notas) do
+                                if (i > proximaPagina2 and linha < maxLinhas3) then
+                                    linha = linha + 1 
+                                    if isMouseInPosition(x * 1273, posBarrasNotas[linha][2], x * 50, y * 50) then 
+                                        triggerServerEvent('Pedro.removeNote', resourceRoot, v[1])
+                                        notas = {}
+                                        triggerServerEvent('Pedro.makeNotes', resourceRoot)
+                                        return 
+                                    elseif isMouseInPosition(posBarrasNotas[linha][1], posBarrasNotas[linha][2], posBarrasNotas[linha][3], posBarrasNotas[linha][4]) then 
+                                        notaselect = v[2]
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        if isMouseInPosition(x * 1131, y * 317, x * 150, y * 25) then 
+                            notaselect = false
+                        end
+                    end
+                elseif window == 'Adicionar Nota' then
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'  
+                    elseif isMouseInPosition(x * 1132, y * 396, x * 153, y * 26) then 
+                        if guiEditSetCaretIndex(edits[1][1], string.len(guiGetText(edits[1][1]))) then
+                            guiBringToFront(edits[1][1])
+                            edits[1][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1132, y * 427, x * 153, y * 26) then
+                        if guiEditSetCaretIndex(edits[2][1], string.len(guiGetText(edits[2][1]))) then
+                            guiBringToFront(edits[2][1])
+                            edits[2][2] = true
+                            guiSetInputMode('no_binds_when_editing')
+                        end
+                    elseif isMouseInPosition(x * 1161, y * 474, x * 100, y * 30) then 
+                        triggerServerEvent('Pedro.addNote', resourceRoot, guiGetText(edits[1][1]), guiGetText(edits[2][1]))
+                        notas = {}
+                        triggerServerEvent('Pedro.makeNotes', resourceRoot)  
+                    end
+
+                elseif window == 'Calculadora' then 
+                    if isMouseInPosition(x * 1102, y * 256, x * 60, y * 25) then
+                        window = 'inicio'  
+                        number = false
+                        n1 = false 
+                        n2 = {} 
+                    else
+                        for i, v in ipairs(posCalc) do 
+                            if isMouseInPosition(v[1], v[2], v[3], v[4]) then
+                                if tonumber(v[5]) or (v[5] == '.') then
+                                    if (number) then 
+                                        number = number..v[5] 
+                                    else
+                                        number = v[5] 
+                                    end
+
+                                    if n2[1] == true then 
+                                        if n2[2] then 
+                                            n2[2] = n2[2]..v[5]
+                                        else 
+                                            n2[2] = v[5]
+                                        end 
+                                    else
+                                        if n1 then 
+                                            n1 = number
+                                        else 
+                                            n1 = number
+                                        end
+                                    end
+                                else
+                                    if v[5] == 'AC' then 
+                                        number = false 
+                                        simbol = false  
+                                        n1 = false 
+                                        n2 = {} 
+                                    elseif v[5] == '=' then 
+                                        if simbol ~= true then 
+                                            if number ~= false then  
+                                                if simbol == '*' then 
+                                                    number = n1 * n2[2] 
+                                                elseif simbol == '/' then 
+                                                    number = n1 / n2[2] 
+                                                elseif simbol == '+' then 
+                                                    number = n1 + n2[2] 
+                                                elseif simbol == '-' then 
+                                                    number = n1 - n2[2] 
+                                                end 
+                                                simbol = false
+                                                n1 = false 
+                                                n2 = {}
+                                            end
+                                        end
+                                    else 
+                                        if not simbol then 
+                                            simbol = v[5] 
+                                            n2[1] = true
+                                            n1 = number
+                                            number = number..v[5]
+                                        end
+                                    end
+                                end  
+                            end
+                        end
+                    end
+                end
+            end
+        end 
+    end
+)
+
+function dxBarraDownload()
+    local posBarra = interpolateBetween(0, 0, 0, 200, 0, 0, ((getTickCount() - tickd) / 8000), 'Linear')
+    drawBorde(x * 1108, y * 663, x * 200, y * 12, tocolor(33, 33, 33, 255))
+    drawBorde(x * 1108, y * 663, x * posBarra, y * 12, tocolor(141, 106, 240, 255))
+    dxDrawText('Baixando '..(nome or ''), x * 1106, y * 680, x * 1315, y * 709, tocolor(255, 255, 255, 255), 1.00, font[1], 'center', 'center', false, false, false, false, false)
+end
+
+function addBarra(nomee)
+    if not isEventHandlerAdded('onClientRender', root, dxBarraDownload) then 
+        tickd = getTickCount()
+        addEventHandler('onClientRender', root, dxBarraDownload)    
+        nome = nomee
+
+        setTimer(function()
+            removeEventHandler('onClientRender', root, dxBarraDownload)
+        end, 8000, 1)
+    end
+end
+
+addEvent('Caio.onInsertTable', true)
+addEventHandler('Caio.onInsertTable', root,
+    function (contato, id)
+        table.insert(contatos, {contato, id})
+    end
+)
+
+addEvent('Caio.onOpenCelular', true)
+addEventHandler('Caio.onOpenCelular', root,
+    function (fundo, action)
+        if (action == 'add') then
+            if not isEventHandlerAdded('onClientRender', root, dxDraw) then 
+                wallpaper = tonumber(fundo)
+                windowConfig = nil
+                contatos = {}
+                addEventHandler('onClientRender', root, dxDraw)
+                showCursor(true)
+                painel = true 
+                if (getElementData(localPlayer, 'Recebendo') or false) ~= false then
+                    window = 'Recebendo'
+                elseif (getElementData(localPlayer, 'Call') or false) ~= false then 
+                    window = 'Ligação'
+                    if isTimer(Timer) then killTimer(Timer) end
+                    Timer = setTimer(setTiming, 1000, 0)
+                else 
+                    window = 'Bloqueio'
+                end 
+                tick[1] = getTickCount()
+                playSound('Files/Sons/abrindo_celular.mp3', false)
+                
+                triggerServerEvent('Goiaba.setAnimationPhone', resourceRoot, 1)
+                
+                editSpotify = {false, guiCreateEdit(screen[1], screen[2], 0, 0, '', false)}
+                biografia = guiCreateEdit(screen[1], screen[2], 0, 0, '', false)
+                guiEditSetMaxLength(biografia, 85)
+                avatar = (getElementData(localPlayer, 'Avatar') or 1)
+                for i, v in ipairs(icons) do 
+                    if not indexapp[v[1]] then 
+                        indexapp[v[1]] = i
+                    end
+                end
+
+                selectapp = ''
+
+                notas = {}
+                triggerServerEvent('Pedro.makeNotes', resourceRoot)
+
+            end
+        else
+            if isEventHandlerAdded('onClientRender', root, dxDraw) then 
+                if (painel == true) then
+                    painel = false 
+                    tick[1] = getTickCount()
+                    showCursor(false)
+                    playSound('Files/Sons/fechando_celular.mp3', false)
+
+                    triggerServerEvent('Goiaba.setAnimationPhone', resourceRoot, 2)
+
+                    setTimer(function()
+                        removeEventHandler('onClientRender', root, dxDraw)
+                        if isTimer(Timer) then killTimer(Timer) end 
+                    end, 1000, 1)
+                    if isElement(editSpotify[2]) then
+                        destroyElement(editSpotify[2])
+                    end
+
+                    if isElement(biografia) then
+                        destroyElement(biografia)
+                    end
+                end
+            end
+        end
+    end
+)
+
+function fecharCel()
+	if isEventHandlerAdded('onClientRender', root, dxDraw) then 
+        if (painel == true) then
+            painel = false 
+            tick[1] = getTickCount()
+            showCursor(false)
+            playSound('Files/Sons/fechando_celular.mp3', false)
+            
+            triggerServerEvent('Goiaba.setAnimationPhone', resourceRoot, 2)
+
+            setTimer(function()
+            removeEventHandler('onClientRender', root, dxDraw)
+            if isTimer(Timer) then killTimer(Timer) end 
+            end, 1000, 1)
+            if isElement(editSpotify[2]) then
+                destroyElement(editSpotify[2])
+            end
+            if isElement(biografia) then
+                destroyElement(biografia)
+            end
+        end
+    end
+end
+
+bindKey('backspace', 'down', 
+    function()
+        if isEventHandlerAdded('onClientPreRender', root, render) then 
+            triggerEvent('Pedro.Selfie', localPlayer)
+        elseif isEventHandlerAdded('onClientRender', root, dxDraw) then 
+            if window == 'Telefone' then 
+                if tonumber(number) and #(number or 0) > 0 then 
+                    number = number:sub(1, -2)
+                end
+            end
+        end
+    end
+)
+
+addEvent('Pedro.changeWindowCell', true)
+addEventHandler('Pedro.changeWindowCell', root, 
+    function(new, avatarr)
+        window = new
+        avatar = avatarr 
+        if new == 'Ligação' then
+            if isTimer(Timer) then killTimer(Timer) end
+            min, sec = 0, 0
+            Timer = setTimer(setTiming, 1000, 0)   
+        end
+    end
+)
+
+addEvent('Pedro.tocarSom', true)
+addEventHandler('Pedro.tocarSom', root, 
+    function(sound)
+        if isElement(toque) then destroyElement(toque) end 
+        toque = playSound(sound, true)
+    end
+)
+
+addEvent('Pedro.destroySound', true)
+addEventHandler('Pedro.destroySound', root, 
+    function()
+        if isElement(toque) then destroyElement(toque) end 
+    end
+)
+
+addEvent('Pedro.insertMessage', true)
+addEventHandler('Pedro.insertMessage', root, 
+    function(receiver, message, type, avatar, nick, id)
+        table.insert(infoswpp, {receiver, message, type})
+        indexCount = 0
+        for i, v in ipairs(infoswpp) do
+            if receiver == v[1] then
+                indexCount = indexCount + 1
+            end
+        end
+        if (indexCount > 5) then
+            table.remove(infoswpp, 1)
+        end
+
+        for i, v in ipairs(personswpp) do 
+            if (tonumber(v[3]) == id) then 
+                return 
+            end
+        end
+
+        table.insert(personswpp, {avatar, nick, id})
+    end
+)
+
+addEvent('Pedro.deleteMessage', true)
+addEventHandler('Pedro.deleteMessage', root, 
+    function(receiver)
+        for i, v in ipairs(personswpp) do 
+            if v[2] == receiver then 
+                table.remove(personswpp, i)
+            end
+        end
+    end
+)
+
+addEvent('Pedro.makeNotesC', true)
+addEventHandler('Pedro.makeNotesC', root, 
+    function(title, note)
+        table.insert(notas, {title, note})
+    end 
+)
+
+addEvent('onClientReceiveCellphoneVehicles', true)
+addEventHandler('onClientReceiveCellphoneVehicles', root, 
+
+    function (playerVehicles_)
+
+        playerVehicles = playerVehicles_
+        vehiclesPage = 0
+
+    end 
+
+)
+
+------------------------------------------------
+function getTimer()
+    local tempo = getRealTime()
+    local hora = tempo.hour
+    local minuto = tempo.minute
+    if tonumber(hora) < 10 then
+        hours = '0'..hora
+    else
+        hours = hora
+    end
+
+    if tonumber(minuto) < 10 then
+        minutes = '0'..minuto
+    else
+        minutes = minuto
+    end
+
+    return hours .. ':' .. minutes
+end
+
+function isEventHandlerAdded( sEventName, pElementAttachedTo, func )
+    if type( sEventName ) == 'string' and isElement( pElementAttachedTo ) and type( func ) == 'function' then
+        local aAttachedFunctions = getEventHandlers( sEventName, pElementAttachedTo )
+        if type( aAttachedFunctions ) == 'table' and #aAttachedFunctions > 0 then
+            for i, v in ipairs( aAttachedFunctions ) do
+                if v == func then
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+
+function isMouseInPosition(x,y,w,h)
+	if isCursorShowing() then
+		local sx,sy = guiGetScreenSize()
+		local cx,cy = getCursorPosition()
+		local cx,cy = (cx*sx),(cy*sy)
+		if (cx >= x and cx <= x+w) and (cy >= y and cy <= y+h) then
+			return true
+		end
+	end
+end
+
+min, sec = 0, 0 
+function setTiming()
+    if sec < 60 then 
+        sec = sec + 1
+    else 
+        sec = 0 
+        min = min + 1
+    end
+end
+
+function drawBorde(x, y, w, h, borderColor, bgColor, postGUI)
+    if (x and y and w and h) then
+        if (not borderColor) then
+            borderColor = tocolor(0, 0, 0, 200)
+        end
+      
+        if (not bgColor) then
+            bgColor = borderColor
+        end        
+        postGUI = false
+
+        dxDrawRectangle(x, y, w, h, bgColor, postGUI)
+
+        dxDrawRectangle(x + 2, y - 1, w - 4, 1, borderColor, postGUI) -- top
+        dxDrawRectangle(x + 2, y + h, w - 4, 1, borderColor, postGUI) -- bottom
+        dxDrawRectangle(x - 1, y + 2, 1, h - 4, borderColor, postGUI) -- left
+        dxDrawRectangle(x + w, y + 2, 1, h - 4, borderColor, postGUI) -- right
+    end
+end
+
+local rootElement = getRootElement ( )
+local mplayer = getLocalPlayer ( )
+local sw, sh = guiGetScreenSize ( )
+
+local speed, strafespeed = 0, 0
+local rotX, rotY = 0,0
+local mouseFrameDelay = 0
+
+local options = 
+{
+    invertMouseLook = false,
+    mouseSensitivity = 0.15
+}
+
+function math.clamp ( value, lower, upper )
+ value, lower, upper = tonumber ( value ), tonumber ( lower ), tonumber ( upper )
+ if value and lower and upper then
+  if value < lower then 
+   value = lower
+  elseif value > upper then 
+   value = upper 
+  end
+  return value
+ end
+ return false
+end
+
+function getElementOffset ( entity, offX, offY, offZ )
+ local posX, posY, posZ = 0, 0, 0
+ if isElement ( entity ) and type ( offX ) == 'number' and type ( offY ) == 'number' and type ( offZ ) == 'number' then
+  local center = getElementMatrix ( entity )
+  if center then
+   posX = offX * center [ 1 ] [ 1 ] + offY * center [ 2 ] [ 1 ] + offZ * center [ 3 ] [ 1 ] + center [ 4 ] [ 1 ]
+   posY = offX * center [ 1 ] [ 2 ] + offY * center [ 2 ] [ 2 ] + offZ * center [ 3 ] [ 2 ] + center [ 4 ] [ 2 ]
+   posZ = offX * center [ 1 ] [ 3 ] + offY * center [ 2 ] [ 3 ] + offZ * center [ 3 ] [ 3 ] + center [ 4 ] [ 3 ]
+  end
+ end
+ return posX, posY, posZ
+end
+
+function render ( )
+    dxDrawText('Mova o mouse para movimentar a camêra\nPressione backspace para sair do modo selfie.', x * 473, y * 676, x * 893, y * 768, tocolor(255, 255, 255, 255), 1.00, font[1], 'center', 'center', false, false, false, false, false)
+    
+    local PI = math.pi
+    if getKeyState ( 'num_4' ) then
+        rotX = rotX - options.mouseSensitivity * 0.05745
+    elseif getKeyState ( 'num_6' ) then
+        rotX = rotX + options.mouseSensitivity * 0.05745
+    end
+
+    if getKeyState ( 'num_8' ) then
+        rotY = rotY + options.mouseSensitivity * 0.05745  
+        rotY = math.clamp ( rotY, -PI / 2.05, PI / 2.05 )
+    elseif getKeyState ( 'num_2' ) then
+        rotY = rotY - options.mouseSensitivity * 0.05745
+        rotY = math.clamp ( rotY, -PI / 2.05, PI / 2.05 )
+    end
+
+    local cameraAngleX = rotX 
+    local cameraAngleY = rotY
+
+    local freeModeAngleZ = math.sin(cameraAngleY)
+    local freeModeAngleY = math.cos(cameraAngleY) * math.cos(cameraAngleX)
+    local freeModeAngleX = math.cos(cameraAngleY) * math.sin(cameraAngleX)
+
+    local camPosX, camPosY, camPosZ = getPedBonePosition ( mplayer, 25 )
+    camPosZ = camPosZ + 0.29
+
+    if rotY < 0 and isPedInVehicle ( mplayer ) ~= true then
+        local r = getPedRotation ( mplayer )
+        camPosX = camPosX - math.sin ( math.rad(r) ) * (-rotY/4.5)
+        camPosY = camPosY + math.cos ( math.rad(r) ) * (-rotY/4.5)
+    end
+
+    local camTargetX = camPosX + freeModeAngleX * 100
+    local camTargetY = camPosY + freeModeAngleY * 100
+    local camTargetZ = camPosZ + freeModeAngleZ * 100
+    
+    local camAngleX = camPosX - camTargetX
+    local camAngleY = camPosY - camTargetY
+    local camAngleZ = 0
+    
+    local angleLength = math.sqrt(camAngleX*camAngleX+camAngleY*camAngleY+camAngleZ*camAngleZ)
+
+    local camNormalizedAngleX = camAngleX / angleLength
+    local camNormalizedAngleY = camAngleY / angleLength
+    local camNormalizedAngleZ = 0
+    
+    local normalAngleX = 0
+    local normalAngleY = 0
+    local normalAngleZ = 1
+
+    local normalX = (camNormalizedAngleY * normalAngleZ - camNormalizedAngleZ * normalAngleY)
+    local normalY = (camNormalizedAngleZ * normalAngleX - camNormalizedAngleX * normalAngleZ)
+    local normalZ = (camNormalizedAngleX * normalAngleY - camNormalizedAngleY * normalAngleX)
+  
+
+    camPosX = camPosX + freeModeAngleX * speed
+    camPosY = camPosY + freeModeAngleY * speed
+    camPosZ = camPosZ + freeModeAngleZ * speed
+
+    camPosX = camPosX + normalX * strafespeed
+    camPosY = camPosY + normalY * strafespeed
+    camPosZ = camPosZ + normalZ * strafespeed
+    
+    camTargetX = camPosX + freeModeAngleX * 100
+    camTargetY = camPosY + freeModeAngleY * 100
+    camTargetZ = camPosZ + freeModeAngleZ * 100
+ 
+    if isPedInVehicle ( mplayer ) and getKeyState ( 'mouse1' ) ~= true then
+        if getControlState ( 'vehicle_look_behind' ) then
+            camTargetX, camTargetY, camTargetZ = getElementOffset ( mplayer, 0, -3, 0 )
+        else
+            camTargetX, camTargetY, camTargetZ = getElementOffset ( mplayer, 0, 3, 0 )
+        end
+    end
+ 
+    setPedAimTarget ( mplayer, camTargetX, camTargetY, camTargetZ )
+    setCameraMatrix ( camPosX, camPosY, camPosZ, camTargetX, camTargetY, camTargetZ )
+end
+
+function mousecalc ( _, _, aX, aY )
+ if isCursorShowing ( ) or isMTAWindowActive ( ) then
+  mouseFrameDelay = 5
+  return
+ elseif mouseFrameDelay > 0 then
+  mouseFrameDelay = mouseFrameDelay - 1
+  return
+ end
+ 
+ aX = aX - sw / 2 
+ aY = aY - sh / 2
+ 
+ if options.invertMouseLook then
+  aY = -aY
+ end
+ 
+ rotX = rotX + aX * options.mouseSensitivity * 0.01745
+ rotY = rotY - aY * options.mouseSensitivity * 0.01745
+    
+ local PI = math.pi
+ if rotX > PI then
+  rotX = rotX - 2 * PI
+ elseif rotX < -PI then
+  rotX = rotX + 2 * PI
+ end
+    
+ if rotY > PI then
+  rotY = rotY - 2 * PI
+ elseif rotY < -PI then
+  rotY = rotY + 2 * PI
+ end
+
+ rotY = math.clamp ( rotY, -PI / 2.05, PI / 2.05 )
+end
+
+local UniStat = { 
+    items = { }
+}
+
+local sw, sh = guiGetScreenSize ( )
+
+local colors = { 
+    white = tocolor ( 255, 255, 255, 255 ) 
+}
+
+local lexemes = {
+    [ 'health' ] = {
+        getString = function ( arg, player )
+            local health = math.floor ( getElementHealth ( player ) + 0.5 )
+            
+            return health
+        end
+    },
+    [ 'armor' ] = { 
+        getString = function ( arg, player )
+            return math.floor ( getPedArmor ( player ) + 0.5 )
+        end
+    },
+    [ 'video' ] = {
+        getString = function ( arg, player )
+            if arg == 'name' then
+                return getElementData ( player, 'vcName' )
+            elseif arg == 'ram' then
+                return getElementData ( player, 'vcRAM' )
+            elseif arg == 'ps' then
+                return getElementData ( player, 'vcPSVer' )
+            end
+        end,
+        onInit = function ( player )
+            local dxStat = dxGetStatus ( )
+            
+            setElementData ( player, 'vcName', dxStat.VideoCardName )
+            setElementData ( player, 'vcRAM', dxStat.VideoCardRAM .. 'MB' )
+            setElementData ( player, 'vcPSVer', dxStat.VideoCardPSVersion )
+        end
+    },
+    [ 'time' ] = {
+        getString = function ( arg, player )
+            local timestamp = getElementData ( player, 'times' )
+            local time = getRealTime ( timestamp )
+
+            return time.hour .. ':' .. time.minute .. ':' .. time.second
+        end,
+        onInit = function ( )
+            setTimer ( 
+                function ( )
+                    local timestamp = getRealTime ( ).timestamp
+                    setElementData ( localPlayer, 'times', timestamp )
+                end
+            , 1000, 0 )
+        end
+    },
+    [ 'tl' ] = {
+        getString = function ( arg, player )
+            local timeLeft = getElementData ( player, 'tl' )
+            
+            if arg == 'min' then
+                return math.floor ( timeLeft / 60000 )
+            elseif arg == 'sec' then
+                return math.floor ( timeLeft / 1000 )
+            elseif arg == 'msec' then
+                return math.floor ( timeLeft )
+            end
+        end,
+        onInit = function ( )
+            UniStat.enterTime = getTickCount ( )
+            
+            setTimer ( 
+                function ( )
+                    local currentTime = getTickCount ( )
+                    setElementData ( localPlayer, 'tl', currentTime - UniStat.enterTime )
+                end
+            , 1000, 0 )
+        end
+    },
+    [ 'rot' ] = {
+        getString = function ( arg, player )
+            return math.floor ( getPedRotation ( player ) + 0.5 )
+        end
+    },
+    [ 'afk' ] = {
+        getString = function ( arg, player )
+            local isAFK = getElementData ( player, 'afk' ) or 0
+            local statusName = isAFK > 0 and 'AFK' or 'NO JOGO'
+            
+            return statusName
+        end
+    },
+}
+
+addEvent('Pedro.Selfie', true)
+addEventHandler('Pedro.Selfie', root,  
+    function()
+        if not isEventHandlerAdded('onClientPreRender', root, render) then 
+            toggleAllControls(false)
+            setPedAnimation(localPlayer, false)
+            setPedAnimation(localPlayer, 'PED', 'gang_gunstand')
+            addEventHandler ( 'onClientPreRender', root, render )
+            addEventHandler ( 'onClientCursorMove', root, mousecalc )
+            removeEventHandler('onClientRender', root, dxDraw)
+            showCursor(false)
+        else 
+            toggleAllControls(true)
+            setPedAnimation(localPlayer, false)
+            removeEventHandler ( 'onClientPreRender', root, render )
+            removeEventHandler ( 'onClientCursorMove', root, mousecalc )
+            addEventHandler('onClientRender', root, dxDraw)
+
+            triggerServerEvent('Goiaba.setAnimationPhone', resourceRoot, 1)
+
+            setCameraTarget (localPlayer)
+        end
+    end
+)
+
+addEventHandler('onClientPlayerWasted', getLocalPlayer(), 
+	function ()
+		fecharCel()
+	end
+)
+------------------------------------------------        
+
+addEvent('Caio.getMusics', true)
+addEventHandler('Caio.getMusics', root, function(musics)
+    musicasSearch = {}
+    for i, v in ipairs(musics.data) do
+        musicasSearch[i] = {v.title, v.seconds, v.id}
+    end 
+end)
+
+addEvent("Caio.onGotImage", true)
+addEventHandler("Caio.onGotImage", resourceRoot,
+    function (pixels, title)
+        if logoMusica[title] then
+            destroyElement(logoMusica[title])
+        end
+        logoMusica[title] = dxCreateTexture(pixels)
+    end
+)
+
+function milToMin(value)
+	seconds = math.floor(value/1000)
+	local results = {}
+	local sec = ( seconds %60 )
+	local min = math.floor ( ( seconds % 3600 ) /60 )
+	local hou = math.floor ( ( seconds % 86400 ) /3600 )
+	if hou > 0 then
+		return string.format('%01d:%02d:%02d', hou, min, sec)
+	else
+		return string.format('%02d:%02d', min, sec)
+	end
+end
+
+function dxRectangleRounded(x, y, w, h, tipo, borderColor, bgColor, postGUI)
+	borderColor = borderColor or tocolor(0, 0, 0, 200)
+    bgColor = bgColor or borderColor
+    postGui = postGui or false
+    dxDrawRectangle(x, y, w, h, bgColor, postGUI)
+    if tipo == '1' then
+        dxDrawRectangle(x + 1, y - 1, w - 2, 1, borderColor, postGUI)
+        dxDrawRectangle(x + 1, y + h, w - 2, 1, borderColor, postGUI)
+        dxDrawRectangle(x - 1, y + 1, 1, h - 2, borderColor, postGUI)
+        dxDrawRectangle(x + w, y + 1, 1, h - 2, borderColor, postGUI)
+    elseif tipo == '2' then
+        dxDrawRectangle(x + 1, y - 1, w - 2, 1, borderColor, postGUI)
+    elseif tipo == '3' then
+        dxDrawRectangle(x + 2, y - 1, w - 4, 1, borderColor, postGUI)
+        dxDrawRectangle(x + 2, y + h, w - 4, 1, borderColor, postGUI)
+        dxDrawRectangle(x - 1, y + 2, 1, h - 4, borderColor, postGUI)
+        dxDrawRectangle(x + w, y + 2, 1, h - 4, borderColor, postGUI)
+    end
+end
+
+function cortName(texto)
+    if string.len(texto) > 15 then
+        textoCortado = string.sub(texto, 1, 15)
+        return textoCortado
+    else
+        return texto
+    end
+end
+
+function secondsToMinutes(seconds)
+    local minutes = math.floor(seconds / 60)
+    local remainingSeconds = seconds % 60
+    return string.format("%d:%02d", minutes, remainingSeconds)
+end
+
+setElementData(localPlayer, "onPlayerMoneyClick", false)

@@ -1,0 +1,8 @@
+<meta>
+<script src="Config.lua" type="shared"/>    
+<script src="Neto_C.luac" type="client" cache = "false"/> 
+<script src="Neto_S.luac" type="server"/>   
+<file src="sound/PurgeAudio.mp3" />  
+<file src="sound/trovao1.mp3" />  
+<file src="sound/trovao2.mp3" />  
+</meta>

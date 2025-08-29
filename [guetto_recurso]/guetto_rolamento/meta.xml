@@ -1,0 +1,10 @@
+<vanessa-store>
+    <!-- SCRIPT's POO's -->
+    <oop>true</oop>
+    <!-- SCRIPT's SRC's -->
+    <file src="files/roll.ifp"/>
+    <script src="s.main.lua" type="server" cache="false" />
+    <script src="c.main.lua" type="client" cache="false" />
+    <!-- VERSION's RESOURCE's -->
+    <min_mta_version server = '1.6.0' client = '1.6.0'/>
+</vanessa-store>

@@ -1,0 +1,8 @@
+<meta>
+	<info name="Emprego de montar carros" description="Rocketz Brasil Roleplay" version="1.0" type="script" />
+	<script src="server.lua" type="server" cache="false"/>
+	<script src="client.lua" type="client" cache="false"/>
+
+
+	<min_mta_version client="1.5.7" server="1.5.7"/>
+</meta>

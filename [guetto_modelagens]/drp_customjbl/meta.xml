@@ -1,0 +1,32 @@
+<meta>
+	<info author="Sousa" type="script" name="rocketz_customjbl" />
+
+	<script src="config.lua" type="shared" />
+	<script src="cSousa.lua" type="client" cache="false" />
+	<script src="sSousa.lua" type="server" />
+
+	<file src="assets/shader/texturechanger.fx" />
+
+	<file src="assets/texturas/1.png" />
+	<file src="assets/texturas/2.png" />
+	<file src="assets/texturas/3.png" />
+	<file src="assets/texturas/4.png" />
+	<file src="assets/texturas/5.png" />
+	<file src="assets/texturas/6.png" />
+	<file src="assets/texturas/7.png" />
+	<file src="assets/texturas/8.png" />
+	<file src="assets/texturas/9.png" />
+	<file src="assets/texturas/10.png" />
+	<file src="assets/texturas/11.png" />
+	<file src="assets/texturas/12.png" />
+	<file src="assets/texturas/13.png" />
+	<file src="assets/texturas/14.png" />
+	<file src="assets/texturas/15.png" />
+	<file src="assets/texturas/16.png" />
+	<file src="assets/texturas/17.png" />
+	<file src="assets/texturas/18.png" />
+	<file src="assets/texturas/19.png" />
+	<file src="assets/texturas/20.png" />
+
+
+</meta>

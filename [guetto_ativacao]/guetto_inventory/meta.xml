@@ -1,0 +1,234 @@
+<meta>
+
+    <!--Scripts-->
+
+    <info author = "Guh And MatteO"/>
+
+    <script src = 'config.lua' type = 'shared' cache = 'false'/>
+
+    <!--Utils-->
+    <script src = 'src/utils/server.lua' type = 'server' cache = 'false'/>
+    <script src = 'src/utils/client.lua' type = 'client' cache = 'false'/>
+    <script src = 'src/utils/slidebar.lua' type = 'client' cache = 'false'/>
+
+    <!--Components-->
+    <script src = 'src/components/drop-s.lua' type = 'server' cache = 'false'/>
+    <script src = 'src/components/send-s.lua' type = 'server' cache = 'false'/>
+
+    <!--Main-->
+    <script src = 'src/main/server.lua' type = 'server' cache = 'false'/>
+    <script src = 'src/main/client.lua' type = 'client' cache = 'false'/>
+
+    <!--Use-->
+    <script src = 'use-s.lua' type = 'server' cache = 'false'/>
+    <script src = 'use-c.lua' type = 'client' cache = 'false'/>
+
+    <!--Images-->
+
+    <file src = 'assets/images/blur.png'/>
+    <file src = 'assets/images/line.png'/>    
+    <file src = 'assets/images/bag-icon.png'/>
+
+    <file src = 'assets/images/rectangle-item.png'/>
+    <file src = 'assets/images/rectangle-use.png'/>
+    <file src = 'assets/images/button-item.png'/>
+
+    <file src = 'assets/images/icon-bag.png'/>
+    <file src = 'assets/images/icon-food.png'/>
+    <file src = 'assets/images/icon-ilegal.png'/>
+    <file src = 'assets/images/icon-lock.png'/>
+    <file src = 'assets/images/icon-check.png'/>
+
+    <file src = 'assets/images/icon-use.png'/>
+    <file src = 'assets/images/icon-drop.png'/>
+    <file src = 'assets/images/icon-send.png'/>
+
+    <file src = 'assets/images/rectangle.png'/>
+    <file src = 'assets/images/icon-slide.png'/>
+
+    <!--Itens-->
+
+    <file src = 'assets/itens/1.png'/>
+    <file src = 'assets/itens/2.png'/><file src = 'assets/itens/3.png'/>
+    <file src = 'assets/itens/4.png'/><file src = 'assets/itens/5.png'/>
+    <file src = 'assets/itens/6.png'/><file src = 'assets/itens/7.png'/>
+    <file src = 'assets/itens/8.png'/><file src = 'assets/itens/9.png'/>
+    <file src = 'assets/itens/10.png'/><file src = 'assets/itens/11.png'/>
+    <file src = 'assets/itens/12.png'/><file src = 'assets/itens/13.png'/>
+    <file src = 'assets/itens/14.png'/><file src = 'assets/itens/15.png'/>
+    <file src = 'assets/itens/16.png'/><file src = 'assets/itens/17.png'/>
+    <file src = 'assets/itens/18.png'/><file src = 'assets/itens/19.png'/>
+    <file src = 'assets/itens/20.png'/><file src = 'assets/itens/21.png'/> 
+    <file src = 'assets/itens/22.png'/><file src = 'assets/itens/23.png'/>
+    <file src = 'assets/itens/24.png'/><file src = 'assets/itens/25.png'/>
+    <file src = 'assets/itens/26.png'/><file src = 'assets/itens/27.png'/>
+    <file src = 'assets/itens/28.png'/><file src = 'assets/itens/29.png'/>
+    <file src = 'assets/itens/30.png'/><file src = 'assets/itens/31.png'/>
+    <file src = 'assets/itens/32.png'/><file src = 'assets/itens/33.png'/>
+    <file src = 'assets/itens/34.png'/><file src = 'assets/itens/35.png'/>
+    <file src = 'assets/itens/36.png'/><file src = 'assets/itens/37.png'/>
+    <file src = 'assets/itens/38.png'/><file src = 'assets/itens/39.png'/>
+    <file src = 'assets/itens/40.png'/><file src = 'assets/itens/41.png'/>
+    <file src = 'assets/itens/42.png'/><file src = 'assets/itens/43.png'/>
+    <file src = 'assets/itens/44.png'/><file src = 'assets/itens/45.png'/>
+    <file src = 'assets/itens/46.png'/><file src = 'assets/itens/47.png'/>
+    <file src = 'assets/itens/48.png'/><file src = 'assets/itens/49.png'/>
+    <file src = 'assets/itens/50.png'/><file src = 'assets/itens/51.png'/>
+    <file src = 'assets/itens/52.png'/><file src = 'assets/itens/53.png'/>
+    <file src = 'assets/itens/54.png'/><file src = 'assets/itens/55.png'/>
+    <file src = 'assets/itens/56.png'/><file src = 'assets/itens/57.png'/>
+    <file src = 'assets/itens/58.png'/><file src = 'assets/itens/59.png'/>
+    <file src = 'assets/itens/60.png'/><file src = 'assets/itens/61.png'/>
+    <file src = 'assets/itens/62.png'/><file src = 'assets/itens/63.png'/>
+    <file src = 'assets/itens/64.png'/><file src = 'assets/itens/65.png'/>
+    <file src = 'assets/itens/66.png'/><file src = 'assets/itens/67.png'/>
+    <file src = 'assets/itens/68.png'/><file src = 'assets/itens/69.png'/>
+    <file src = 'assets/itens/70.png'/><file src = 'assets/itens/71.png'/>
+    <file src = 'assets/itens/72.png'/><file src = 'assets/itens/73.png'/>
+    <file src = 'assets/itens/74.png'/><file src = 'assets/itens/75.png'/>
+    <file src = 'assets/itens/76.png'/><file src = 'assets/itens/77.png'/>
+    <file src = 'assets/itens/78.png'/><file src = 'assets/itens/79.png'/>
+    <file src = 'assets/itens/80.png'/><file src = 'assets/itens/81.png'/>
+    <file src = 'assets/itens/82.png'/><file src = 'assets/itens/83.png'/>
+    <file src = 'assets/itens/84.png'/><file src = 'assets/itens/85.png'/>
+    <file src = 'assets/itens/86.png'/><file src = 'assets/itens/87.png'/>
+    <file src = 'assets/itens/88.png'/><file src = 'assets/itens/89.png'/>
+    <file src = 'assets/itens/90.png'/><file src = 'assets/itens/91.png'/>
+    <file src = 'assets/itens/92.png'/><file src = 'assets/itens/93.png'/>
+    <file src = 'assets/itens/94.png'/><file src = 'assets/itens/95.png'/>
+    <file src = 'assets/itens/96.png'/><file src = 'assets/itens/97.png'/>
+    <file src = 'assets/itens/97.png'/><file src = 'assets/itens/98.png'/>
+    <file src = 'assets/itens/99.png'/><file src = 'assets/itens/100.png'/>
+    <file src = 'assets/itens/101.png'/><file src = 'assets/itens/102.png'/>
+    <file src = 'assets/itens/103.png'/><file src = 'assets/itens/104.png'/>
+    <file src = 'assets/itens/105.png'/><file src = 'assets/itens/106.png'/>
+    <file src = 'assets/itens/107.png'/><file src = 'assets/itens/108.png'/>
+    <file src = 'assets/itens/109.png'/><file src = 'assets/itens/110.png'/>
+    <file src = 'assets/itens/111.png'/><file src = 'assets/itens/112.png'/>
+    <file src = 'assets/itens/113.png'/><file src = 'assets/itens/114.png'/>
+    <file src = 'assets/itens/115.png'/><file src = 'assets/itens/116.png'/>
+    <file src = 'assets/itens/117.png'/><file src = 'assets/itens/118.png'/>
+    <file src = 'assets/itens/119.png'/><file src = 'assets/itens/120.png'/>
+    <file src = 'assets/itens/121.png'/><file src = 'assets/itens/122.png'/>
+    <file src = 'assets/itens/123.png'/><file src = 'assets/itens/124.png'/>
+    <file src = 'assets/itens/125.png'/><file src = 'assets/itens/126.png'/>
+    <file src = 'assets/itens/127.png'/><file src = 'assets/itens/128.png'/>
+    <file src = 'assets/itens/129.png'/><file src = 'assets/itens/130.png'/>
+    <file src = 'assets/itens/131.png'/><file src = 'assets/itens/132.png'/>
+    <file src = 'assets/itens/133.png'/><file src = 'assets/itens/134.png'/>
+    <file src = 'assets/itens/135.png'/><file src = 'assets/itens/136.png'/>
+    <file src = 'assets/itens/137.png'/><file src = 'assets/itens/138.png'/>
+    <file src = 'assets/itens/139.png'/><file src = 'assets/itens/140.png'/>
+    <file src = 'assets/itens/141.png'/><file src = 'assets/itens/142.png'/>
+    <file src = 'assets/itens/143.png'/><file src = 'assets/itens/144.png'/>
+    <file src = 'assets/itens/145.png'/><file src = 'assets/itens/146.png'/>
+    <file src = 'assets/itens/147.png'/><file src = 'assets/itens/148.png'/>
+    <file src = 'assets/itens/149.png'/><file src = 'assets/itens/150.png'/>
+    <file src = 'assets/itens/151.png'/><file src = 'assets/itens/152.png'/>
+    <file src = 'assets/itens/153.png'/><file src = 'assets/itens/154.png'/>
+    <file src = 'assets/itens/155.png'/><file src = 'assets/itens/156.png'/>
+    <file src = 'assets/itens/157.png'/><file src = 'assets/itens/158.png'/>
+    <file src = 'assets/itens/159.png'/><file src = 'assets/itens/160.png'/>
+    <file src = 'assets/itens/161.png'/><file src = 'assets/itens/162.png'/>
+    <file src = 'assets/itens/163.png'/><file src = 'assets/itens/164.png'/>
+    <file src = 'assets/itens/165.png'/><file src = 'assets/itens/166.png'/>
+    <file src = 'assets/itens/167.png'/><file src = 'assets/itens/168.png'/>
+    <file src = 'assets/itens/169.png'/><file src = 'assets/itens/170.png'/>
+    <file src = 'assets/itens/171.png'/><file src = 'assets/itens/172.png'/>
+    <file src = 'assets/itens/173.png'/><file src = 'assets/itens/174.png'/>
+    <file src = 'assets/itens/175.png'/><file src = 'assets/itens/176.png'/>
+    <file src = 'assets/itens/177.png'/><file src = 'assets/itens/178.png'/>
+    <file src = 'assets/itens/179.png'/><file src = 'assets/itens/180.png'/>
+    <file src = 'assets/itens/181.png'/><file src = 'assets/itens/182.png'/>
+    <file src = 'assets/itens/183.png'/><file src = 'assets/itens/184.png'/>
+    <file src = 'assets/itens/185.png'/><file src = 'assets/itens/186.png'/>
+    <file src = 'assets/itens/187.png'/><file src = 'assets/itens/188.png'/>
+    <file src = 'assets/itens/189.png'/><file src = 'assets/itens/190.png'/>
+    <file src = 'assets/itens/191.png'/><file src = 'assets/itens/192.png'/>
+    <file src = 'assets/itens/193.png'/><file src = 'assets/itens/194.png'/>
+    <file src = 'assets/itens/195.png'/><file src = 'assets/itens/196.png'/>
+    <file src = 'assets/itens/197.png'/><file src = 'assets/itens/198.png'/>
+    <file src = 'assets/itens/199.png'/><file src = 'assets/itens/200.png'/>
+    <file src = 'assets/itens/201.png'/><file src = 'assets/itens/202.png'/>
+    <file src = 'assets/itens/203.png'/><file src = 'assets/itens/204.png'/>
+    <file src = 'assets/itens/205.png'/><file src = 'assets/itens/206.png'/>
+    <file src = 'assets/itens/207.png'/><file src = 'assets/itens/208.png'/>
+    <file src = 'assets/itens/209.png'/><file src = 'assets/itens/210.png'/>
+    <file src = 'assets/itens/211.png'/><file src = 'assets/itens/212.png'/>
+    <file src = 'assets/itens/213.png'/><file src = 'assets/itens/214.png'/>
+    <file src = 'assets/itens/215.png'/><file src = 'assets/itens/216.png'/>
+    <file src = 'assets/itens/217.png'/><file src = 'assets/itens/218.png'/>
+    <file src = 'assets/itens/219.png'/><file src = 'assets/itens/220.png'/>
+    <file src = 'assets/itens/221.png'/><file src = 'assets/itens/222.png'/>
+    <file src = 'assets/itens/223.png'/><file src = 'assets/itens/224.png'/>
+    <file src = 'assets/itens/225.png'/><file src = 'assets/itens/226.png'/>
+    <file src = 'assets/itens/227.png'/><file src = 'assets/itens/228.png'/>
+    <file src = 'assets/itens/229.png'/><file src = 'assets/itens/230.png'/>
+    <file src = 'assets/itens/231.png'/><file src = 'assets/itens/232.png'/>
+    <file src = 'assets/itens/233.png'/><file src = 'assets/itens/234.png'/>
+    <file src = 'assets/itens/235.png'/><file src = 'assets/itens/236.png'/>
+    <file src = 'assets/itens/237.png'/><file src = 'assets/itens/238.png'/>
+    <file src = 'assets/itens/239.png'/><file src = 'assets/itens/240.png'/>
+    <file src = 'assets/itens/241.png'/><file src = 'assets/itens/242.png'/>
+    <file src = 'assets/itens/243.png'/><file src = 'assets/itens/244.png'/>
+    <file src = 'assets/itens/245.png'/><file src = 'assets/itens/246.png'/>
+    <file src = 'assets/itens/247.png'/><file src = 'assets/itens/248.png'/>
+    <file src = 'assets/itens/249.png'/><file src = 'assets/itens/250.png'/>
+    <file src = 'assets/itens/251.png'/><file src = 'assets/itens/252.png'/>
+    <file src = 'assets/itens/253.png'/><file src = 'assets/itens/254.png'/>
+    <file src = 'assets/itens/255.png'/><file src = 'assets/itens/256.png'/>
+    <file src = 'assets/itens/257.png'/><file src = 'assets/itens/258.png'/>
+    <file src = 'assets/itens/259.png'/><file src = 'assets/itens/260.png'/>
+    <file src = 'assets/itens/261.png'/><file src = 'assets/itens/262.png'/>
+    <file src = 'assets/itens/263.png'/><file src = 'assets/itens/264.png'/>
+    <file src = 'assets/itens/265.png'/><file src = 'assets/itens/266.png'/>
+    <file src = 'assets/itens/267.png'/><file src = 'assets/itens/268.png'/>
+    <file src = 'assets/itens/269.png'/><file src = 'assets/itens/270.png'/>
+    <file src = 'assets/itens/271.png'/><file src = 'assets/itens/272.png'/>
+    <file src = 'assets/itens/273.png'/><file src = 'assets/itens/274.png'/>
+    <file src = 'assets/itens/275.png'/><file src = 'assets/itens/276.png'/>
+    <file src = 'assets/itens/277.png'/><file src = 'assets/itens/278.png'/>
+    <file src = 'assets/itens/279.png'/><file src = 'assets/itens/280.png'/>
+    <file src = 'assets/itens/281.png'/><file src = 'assets/itens/282.png'/>
+    <file src = 'assets/itens/283.png'/><file src = 'assets/itens/284.png'/>
+    <file src = 'assets/itens/285.png'/><file src = 'assets/itens/286.png'/>
+    <file src = 'assets/itens/287.png'/><file src = 'assets/itens/288.png'/>
+    <file src = 'assets/itens/289.png'/><file src = 'assets/itens/290.png'/>
+    <file src = 'assets/itens/291.png'/><file src = 'assets/itens/292.png'/>
+    <file src = 'assets/itens/293.png'/><file src = 'assets/itens/294.png'/>
+    <file src = 'assets/itens/295.png'/><file src = 'assets/itens/296.png'/>
+    <file src = 'assets/itens/297.png'/><file src = 'assets/itens/298.png'/>
+    <file src = 'assets/itens/299.png'/><file src = 'assets/itens/300.png'/>
+    <file src = 'assets/itens/301.png'/><file src = 'assets/itens/302.png'/>
+    <file src = 'assets/itens/303.png'/><file src = 'assets/itens/304.png'/>
+    <file src = 'assets/itens/305.png'/><file src = 'assets/itens/306.png'/>
+    <file src = 'assets/itens/307.png'/><file src = 'assets/itens/308.png'/>
+    <file src = 'assets/itens/309.png'/><file src = 'assets/itens/310.png'/>
+    <file src = 'assets/itens/311.png'/><file src = 'assets/itens/312.png'/>
+    <file src = 'assets/itens/313.png'/><file src = 'assets/itens/314.png'/>
+    <file src = 'assets/itens/315.png'/><file src = 'assets/itens/316.png'/>
+    <file src = 'assets/itens/317.png'/><file src = 'assets/itens/318.png'/>
+    <file src = 'assets/itens/319.png'/><file src = 'assets/itens/320.png'/>
+    <file src = 'assets/itens/321.png'/><file src = 'assets/itens/322.png'/>
+    <file src = 'assets/itens/323.png'/><file src = 'assets/itens/324.png'/>
+    <file src = 'assets/itens/325.png'/><file src = 'assets/itens/326.png'/>
+    <file src = 'assets/itens/327.png'/><file src = 'assets/itens/328.png'/>
+    <file src = 'assets/itens/329.png'/><file src = 'assets/itens/330.png'/>
+    <file src = 'assets/itens/331.png'/><file src = 'assets/itens/332.png'/>
+    <file src = 'assets/itens/333.png'/><file src = 'assets/itens/334.png'/>
+
+    <!--Export´s-->
+    <export function = "getConfigItem" type = "shared"/>
+    <export function = "getClientItem" type = "client"/>
+    <export function = "giveItem" type = "server"/>
+    <export function = "takeItem" type = "server"/>
+    <export function = "getItem" type = "server"/>
+    <export function = "getClientItem" type = "client"/>
+    <export function = "getPlayerSpaceItem" type = "server"/>
+    <export function = "savePlayerInventory" type = "server"/>
+    <export function = "getItemHotBar" type = "server"/>
+    <export function = "getPlayerInventory" type = "server"/>
+    <export function = "getPlayerInventoryWeight" type = "server"/>
+
+    <min_mta_version server="1.6" client="1.6" />
+</meta>

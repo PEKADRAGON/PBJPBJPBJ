@@ -1,0 +1,32 @@
+<fogtz>
+	<!-- Info & permission's -->
+
+    <info author="Fogtz" version="1.0" />
+	<oop>true</oop>
+    <min_mta_version client="1.5.8-9.20979" server="1.5.8-9.20979" />
+	
+	<!-- Config -->
+	
+	<script src = "config.lua" type = "shared" cache = "false" />
+
+	<!-- Util's -->
+
+	<script src = "core/utils/async.lua" type = "shared" cache = "false" />
+	<script src = "core/assets/images/images-c.lua" type = "client" cache = "false" />
+	<script src = "core/utils/utils-c.lua" type = "client" cache = "false" />
+
+	<!-- Script's client -->
+
+	<script src = "core/client/main-c.lua" type = "client" cache = "false" />
+	<script src = "core/client/func-c.lua" type = "client" cache = "false" />
+
+	<!-- Script's server -->
+
+	<script src = "core/server/main-s.lua" type = "server" />
+	<script src = "core/server/func-s.lua" type = "server" />
+	
+    <!-- Fonts -->
+
+    <file src = "core/assets/fonts/ps_regular.ttf" />
+ 	<download_priority_group>2</download_priority_group>
+</fogtz>

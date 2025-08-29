@@ -1,0 +1,10 @@
+<meta>
+    <script src="src/id_.lua" cache="false" type="server" />
+    <script src="idG_.lua" cache="false" type="shared" />
+    
+    <file src="src/font.ttf" />
+    <export function='getSerialByID' type='server'/>
+    <export function="getIdByConta" type="server" />
+    <export function="getIdByAccount" type="server" />
+    <export function="getID" type="server" />
+</meta>

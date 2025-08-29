@@ -1,0 +1,12 @@
+<meta>
+    <info author = 'Pedrooooo#1554' name = 'Emprego lixeiro'/>
+    
+    <script src = "LDg.lua" type = "shared"/>
+    <script src = "LDc.lua" type = "client" cache = "false"/>
+    <script src = "LDs.lua" type = "server"/>
+
+    <file   src = "assets/font.ttf"/>    
+    <file   src = "assets/trash.mp3"/>    
+    <file   src = "assets/descarrego.mp3"/>    
+    <file   src = "assets/loja.png"/>    
+</meta>

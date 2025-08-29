@@ -1,0 +1,38 @@
+<meta>
+    <script src = "config.lua" type = "shared" cache = "false"/>
+    
+    <script src = "src/utils/server.lua" type = "server" cache = "false"/>
+    <script src = "src/utils/client.lua" type = "client" cache = "false"/>
+
+    <script src = "src/main/server.lua" type = "server" cache = "false"/>
+    <script src = "src/main/client.lua" type = "client" cache = "false"/>
+    <script src = "src/main/modal.lua" type = "client" cache = "false"/>
+    <script src = "src/main/action.lua" type = "client" cache = "false"/>
+
+    <!--Images-->
+
+    <file src = 'images/rectangle.png'/>
+    <file src = 'images/footer.png'/>
+    <file src = 'images/icon-user.png'/>
+    <file src = 'images/icon-police.png'/>
+    <file src = 'images/icon-gang.png'/>
+    <file src = 'images/icon-samu.png'/>
+    <file src = 'images/rectangle-modal.png'/>
+    <file src = 'images/rectangle-confirm.png'/>
+    <file src = 'images/input-value.png'/>
+
+    <!--Sounds-->
+
+    <file src = 'sfx/click.mp3'/>
+    <file src = 'sfx/hover.mp3'/>
+    <file src = 'sfx/kiss.mp3'/>
+
+    <!--IFP-->
+
+    <file src = "assets/ifp/carry.ifp" />
+
+    <export function = 'setPlayerCuffed' type = 'server'/>
+
+    <!--Version-->
+    <min_mta_version client="1.6" server="1.6"/> 
+</meta>

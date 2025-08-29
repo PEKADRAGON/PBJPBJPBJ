@@ -1,0 +1,27 @@
+<meta>
+    <oop>true</oop>
+
+    <file src="me/assets/fonts/inter-extrabold.ttf" />
+    <file src="me/assets/fonts/inter-semibold.ttf" />
+
+    <file src="me/assets/image/button/button-01.png" />
+    <file src="me/assets/image/button/checkbox.png" />
+    <file src="me/assets/image/icons/confirm.png" />
+    <file src="me/assets/image/icons/trash.png" />
+    <file src="me/assets/image/icons/close.png" />
+    <file src="me/assets/image/background.png" />
+    <file src="me/assets/image/icons/fix.png" />
+
+    <script src="settings.lua" type="shared" cache="false" />
+
+    <script src="me/source/utils/scrollbar.lua" type="client" cache="false" />
+    <script src="me/source/utils/c-utils.lua" type="client" cache="false" />
+    <script src="me/source/utils/s-utils.lua" type="server" />
+    <script src="me/source/utils/async.lua" type="server" />
+
+    <script src="me/source/client/main.lua" type="client" cache="false" />
+    <script src="me/source/server/main.lua" type="server" />
+
+    <min_mta_version server="1.5.8-9.20979" client="1.5.8-9.20979"/>
+
+</meta>

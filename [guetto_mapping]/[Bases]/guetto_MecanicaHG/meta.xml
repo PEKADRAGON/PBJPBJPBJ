@@ -1,0 +1,8 @@
+<meta>
+<info author="VISUAL MTA MODELLING" description="KURO MTA Resource" version="1.3" type="script" />
+<script src="script.lua" type="client"/>
+<file src="Kuro.txd" type="client"/>
+<file src="Kuro.dff" type="client"/>
+<file src="Kuro1.dff" type="client"/>
+<file src="Kuro.col" type="client"/>
+</meta>

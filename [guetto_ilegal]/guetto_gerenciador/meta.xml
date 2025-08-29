@@ -1,0 +1,22 @@
+<meta>
+    
+    <script src = 'settings.lua' type = 'shared' cache = 'false'/>  
+
+    <!--Scripts-->
+    
+    <!--Utils-->
+
+    <script src = 'src/utils/utils-s.lua' type = 'server' cache = 'false'/>
+    <script src = 'src/utils/utils-c.lua' type = 'client' cache = 'false'/>
+
+    <!--Main-->
+
+    <script src = 'src/main/main-s.lua' type = 'server' cache = 'false'/>
+    <script src = 'src/main/main-c.lua' type = 'client' cache = 'false'/>
+
+    <!--Components-->
+    
+    <script src = 'src/components/destroy-s.lua' type = 'server' cache = 'false'/>
+    <script src = 'src/components/destroy-c.lua' type = 'client' cache = 'false'/>
+
+</meta>

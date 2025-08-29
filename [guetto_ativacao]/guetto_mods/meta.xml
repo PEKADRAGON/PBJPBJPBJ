@@ -1,0 +1,207 @@
+<meta>  
+
+    <info author = 'Guh'/>
+
+    <oop>true</oop>
+    
+    <!--Scripts-->
+
+    <script src = "config.lua" type = "shared" cache = "false"/>
+
+    <script src = "src/modules/moduleS.lua" type = "server" cache = "false"/>
+    <script src = "src/modules/moduleC.lua" type = "client" cache = "false"/>
+    <script src = "src/modules/editbox.lua" type = "client" cache = "false"/>
+    
+    <script src = "src/main/mainS.lua" type = "server" cache = "false"/>
+    <script src = "src/main/mainC.lua" type = "client" cache = "false"/>
+  
+    <!--Assets-->
+
+    <!--Icons-->
+
+    <file src = "assets/images/icons/download.png"/>
+    <file src = "assets/images/icons/on.png"/>
+    <file src = "assets/images/icons/polygon.png"/>
+    <file src = "assets/images/icons/quit.png"/>
+    <file src = "assets/images/icons/search.png"/>
+    <file src = "assets/images/icons/excluir.png"/>
+    <file src = "assets/images/icons/hover.png"/>
+    <file src = 'assets/images/logo/logo.png'/>
+
+
+    <!--Fonts-->
+    
+    <file src = "assets/fonts/bold.ttf"/>
+    <file src = "assets/fonts/light.ttf"/>
+    <file src = "assets/fonts/medium.ttf"/>
+    <file src = "assets/fonts/regular.ttf"/>
+
+    <!--Resources-->
+
+
+    <!--   Veículos da concessionaria  -->
+
+    <file src="assets/mods/Veiculos/411.txd" download="false" /> <file src="assets/mods/Veiculos/411.dff" download="false" />
+    <file src="assets/mods/Veiculos/602.txd" download="false" /> <file src="assets/mods/Veiculos/602.dff" download="false" />
+    <file src="assets/mods/Veiculos/458.txd" download="false" /> <file src="assets/mods/Veiculos/458.dff" download="false" />
+    <file src="assets/mods/Veiculos/527.txd" download="false" /> <file src="assets/mods/Veiculos/527.dff" download="false" />
+    <file src="assets/mods/Veiculos/419.txd" download="false" /> <file src="assets/mods/Veiculos/419.dff" download="false" />
+    <file src="assets/mods/Veiculos/550.txd" download="false" /> <file src="assets/mods/Veiculos/550.dff" download="false" />
+    <file src="assets/mods/Veiculos/526.txd" download="false" /> <file src="assets/mods/Veiculos/526.dff" download="false" />
+    <file src="assets/mods/Veiculos/474.txd" download="false" /> <file src="assets/mods/Veiculos/474.dff" download="false" />
+    <file src="assets/mods/Veiculos/579.txd" download="false" /> <file src="assets/mods/Veiculos/579.dff" download="false" />
+    <file src="assets/mods/Veiculos/507.txd" download="false" /> <file src="assets/mods/Veiculos/507.dff" download="false" />
+    <file src="assets/mods/Veiculos/518.txd" download="false" /> <file src="assets/mods/Veiculos/518.dff" download="false" />
+    <file src="assets/mods/Veiculos/551.txd" download="false" /> <file src="assets/mods/Veiculos/551.dff" download="false" />
+    <file src="assets/mods/Veiculos/496.txd" download="false" /> <file src="assets/mods/Veiculos/496.dff" download="false" />
+    <file src="assets/mods/Veiculos/541.txd" download="false" /> <file src="assets/mods/Veiculos/541.dff" download="false" />
+    <file src="assets/mods/Veiculos/562.txd" download="false" /> <file src="assets/mods/Veiculos/562.dff" download="false" />
+    <file src="assets/mods/Veiculos/540.txd" download="false" /> <file src="assets/mods/Veiculos/540.dff" download="false" />
+    <file src="assets/mods/Veiculos/529.txd" download="false" /> <file src="assets/mods/Veiculos/529.dff" download="false" />
+    <file src="assets/mods/Veiculos/422.txd" download="false" /> <file src="assets/mods/Veiculos/422.dff" download="false" />
+    <file src="assets/mods/Veiculos/415.txd" download="false" /> <file src="assets/mods/Veiculos/415.dff" download="false" />
+    <file src="assets/mods/Veiculos/467.txd" download="false" /> <file src="assets/mods/Veiculos/467.dff" download="false" />
+    <file src="assets/mods/Veiculos/516.txd" download="false" /> <file src="assets/mods/Veiculos/516.dff" download="false" />
+    <file src="assets/mods/Veiculos/404.txd" download="false" /> <file src="assets/mods/Veiculos/404.dff" download="false" />
+    <file src="assets/mods/Veiculos/405.txd" download="false" /> <file src="assets/mods/Veiculos/405.dff" download="false" />
+    <file src="assets/mods/Veiculos/400.txd" download="false" /> <file src="assets/mods/Veiculos/400.dff" download="false" />
+    <file src="assets/mods/Veiculos/604.txd" download="false" /> <file src="assets/mods/Veiculos/604.dff" download="false" />
+    <file src="assets/mods/Veiculos/547.txd" download="false" /> <file src="assets/mods/Veiculos/547.dff" download="false" />
+    <file src="assets/mods/Veiculos/545.txd" download="false" /> <file src="assets/mods/Veiculos/545.dff" download="false" />
+    <file src="assets/mods/Veiculos/580.txd" download="false" /> <file src="assets/mods/Veiculos/580.dff" download="false" />
+    <file src="assets/mods/Veiculos/426.txd" download="false" /> <file src="assets/mods/Veiculos/426.dff" download="false" />
+    <file src="assets/mods/Veiculos/456.txd" download="false" /> <file src="assets/mods/Veiculos/456.dff" download="false" />
+    <file src="assets/mods/Veiculos/479.txd" download="false" /> <file src="assets/mods/Veiculos/479.dff" download="false" />
+
+    <file src="assets/mods/Veiculos/462.txd" download="false" /> <file src="assets/mods/Veiculos/462.dff" download="false" />
+    <file src="assets/mods/Veiculos/521.txd" download="false" /> <file src="assets/mods/Veiculos/521.dff" download="false" />
+    <file src="assets/mods/Veiculos/522.txd" download="false" /> <file src="assets/mods/Veiculos/522.dff" download="false" />
+    <file src="assets/mods/Veiculos/461.txd" download="false" /> <file src="assets/mods/Veiculos/461.dff" download="false" /> 
+    <file src="assets/mods/Veiculos/468.txd" download="false" /> <file src="assets/mods/Veiculos/468.dff" download="false" />
+    <file src="assets/mods/Veiculos/463.txd" download="false" /> <file src="assets/mods/Veiculos/463.dff" download="false" />
+    <file src="assets/mods/Veiculos/586.txd" download="false" /> <file src="assets/mods/Veiculos/586.dff" download="false" />
+   
+   
+
+     <!-- Exclusivos -->
+    <file src="assets/mods/Exclusivos/487.txd" download="false" /> <file src="assets/mods/Exclusivos/487.dff" download="false"/>
+    <file src="assets/mods/Exclusivos/453.txd" download="false" /> <file src="assets/mods/Exclusivos/453.dff" download="false"/>
+
+    <!-- EB -->
+    <file src="assets/mods/Corps/200.txd" download="false" /> <file src="assets/mods/Corps/200.dff" download="false"/>
+    <file src="assets/mods/Corps/201.txd" download="false" /> <file src="assets/mods/Corps/201.dff" download="false"/>
+    <file src="assets/mods/Corps/202.txd" download="false" /> <file src="assets/mods/Corps/202.dff" download="false"/>
+    <file src="assets/mods/Corps/203.txd" download="false" /> <file src="assets/mods/Corps/203.dff" download="false"/>
+    <file src="assets/mods/Corps/433.txd" download="false" /> <file src="assets/mods/Corps/433.dff" download="false"/>
+    <file src="assets/mods/Corps/489.txd" download="false" /> <file src="assets/mods/Corps/489.dff" download="false"/>
+     <!-- PF -->
+    <file src="assets/mods/Corps/204.txd" download="false" /> <file src="assets/mods/Corps/204.dff" download="false"/>
+    <file src="assets/mods/Corps/205.txd" download="false" /> <file src="assets/mods/Corps/205.dff" download="false"/>
+
+    <!-- DETRAN -->
+    <file src="assets/mods/Corps/280.txd" download="false" /> <file src="assets/mods/Corps/280.dff" download="false"/>
+    <file src="assets/mods/Corps/281.txd" download="false" /> <file src="assets/mods/Corps/281.dff" download="false"/>
+
+     <!-- PMMG  -->
+    <file src="assets/mods/Corps/86.txd" download="false" /> <file src="assets/mods/Corps/86.dff" download="false"/>
+    <file src="assets/mods/Corps/87.txd" download="false" /> <file src="assets/mods/Corps/87.dff" download="false"/>
+    <file src="assets/mods/Corps/88.txd" download="false" /> <file src="assets/mods/Corps/88.dff" download="false"/>
+
+     <!-- SAGAZ  -->
+    <file src="assets/mods/Corps/285.txd" download="false" /> <file src="assets/mods/Corps/285.dff" download="false"/>
+    <file src="assets/mods/Corps/286.txd" download="false" /> <file src="assets/mods/Corps/286.dff" download="false"/>
+    <file src="assets/mods/Corps/287.txd" download="false" /> <file src="assets/mods/Corps/287.dff" download="false"/>
+    <file src="assets/mods/Corps/288.txd" download="false" /> <file src="assets/mods/Corps/288.dff" download="false"/>
+
+    <!-- PF -->
+    <file src="assets/mods/Corps/84.txd" download="false" /> <file src="assets/mods/Corps/84.dff" download="false"/>
+   
+     <!-- BOPE -->
+    <file src="assets/mods/Corps/282.txd" download="false" /> <file src="assets/mods/Corps/282.dff" download="false"/>
+    <file src="assets/mods/Corps/283.txd" download="false" /> <file src="assets/mods/Corps/283.dff" download="false"/>
+    <file src="assets/mods/Corps/284.txd" download="false" /> <file src="assets/mods/Corps/284.dff" download="false"/>
+
+     <!-- TOR -->
+    <file src="assets/mods/Corps/206.txd" download="false" /> <file src="assets/mods/Corps/206.dff" download="false"/>
+    <file src="assets/mods/Corps/207.txd" download="false" /> <file src="assets/mods/Corps/207.dff" download="false"/>
+
+    <!-- ROTAM -->
+    <file src="assets/mods/Corps/86.txd" download="false" /> <file src="assets/mods/Corps/86.dff" download="false"/>
+
+    <!-- COT -->
+    <file src="assets/mods/Corps/40.txd" download="false" /> <file src="assets/mods/Corps/40.dff" downlad="falseo"/>
+    <file src="assets/mods/Corps/41.txd" download="false" /> <file src="assets/mods/Corps/41.dff" downlad="falseo"/>
+
+    <!-- COE -->
+    <file src="assets/mods/Corps/42.txd" download="false" /> <file src="assets/mods/Corps/42.dff" downlad="falseo"/>
+
+    <!-- MB -->
+    <file src="assets/mods/Corps/27.txd" download="false" /> <file src="assets/mods/Corps/27.dff" download="false"/>
+    <file src="assets/mods/Corps/28.txd" download="false" /> <file src="assets/mods/Corps/28.dff" download="false"/>
+
+    <!-- CHOQUE -->
+    <file src="assets/mods/Corps/25.txd" download="false" /> <file src="assets/mods/Corps/25.dff" download="false"/>
+    <file src="assets/mods/Corps/26.txd" download="false" /> <file src="assets/mods/Corps/26.dff" download="false"/>
+
+    <!-- MARINHA -->
+    <file src="assets/mods/Corps/29.txd" download="false" /> <file src="assets/mods/Corps/29.dff" download="false"/>
+    <file src="assets/mods/Corps/30.txd" download="false" /> <file src="assets/mods/Corps/30.dff" download="false"/>
+    <file src="assets/mods/Corps/85.txd" download="false" /> <file src="assets/mods/Corps/85.dff" download="false"/>
+    <file src="assets/mods/Corps/35.txd" download="false" /> <file src="assets/mods/Corps/35.dff" download="false"/>
+
+    <!-- PMESP -->
+    <file src="assets/mods/Corps/272.txd" download="false" /> <file src="assets/mods/Corps/272.dff" download="false"/>
+    <file src="assets/mods/Corps/273.txd" download="false" /> <file src="assets/mods/Corps/273.dff" download="false"/>
+
+    <!-- SAMU -->
+    <file src="assets/mods/Corps/274.txd" download="false" /> <file src="assets/mods/Corps/274.dff" download="false"/>
+    <file src="assets/mods/Corps/275.txd" download="false" /> <file src="assets/mods/Corps/275.dff" download="false"/>
+    <file src="assets/mods/Corps/416.txd" download="false" /> <file src="assets/mods/Corps/416.dff" download="false"/>
+    <file src="assets/mods/Corps/430.txd" download="false" /> <file src="assets/mods/Corps/430.dff" download="false"/>
+
+    <!-- PMES -->
+    <file src="assets/mods/Corps/100.txd" download="false" /> <file src="assets/mods/Corps/100.dff" download="false"/>
+    <file src="assets/mods/Corps/101.txd" download="false" /> <file src="assets/mods/Corps/101.dff" download="false"/>
+
+     <!-- PRF -->
+    <file src="assets/mods/Corps/20.txd" download="false" /> <file src="assets/mods/Corps/20.dff" download="false"/>
+    <file src="assets/mods/Corps/21.txd" download="false" /> <file src="assets/mods/Corps/21.dff" download="false"/>
+    
+    <!--FT-->
+    <file src="assets/mods/Corps/94.txd" download="false" /> <file src="assets/mods/Corps/94.dff" download="false"/>
+    <file src="assets/mods/Corps/95.txd" download="false" /> <file src="assets/mods/Corps/95.dff" download="false"/>
+    <file src="assets/mods/Corps/96.txd" download="false" /> <file src="assets/mods/Corps/96.dff" download="false"/>
+    <file src="assets/mods/Corps/97.txd" download="false" /> <file src="assets/mods/Corps/97.dff" download="false"/>
+
+    <!-- MEC -->
+    <file src="assets/mods/Facs/50.txd" download="false" /> <file src="assets/mods/Facs/50.dff" download="false"/>
+    <file src="assets/mods/Facs/51.txd" download="false" /> <file src="assets/mods/Facs/51.dff" download="false"/>
+    <file src="assets/mods/Facs/525.txd" download="false" /> <file src="assets/mods/Facs/525.dff" download="false"/>
+
+    <file src="assets/mods/Facs/33.txd" download="false" /> <file src="assets/mods/Facs/33.dff" downlad="falseo"/>
+
+    <!-- UT -->
+    <file src="assets/mods/Facs/36.txd" download="false" /> <file src="assets/mods/Facs/36.dff" downlad="falseo"/>
+    <file src="assets/mods/Facs/37.txd" download="false" /> <file src="assets/mods/Facs/37.dff" downlad="falseo"/>
+    <file src="assets/mods/Facs/38.txd" download="false" /> <file src="assets/mods/Facs/38.dff" downlad="falseo"/>
+    <file src="assets/mods/Facs/39.txd" download="false" /> <file src="assets/mods/Facs/39.dff" downlad="falseo"/>
+    <file src="assets/mods/Facs/466.txd" download="false" /> <file src="assets/mods/Facs/466.dff" downlad="falseo"/>
+
+
+
+    <!-- armas -->
+    <file src="assets/mods/Armamentos/355.txd" download="false" /> <file src="assets/mods/Armamentos/355.dff" download="false"/>
+    <file src="assets/mods/Armamentos/356.txd" download="false" /> <file src="assets/mods/Armamentos/356.dff" download="false"/>
+    <file src="assets/mods/Armamentos/349.txd" download="false" /> <file src="assets/mods/Armamentos/349.dff" download="false"/>
+    <file src="assets/mods/Armamentos/353.txd" download="false" /> <file src="assets/mods/Armamentos/353.dff" download="false"/>
+    <file src="assets/mods/Armamentos/346.txd" download="false" /> <file src="assets/mods/Armamentos/346.dff" download="false"/>
+    <file src="assets/mods/Armamentos/352.txd" download="false" /> <file src="assets/mods/Armamentos/352.dff" download="false"/>
+    <file src="assets/mods/Armamentos/348.txd" download="false" /> <file src="assets/mods/Armamentos/348.dff" download="false"/>
+    <file src="assets/mods/Armamentos/347.txd" download="false" /> <file src="assets/mods/Armamentos/347.dff" download="false"/>
+    <file src="assets/mods/Armamentos/358.txd" download="false" /> <file src="assets/mods/Armamentos/358.dff" download="false"/>
+    <file src="assets/mods/Armamentos/357.txd" download="false" /> <file src="assets/mods/Armamentos/357.dff" download="false"/>
+    <file src="assets/mods/Armamentos/372.txd" download="false" /> <file src="assets/mods/Armamentos/372.dff" download="false"/>
+
+
+    <download_priority_group>-1</download_priority_group>
+</meta>

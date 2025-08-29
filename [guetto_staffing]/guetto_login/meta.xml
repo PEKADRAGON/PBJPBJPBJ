@@ -1,0 +1,54 @@
+<meta>
+
+    <info author = "Guh Dev"/>
+
+    <!--Scripts-->
+    <script src = "config.lua" type = "shared" cache = "false"/>
+        
+    <script src = "src/modules/moduleS.lua" type = "server" cache = "false"/>
+    <script src = "src/modules/moduleC.lua" type = "client" cache = "false"/>
+    <script src = "src/modules/box-c.lua" type = "client" cache = "false"/>
+
+    <script src = "src/main/mainS.lua" type = "server" cache = "false"/>
+    <script src = "src/main/mainC.lua" type = "client" cache = "false"/>
+
+    <!--Imagens-->
+
+    <file src = "assets/images/fundo.png"/>
+    <file src = "assets/images/content.png"/>
+    <file src = "assets/images/person.png"/>
+    <file src = "assets/images/person-register.png"/>
+    <file src = "assets/images/person-recover.png"/>
+    <file src = "assets/images/logo.png"/>
+    <file src = "assets/images/input.png"/>
+    <file src = "assets/images/button-controller.png"/>
+    <file src = "assets/images/circle.png"/>
+    <file src = "assets/images/fundo-musica.png"/>
+    <file src = "assets/images/sound.png"/>
+    <file src = "assets/images/autorais.png"/>
+    <file src = "assets/images/disparo.png"/>
+    <file src = "assets/images/circle2.png"/>
+    <file src = "assets/images/retornar.png"/>
+    <file src = "assets/images/circle-slide.png"/>
+    <file src = "assets/images/lembrar.png"/>
+    <file src = "assets/images/info.png"/>
+    
+    <file src = "assets/images/user.png"/>
+    <file src = "assets/images/key.png"/>
+    <file src = "assets/images/olho.png"/>
+    <file src = "assets/images/question.png"/>
+    <file src = "assets/images/expand.png"/>
+    <file src = "assets/images/modal.png"/>
+
+    <file src = "assets/images/rectangle-account.png"/>
+
+    <!--Fonts-->
+
+    <file src = "assets/fonts/bold.ttf"/>
+    <file src = "assets/fonts/italic.ttf"/>
+    <file src = "assets/fonts/light.ttf"/>
+    <file src = "assets/fonts/medium.ttf"/>
+    <file src = "assets/fonts/regular.ttf"/>
+
+    <min_mta_version server="1.6" client="1.6" />
+</meta>

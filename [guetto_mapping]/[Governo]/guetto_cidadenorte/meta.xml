@@ -1,0 +1,8 @@
+<meta>
+    <min_mta_version server="1.5.8-9.20957"></min_mta_version>
+    <info type="map" name="Custom City - Los Santos" author="Reiko" version="1.0.0" description="2022"></info>
+    <map src="cidadedocrime.map" dimension="0"></map>
+    <script src="drawdistance.lua" type="client"></script>
+    <script src="mapEditorScriptingExtension_s.lua" type="server"></script>
+    <script src="mapEditorScriptingExtension_c.lua" type="client" validate="false"></script>
+</meta>

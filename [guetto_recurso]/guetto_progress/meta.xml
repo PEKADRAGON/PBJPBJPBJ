@@ -1,0 +1,24 @@
+<meta>
+    <script src = "src/modules/moduleS.lua" type = "server" cache = "false"/>
+    <script src = "src/modules/moduleC.lua" type = "client" cache = "false"/>
+
+    <script src = "src/main/mainS.lua" type = "server" cache = "false"/>
+    <script src = "src/main/mainC.lua" type = "client" cache = "false"/>
+
+    <!--Icons-->
+    <file src = "assets/icons/martelo.png"/>
+
+    <!--Images-->    
+    <file src = "assets/images/fundo.png"/>
+    <file src = "assets/images/rectangle-progress.png"/>
+
+    <!--Fonts-->
+
+    <file src = "assets/fonts/bold.ttf"/>
+    <file src = "assets/fonts/italic.ttf"/>
+    <file src = "assets/fonts/light.ttf"/>
+    <file src = "assets/fonts/medium.ttf"/>
+    <file src = "assets/fonts/regular.ttf"/>
+
+    <export function = "callProgress" type = "server"/>
+</meta>

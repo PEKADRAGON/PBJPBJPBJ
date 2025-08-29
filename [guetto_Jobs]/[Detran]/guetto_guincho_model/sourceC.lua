@@ -1,0 +1,6 @@
+addEventHandler("onClientResourceStart", resourceRoot, function()
+	txd = engineLoadTXD("packer.txd")
+	engineImportTXD(txd, 443)
+	dff = engineLoadDFF("packer.dff", 443)
+	engineReplaceModel(dff, 443)
+end)

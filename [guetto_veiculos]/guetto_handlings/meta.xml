@@ -1,0 +1,7 @@
+<meta>
+    <script src="gJoao.lua" type="shared" />
+    <script src="sJoao.lua" type="server" />
+    <export function="setPacote" type="server" />
+    <export function="loadHandling" type="server" />
+    <export function="getSuspension" type="server" />
+</meta>

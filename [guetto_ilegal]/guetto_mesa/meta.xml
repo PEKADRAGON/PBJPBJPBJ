@@ -1,0 +1,34 @@
+<meta>
+    
+    <!--Settings-->
+    <script src = "settings.lua" type = "shared" cahce = "false"/>
+
+    <!--Script´s-->
+
+    <script src = "src/utils/utils-s.lua" type = "server" cache = "false"/>
+    <script src = "src/utils/utils-c.lua" type = "client" cache = "false"/>
+
+    <script src = "src/main/main-s.lua" type = "server" cache = "false"/>
+    <script src = "src/main/main-c.lua" type = "client" cache = "false"/>
+    
+    <script src = "src/others/dialogue-c.lua" type = "client" cache = "false"/>
+    <script src = "src/others/editbox-c.lua" type = "client" cache = "false"/>
+
+    <!--Images-->
+
+    <file src = "assets/itens/coca.png"/>
+    <file src = "assets/itens/maconha.png"/>
+    <file src = "assets/itens/lanca.png"/>
+    <file src = "assets/itens/mdma.png"/>
+    <file src = "assets/itens/lsd.png"/>
+
+    <!--Export´s-->
+
+    <export function = "isHavePlayerTable" type = "server" />
+    <export function = "createTable" type = "server" />
+    <export function = "destroyPlayerTable" type = "server" />
+
+    <!--MTA VERSION-->
+
+    <min_mta_version server="1.6" client="1.6" />
+</meta>

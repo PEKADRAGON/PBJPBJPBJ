@@ -1,0 +1,65 @@
+<meta>
+
+    <script src = "GoiabaG.lua" type = "shared"/>
+    <script src = "GoiabaC.lua" type = "client" cache = "false"/>
+    <script src = "GoiabaS.lua" type = "server"/>
+    
+    <file   src = "Files/Imagens/Base.png"/>
+    <file   src = "Files/Imagens/download.png"/>
+    <file   src = "Files/Imagens/Linha.png"/>
+    <file   src = "Files/Imagens/1.png"/>
+    <file   src = "Files/Imagens/2.png"/> 
+    <file   src = "Files/Imagens/3.png"/>
+    <file   src = "Files/Imagens/interface.png"/>
+    <file   src = "Files/Imagens/Calc.png"/>
+    <file   src = "Files/Imagens/status_bar.png"/>
+    <file   src = "Files/Imagens/rodape.png"/>
+    <file   src = "Files/font.ttf" />
+    <file   src = "Files/barrac.png"/>
+    <file   src = "Files/buscar.png"/>
+    <file   src = "Files/pause.png"/>
+    <file   src = "Files/play.png"/>
+    <file   src = "Files/not.png"/>
+    <file   src = "Files/titleGps.png"/>
+    <file   src = "Files/gps.png"/>
+
+    <file   src = "Files/Sons/abrindo_celular.mp3"/>
+    <file   src = "Files/Sons/fechando_celular.mp3"/>
+    <file   src = "Files/Sons/chamando.mp3"/>
+    <file   src = "Files/Sons/gridlist_hover.mp3"/>
+    <file   src = "Files/Sons/noti.mp3"/>
+    <file   src = "Files/Sons/recebendo_ligacao.mp3"/>
+
+    <file   src = "Files/Imagens/Icons/App.png"/>
+    <file   src = "Files/Imagens/Icons/jbl.png"/>
+    <file   src = "Files/Imagens/Icons/calculadora.png"/>
+    <file   src = "Files/Imagens/Icons/Digital.png"/>
+    <file   src = "Files/Imagens/Icons/whatsapp.png"/>
+    <file   src = "Files/Imagens/Icons/wallpaper.png"/>
+    <file   src = "Files/Imagens/Icons/on.png"/>
+    <file   src = "Files/Imagens/Icons/off.png"/>
+    <file   src = "Files/Imagens/Icons/notificacao.png"/>
+    <file   src = "Files/Imagens/Icons/info.png"/>
+    <file   src = "Files/Imagens/Icons/gps.png"/>
+    <file   src = "Files/Imagens/Icons/search.png"/>
+    <file   src = "Files/Imagens/Icons/spotify.png"/>
+    <file   src = "Files/Imagens/Icons/spotify_fundo.png"/>
+    <file   src = "Files/Imagens/Icons/spotify_edit.png"/>
+    <file   src = "Files/Imagens/Icons/contatos.png"/>
+    <file   src = "Files/Imagens/Icons/config.png"/>
+    <file   src = "Files/Imagens/Icons/Bola.png"/>
+    <file   src = "Files/Imagens/Icons/chamada.png"/>
+    <file   src = "Files/Imagens/Icons/camera.png"/>
+    <file   src = "Files/Imagens/Icons/banco.png"/>
+    <file   src = "Files/Imagens/Icons/enviarmensagem.png"/>
+    <file   src = "Files/Imagens/Icons/telefone.png"/>
+    <file   src = "Files/Imagens/Icons/telefone2.png"/>
+    <file   src = "Files/Imagens/Icons/lixo.png"/>
+    <file   src = "Files/Imagens/Icons/Lixeira.png"/>
+    <file   src = "Files/Imagens/Icons/Senha.png"/>
+    <file   src = "Files/Imagens/Icons/Recarga.png"/>
+    <file   src = "Files/Imagens/Icons/Notas.png"/>
+    <file   src = "Files/Imagens/Icons/vehicles.png"/>
+
+    <min_mta_version server="1.5.4-9.11413" />
+</meta>

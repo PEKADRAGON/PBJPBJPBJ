@@ -1,0 +1,53 @@
+config = {
+    ["Others"] = {
+        ["Limit"] = 15;
+    };
+
+    ["Itens"] = {
+        ["Irrigation"] = 312;
+        ["marihuana"] = 120;
+        ["cocaine"] = 123;
+    };
+
+    ["Seeds"] = {
+        ["marihuana"] = 310;
+        ["cocaine"] = 311;
+    };  
+
+    ["Timers"] = {
+        ["Plant"] = 1 * 20000;
+        ["Watering"] = 7 * 60000, 
+        ["Plant grow"] = 15 * 60000,
+        ["Colet"] = 5000;
+    };
+}
+
+sendMessageServer = function (player, msg, type)
+    return exports['guetto_notify']:showInfobox(player, type, msg)
+end;
+
+sendMessageClient = function (msg, type)
+    return exports['guetto_notify']:showInfobox(type, msg)
+end;
+
+function createEvent(event, ...)
+    addEvent(event, true)
+    addEventHandler(event, ...)
+end
+
+function getFrontPosition(player)
+    if not isElement(player) or getElementType(player) ~= "player" then
+        return false
+    end
+
+    local x, y, z = getElementPosition(player)
+    local rotation = getPedRotation(player)
+    local distance = -1
+
+    local rotationRad = math.rad(rotation)
+
+    local newX = x + distance * math.sin(rotationRad)
+    local newY = y - distance * math.cos(rotationRad)
+
+    return newX, newY, z
+end

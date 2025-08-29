@@ -1,0 +1,24 @@
+<meta>
+  <script src="sourceG.lua" type="shared" cache="false"/>
+  <script src="sourceS.lua" type="server"/>
+  <script src="sourceC.lua" type="client" cache="false"/>
+  <script src="minigameC.lua" type="client" cache="false"/>
+
+
+  <file src="files/anims.ifp"/>
+
+  <file src="files/cast.mp3"/>
+  <file src="files/splash.mp3"/>
+  <file src="files/reeling.mp3"/>
+
+  <file src="files/bg.png"/>
+  <file src="files/handle.png"/>
+  <file src="files/fishicon.png"/>
+
+  <file src="files/rod.dff"/>
+  <file src="files/rod.txd"/>
+
+  <export function="toggleRod" type="server"/>
+
+  <download_priority_group>-20</download_priority_group>
+</meta>

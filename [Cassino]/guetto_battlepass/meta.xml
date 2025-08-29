@@ -1,0 +1,35 @@
+<meta>
+    <script src = "config.lua" type = "shared" cache = "false"/>
+    
+    <script src = "src/utils/server.lua" type = "server" cache = "false"/>
+    <script src = "src/utils/client.lua" type = "client" cache = "false"/>
+
+    <script src = "src/main/server.lua" type = "server" cache = "false"/>
+    <script src = "src/main/client.lua" type = "client" cache = "false"/>
+
+    <!--Images-->
+
+    <file src = 'assets/images/background.png'/>
+    <file src = 'assets/images/slot.png'/>
+    <file src = 'assets/images/slot-block.png'/>
+    <file src = 'assets/images/line.png'/>
+    <file src = 'assets/images/effect.png'/>
+    <file src = 'assets/images/rectangle-progress.png'/>
+    <file src = 'assets/images/banner.png'/>
+    <file src = 'assets/images/rectangle-level.png'/>
+    <file src = 'assets/images/icon-lock.png'/>
+    <file src = 'assets/images/arrow.png'/>
+    <file src = 'assets/images/blur.png'/>
+
+    <file src = 'assets/images/standart-pass.png'/>
+    <file src = 'assets/images/rectangle-blur.png'/>
+    <file src = 'assets/images/modal-background.png'/>
+    <file src = 'assets/images/premium-pass.png'/>
+    <file src = 'assets/images/icon-fire.png'/>
+
+    <!--Item-->
+    <file src = 'assets/itens/standart.png'/>
+    <file src = 'assets/itens/premium.png'/>
+
+    <min_mta_version client="1.6" server="1.6"/> 
+</meta>

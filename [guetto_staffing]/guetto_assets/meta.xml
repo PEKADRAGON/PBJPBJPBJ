@@ -1,0 +1,15 @@
+<meta>
+    <script src = 'client.lua' type = 'client' cache = 'false'/>
+
+    <!--Fonts-->
+
+    <file src = 'fonts/bold.ttf'/>
+    <file src = 'fonts/regular.ttf'/>
+    <file src = 'fonts/medium.ttf'/>
+    <file src = 'fonts/uni-regular.ttf'/>
+    <file src = 'fonts/light.ttf'/>
+
+    <!--Export´s-->
+
+    <export function = 'dxCreateFont' type = 'client'/>
+</meta>

@@ -1,0 +1,4 @@
+<meta>
+    <script src="gJoao.lua" type="shared" />
+    <script src="sJoao.lua" type="server" />
+</meta>

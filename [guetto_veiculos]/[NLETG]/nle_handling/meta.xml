@@ -1,0 +1,8 @@
+<meta>
+    <info author="Danihe" name="ReachMTA ~ 2020" type="script" />
+    <script src="sourceG.lua" type="shared" cache="false" />
+    <script src="sourceC.lua" type="client" cache="false" />
+    <script src="sourceS.lua" type="server" />
+    <export function="loadHandlingForVehicle" type="server" />
+    <export function="getDefaultHandling" type="shared" />
+</meta>

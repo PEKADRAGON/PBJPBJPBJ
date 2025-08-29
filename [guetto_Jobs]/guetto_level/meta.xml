@@ -1,0 +1,5 @@
+<meta>
+    <script src="gSchootz.lua" type="server" />
+    <script src="sSchootz.lua" type="server" />
+    <export function="puxarLevel" type="server" />
+</meta>

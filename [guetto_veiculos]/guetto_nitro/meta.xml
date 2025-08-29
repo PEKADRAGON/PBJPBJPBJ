@@ -1,0 +1,14 @@
+<meta>
+	<script src="sourceC.lua" type="client" cache="false"/>
+	<script src = "sourceS.lua" />
+	
+	<file src="files/backfire_nitro.dds"/>
+	<file src="files/backfire_nitro2.dds"/>
+	<file src="files/in.wav"/>
+	<file src="files/ins.wav"/>
+	<file src="files/nitro.fx"/>
+	<file src="files/out.wav"/>
+	<file src="files/outs.wav"/>
+
+	<export function = "setVehicleBooster" type = "server"/>
+</meta>

@@ -1,0 +1,48 @@
+<atlas-mtasa>
+    <!-- RESOURCE's POO's -->
+    <oop>true</oop>
+    
+    <min_mta_version client="1.6" server="1.6" />
+
+    <info author = 'sh4dowDEV' description = 'Calls System' version = 'v1'/>
+    <!-- RESOURCE's CONFIG's -->
+    <script type = 'shared' cache = 'false' src = 'config.lua'/>
+    <!-- RESOURCE's SRC's -->
+    <script type = 'client' cache = 'false' src = 'src/utils/c-utils.lua'/>
+    <script type = 'shared' cache = 'false' src = 'src/utils/s-utils.lua'/>
+
+    <script type = 'server' cache = 'false' src = 'src/server/s-main.lua'/>
+    <script type = 'client' cache = 'false' src = 'src/client/c-main.lua'/>
+    <!-- ASSET's IMAGE's -->
+    <file src = 'assets/images/call/bg_background.png'/>
+    <file src = 'assets/images/call/bg_button.png'/>
+    <file src = 'assets/images/call/bg_close.png'/>
+    <file src = 'assets/images/call/bg_reason.png'/>
+    <file src = 'assets/images/call/bg_reasonCall.png'/>
+    <file src = 'assets/images/call/bg_reasons.png'/>
+
+    <file src = 'assets/images/call/ic_bug.png'/>
+    <file src = 'assets/images/call/ic_select.png'/>
+
+    <file src = 'assets/images/manager/bg_background.png'/>
+    <file src = 'assets/images/manager/bg_button.png'/>
+    <file src = 'assets/images/manager/bg_calls.png'/>
+    <file src = 'assets/images/manager/bg_description.png'/>
+    <file src = 'assets/images/manager/bg_hour.png'/>
+    <file src = 'assets/images/manager/bg_infos.png'/>
+    <file src = 'assets/images/manager/bg_reason.png'/>
+    <file src = 'assets/images/manager/bg_support.png'/>
+
+    <file src = 'assets/images/manager/ic_call.png'/>
+    <file src = 'assets/images/manager/ic_clock.png'/>
+    <file src = 'assets/images/manager/ic_global.png'/>
+    <file src = 'assets/images/manager/ic_hammer.png'/>
+    <file src = 'assets/images/manager/ic_user.png'/>
+
+    <file src = 'assets/images/avaliation/bg_background.png'/>
+    
+    <file src = 'assets/images/avaliation/ic_stars.png'/>
+    <!-- ASSET's FONT's -->
+    <file src = 'assets/fonts/SFProDisplay-Medium.ttf'/>
+    <file src = 'assets/fonts/SFProDisplay-Regular.ttf'/>
+</atlas-mtasa>

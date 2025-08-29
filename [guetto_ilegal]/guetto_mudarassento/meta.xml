@@ -1,0 +1,5 @@
+<meta>
+    <script src="sMeloSCR.lua" type="server" />
+
+    <min_mta_version client="1.5.4-9.11413" server="1.5.4-9.11413"/>
+</meta>

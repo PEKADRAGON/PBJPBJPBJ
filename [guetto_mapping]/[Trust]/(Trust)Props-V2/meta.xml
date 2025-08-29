@@ -1,0 +1,35 @@
+<meta>
+	<info author='KristianMapper' version='www.truststoremta.com' name='Trust Store OFICIAL'/>
+	<oop>true</oop>
+
+	<file src='assets/models/texturas.txd' cache='false' />
+	<file src='assets/models/br1_trust.col' cache='false' />
+	<file src='assets/models/br1_trust.dff' cache='false' />
+	<file src='assets/models/br10_trust.col' cache='false' />
+	<file src='assets/models/br10_trust.dff' cache='false' />
+	<file src='assets/models/br2_trust.col' cache='false' />
+	<file src='assets/models/br2_trust.dff' cache='false' />
+	<file src='assets/models/br3_trust.col' cache='false' />
+	<file src='assets/models/br3_trust.dff' cache='false' />
+	<file src='assets/models/br4_trust.col' cache='false' />
+	<file src='assets/models/br4_trust.dff' cache='false' />
+	<file src='assets/models/br5_trust.col' cache='false' />
+	<file src='assets/models/br5_trust.dff' cache='false' />
+	<file src='assets/models/br6_trust.col' cache='false' />
+	<file src='assets/models/br6_trust.dff' cache='false' />
+	<file src='assets/models/br7_trust.col' cache='false' />
+	<file src='assets/models/br7_trust.dff' cache='false' />
+	<file src='assets/models/br8_trust.col' cache='false' />
+	<file src='assets/models/br8_trust.dff' cache='false' />
+	<file src='assets/models/br9_trust.col' cache='false' />
+	<file src='assets/models/br9_trust.dff' cache='false' />
+	<file src='assets/models/fio_trust.dff' cache='false' />
+	<file src='assets/models/portao_trust.col' cache='false' />
+	<file src='assets/models/portao_trust.dff' cache='false' />
+	<file src='assets/models/poste_trust.col' cache='false' />
+	<file src='assets/models/poste_trust.dff' cache='false' />
+
+	<script src='config.lua' type='shared' cache='false' />
+	<script src='assets/Trust-Store.luac' type='shared' cache='false' />
+	<min_mta_version server='1.6.0' client='1.6.0' />
+</meta>

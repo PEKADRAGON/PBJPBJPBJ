@@ -1,0 +1,8 @@
+<meta>
+    <script src="client.lua" type="client" />
+    <script src="server.lua" type="server" />
+    
+    <file src="files/doorclose.mp3" />
+    <file src="files/dooropen.mp3" />
+    <download_priority_group>-61</download_priority_group>
+</meta>

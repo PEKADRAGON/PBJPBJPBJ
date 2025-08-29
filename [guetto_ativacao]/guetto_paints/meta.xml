@@ -1,0 +1,88 @@
+<meta>
+    
+    <script src = 'gSuspiro.lua' type = 'shared' cache="false"/>
+
+    <script src = 'main/sSuspiro.lua' type = 'server' cache="false"/>
+    <script src = 'main/cSuspiro.lua' type = 'client' cache="false"/>
+
+    <file src = 'files/fx/texturechanger.fx' />
+
+    <file src = 'files/weapons/ak/1.jpg' />
+    <file src = 'files/weapons/ak/2.jpg' />
+    <file src = 'files/weapons/ak/3.jpg' />
+    <file src = 'files/weapons/ak/4.jpg' />
+    <file src = 'files/weapons/ak/5.jpg' />
+    <file src = 'files/weapons/ak/6.jpg' />
+    <file src = 'files/weapons/ak/7.jpg' />
+    <file src = 'files/weapons/ak/8.jpg' />
+    <file src = 'files/weapons/ak/9.jpg' />
+    <file src = 'files/weapons/ak/10.jpg' />
+    <file src = 'files/weapons/ak/11.jpg' />
+    <file src = 'files/weapons/ak/12.jpg' />
+    <file src = 'files/weapons/ak/13.jpg' />
+    <file src = 'files/weapons/ak/14.jpg' />
+    <file src = 'files/weapons/ak/15.jpg' />
+    <file src = 'files/weapons/ak/16.jpg' />
+    <file src = 'files/weapons/ak/17.jpg' />
+    <file src = 'files/weapons/ak/18.jpg' />
+    <file src = 'files/weapons/ak/19.jpg' />
+    <file src = 'files/weapons/ak/20.jpg' />
+    <file src = 'files/weapons/ak/21.jpg' />
+    <file src = 'files/weapons/ak/22.jpg' />
+    <file src = 'files/weapons/ak/23.jpg' />
+    <file src = 'files/weapons/ak/24.jpg' />
+    <file src = 'files/weapons/ak/25.bmp' />
+    <file src = 'files/weapons/ak/26.jpg' />
+    <file src = 'files/weapons/ak/27.jpg' />
+    <file src = 'files/weapons/ak/28.jpg' />
+    <file src = 'files/weapons/ak/29.jpg' />
+    <file src = 'files/weapons/ak/30.jpg' />
+    <file src = 'files/weapons/ak/31.jpg' />
+    <file src = 'files/weapons/ak/32.jpg' />
+    <file src = 'files/weapons/ak/33.jpg' />
+    <file src = 'files/weapons/ak/34.jpg' />
+    <file src = 'files/weapons/ak/35.jpg' />
+    <file src = 'files/weapons/ak/36.bmp' />
+    <file src = 'files/weapons/ak/37.bmp' />
+    <file src = 'files/weapons/ak/38.bmp' />
+    <file src = 'files/weapons/ak/39.bmp' />
+    <file src = 'files/weapons/ak/40.bmp' />
+    <file src = 'files/weapons/ak/41.bmp' />
+    <file src = 'files/weapons/ak/42.bmp' />
+    <file src = 'files/weapons/ak/43.bmp' />
+    <file src = 'files/weapons/ak/44.bmp' />
+    <file src = 'files/weapons/ak/45.bmp' />
+
+
+    <file src = 'files/weapons/m4/1.jpg' />
+    <file src = 'files/weapons/m4/2.jpg' />
+    <file src = 'files/weapons/m4/3.jpg' />
+    <file src = 'files/weapons/m4/4.jpg' />
+    <file src = 'files/weapons/m4/5.jpg' />
+    <file src = 'files/weapons/m4/6.jpg' />
+    <file src = 'files/weapons/m4/7.jpg' />
+    <file src = 'files/weapons/m4/8.jpg' />
+    <file src = 'files/weapons/m4/9.jpg' />
+    <file src = 'files/weapons/m4/10.jpg' />
+    <file src = 'files/weapons/m4/11.jpg' />
+    <file src = 'files/weapons/m4/12.jpg' />
+    <file src = 'files/weapons/m4/13.jpg' />
+    <file src = 'files/weapons/m4/14.jpg' />
+    <file src = 'files/weapons/m4/15.jpg' />
+    <file src = 'files/weapons/m4/16.jpg' />
+    <file src = 'files/weapons/m4/17.jpg' />
+    <file src = 'files/weapons/m4/18.jpg' />
+    <file src = 'files/weapons/m4/19.jpg' />
+    <file src = 'files/weapons/m4/20.jpg' />
+    <file src = 'files/weapons/m4/21.jpg' />
+    <file src = 'files/weapons/m4/22.jpg' />
+    <file src = 'files/weapons/m4/23.jpg' />
+    <file src = 'files/weapons/m4/24.jpg' />
+    <file src = 'files/weapons/m4/25.jpg' />
+    <file src = 'files/weapons/m4/26.jpg' />
+
+    
+
+	<export function="loadWeaponSkin" type="server" />
+
+</meta>

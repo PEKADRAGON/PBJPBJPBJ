@@ -1,0 +1,522 @@
+local config = getConfig ();
+local instance = {};
+local intention = {};
+instance.marker = {};
+instance.pickup = {};
+instance.area = {};
+instance.info_marker = {};
+instance.timer = {};
+instance.timer2 = {};
+instance.domining_marker = {};
+instance.passwordChest = {};
+instance.aclChest = {};
+instance.passwordChest2 = {};
+instance.aclChest2 = {};
+instance.index = {};
+instance.connection = nil;
+
+instance.countPlayersInMarker = {};
+
+-- function's resource.
+function startDB ()
+    if not (instance.connection) then
+        instance.connection = dbConnect ('sqlite', 'assets/database/database.db');
+
+        if not (instance.connection) then
+            outputDebugString (Resource.getThis ().name..': Failed connection.', 4, 255, 50, 50);
+            cancelEvent ();
+            return false;
+        end
+
+        dbExec (instance.connection, [[CREATE TABLE IF NOT EXISTS `domination` (
+            id INTEGER,
+            faction VARCHAR(255)
+        )]]);
+
+        loadAreas ();
+        outputDebugString (Resource.getThis ().name..': Connected.', 4, 50, 255, 50);
+    end
+end
+
+function getFactionExists (acl)
+    for i, v in pairs (config.Groups) do
+        if v.acl == acl then 
+            return true 
+        end
+    end
+    return false 
+end
+
+addCommandHandler("baque", function (player, cmd, acl)
+    local faction = isPlayerFaction (player);
+
+    if not faction then 
+        return sendMessage ('server', player, 'Você não pertence a nenhum grupo!', 'error');
+    end
+    
+    if not acl then 
+        return sendMessage('server', player, 'Digite o nome da facção que você deseja baquear!', 'error')
+    end
+
+    if not getFactionExists(acl) then 
+        return sendMessage('server', player, 'Essa facção não existe!', 'error')
+    end
+
+    if intention[acl] then 
+        return sendMessage('server', player, 'Já existe uma solicitação de baque para essa favela!', 'info')
+    end
+
+    local r, g, b = getColorFaction (faction);
+    local hex = convertRGBToHex (r, g, b);
+
+    outputChatBox ('#8d6af0[GUETTO] #FFFFFFA '..(faction)..' enviou uma notificação de baque para a área da '..hex..''..(acl)..'#FFFFFF!', root, 255, 255, 255, true);
+
+    intention[acl] = true;
+    sendMessage('server', player, 'Você enviou uma notificação de baque com sucesso!', 'info')
+end)
+
+
+function loadAreas ()
+    for i, v in pairs (config.Areas) do
+        local query = dbPoll (dbQuery (instance.connection, [[SELECT * FROM `domination` WHERE `id` = ?]], i), -1);
+
+        if (#query == 0 or query[1]['faction'] == 'nil') then
+            dbExec (instance.connection, [[INSERT INTO `domination` (id, faction) VALUES (?, ?)]], i, 'nil');
+            r, g, b = 200, 200, 200;
+            infos = {
+                faction = 'nil';
+            };
+        else
+            r, g, b = getColorFaction (query[1]['faction']);
+            infos = {
+                faction = query[1]['faction'];
+            };
+        end
+
+        instance.marker[i] = createMarker (v[1], v[2], v[3] -1, 'checkpoint', 8, r, g, b, 100);
+        local pickup = createPickup (v[1], v[2], v[3], 3, 1274, 0);
+
+        addEventHandler ('onPickupHit', pickup, function (player)
+            cancelEvent ();
+        end);
+
+        local x, y = math.floor (v[1]), math.floor (v[2]);
+        instance.area[instance.marker[i]] = createRadarArea (x - 250 / 2, y - 250 / 2, 250, 250, r, g, b, 255);
+        instance.info_marker[instance.marker[i]] = infos;
+        instance.index[instance.marker[i]] = i;
+    end
+end
+
+function getFactionInfos (faction)
+    for i, v in ipairs (config.Groups) do
+        if (v.acl == faction) then
+            return v;
+        end
+    end
+
+    return false;
+end
+
+function convertRGBToHex (r, g, b)
+    if not (r and g and b) then
+        return false;
+    end
+
+    return string.format ('#%02X%02X%02X', r, g, b);
+end
+
+function startRoubChest (player, element, faction)
+    if (faction == 'nil') then
+        return false;
+    end
+
+    local factionInfos = getFactionInfos (faction);
+
+    if (factionInfos.twoChest == false) then
+        local getChestPassword = exports['guetto_bau']:getPasswordChest (factionInfos.idChest);
+        local getChestAcl = exports['guetto_bau']:getAclChest (factionInfos.idChest);
+
+        instance.passwordChest[player] = getChestPassword;
+        instance.aclChest[player] = getChestAcl;
+
+        local pass = tonumber (123456);
+        local acl = tostring ('Everyone');
+
+        exports['guetto_bau']:changePasswordChest (factionInfos.idChest, pass);
+        exports['guetto_bau']:changeAclChest (factionInfos.idChest, acl);
+
+        sendMessage ('server', player, 'A senha do bau foi alterada, a senha é: 123456', 'info');
+        sendMessage ('server', player, 'Você tem 1 minuto para roubar o bau.', 'info');
+
+        outputChatBox ('#8d6af0[GUETTO] #FFFFFFO jogador '..(getPlayerName (player))..' está roubando o bau da '..(faction)..'!', root, 255, 255, 255, true);
+        outputChatBox ('#8d6af0[GUETTO] #FFFFFFA senha do bau foi alterada, a senha é: 123456', player, 255, 255, 255, true);
+
+        instance.timer2[player] = setTimer (function (player, element, faction)
+            local pass = tonumber (instance.passwordChest[player]);
+            local acl = tostring (instance.aclChest[player]);
+
+            exports['guetto_bau']:changePasswordChest (factionInfos.idChest, pass);
+            exports['guetto_bau']:changeAclChest (factionInfos.idChest, acl);
+
+            instance.passwordChest[player] = nil;
+            instance.aclChest[player] = nil;
+
+            triggerClientEvent (root, 'onPlayerToggleChest', root);
+            sendMessage ('server', player, 'O bau voltou para a senha original.', 'info');
+
+            intention[acl] = false
+        end, 1*60000, 1, player, element, faction);
+
+    elseif (factionInfos.twoChest == true) then
+        local getChestPassword = exports['guetto_bau']:getPasswordChest (factionInfos.idChest);
+        local getChestAcl = exports['guetto_bau']:getAclChest (factionInfos.idChest);
+
+        local getChestPassword2 = exports['guetto_bau']:getPasswordChest (factionInfos.idChest2);
+        local getChestAcl2 = exports['guetto_bau']:getAclChest (factionInfos.idChest2);
+
+        instance.passwordChest[player] = getChestPassword;
+        instance.aclChest[player] = getChestAcl;
+
+        instance.passwordChest2[player] = getChestPassword2;
+        instance.aclChest2[player] = getChestAcl2;
+        
+        
+        local pass = tonumber (123456);
+        exports['guetto_bau']:changePasswordChest (factionInfos.idChest, pass);
+        exports['guetto_bau']:changeAclChest (factionInfos.idChest, 'Everyone');
+        
+        exports['guetto_bau']:changePasswordChest (factionInfos.idChest2, pass);
+        exports['guetto_bau']:changeAclChest (factionInfos.idChest2, 'Everyone');
+
+        sendMessage ('server', player, 'A senha dos bau foi alterada, a senha é: 123456', 'info');
+        sendMessage ('server', player, 'Você tem 1 minuto para roubar o bau.', 'info');
+        outputChatBox ('#8d6af0[GUETTO] #FFFFFFO jogador '..(getPlayerName (player))..' está roubando os baus da '..(faction)..'!', root, 255, 255, 255, true);
+        outputChatBox ('#8d6af0[GUETTO] #FFFFFFA senha dos baus foi alterada, a senha é: 123456', player, 255, 255, 255, true);
+
+        instance.timer2[player] = setTimer (function (player, element, faction)
+            local pass = tonumber (instance.passwordChest[player]);
+            local acl = tostring (instance.aclChest[player]);
+
+            exports['guetto_bau']:changePasswordChest (factionInfos.idChest, pass);
+            exports['guetto_bau']:changeAclChest (factionInfos.idChest, acl);
+
+            local pass = tonumber (instance.passwordChest2[player]);
+            local acl = tostring (instance.aclChest2[player]);
+
+            exports['guetto_bau']:changePasswordChest (factionInfos.idChest2, pass);
+            exports['guetto_bau']:changeAclChest (factionInfos.idChest2, acl);
+
+            instance.passwordChest[player] = nil;
+            instance.aclChest[player] = nil;
+
+            instance.passwordChest2[player] = nil;
+            instance.aclChest2[player] = nil;
+
+            triggerClientEvent (root, 'onPlayerToggleChest', root);
+            sendMessage ('server', player, 'Os baus voltaram para a senha original.', 'info');
+
+            intention[acl] = false
+        end, 1*60000, 1, player, element, faction);
+    end
+end
+
+function dominingArea (player, key, state, element)
+    if element and isElementWithinMarker (player, element) and (not instance.domining_marker[element] or instance.domining_marker[element] == false) then
+        local playersInMarker = getElementsWithinMarker (element);
+
+        if (#playersInMarker < 5) then
+            sendMessage ('server', player, 'Você precisa de pelo menos 5 jogadores no marcador para dominar a área.', 'error');
+            return false;
+        end
+
+        unbindKey (player, config.Geral.key_domination, 'down', dominingArea);
+
+        local faction = isPlayerFaction (player);
+        local index = instance.index[element];
+
+        if not faction then 
+            return sendMessage ('server', player, 'Você não pertence a nenhum grupo!', 'error');
+        end
+
+        if not index then 
+            return false 
+        end;
+
+        if not intention[config.Groups[index].acl] then 
+            return sendMessage('server', player, 'Envie uma solicitação de baque para essa área!', 'info')
+        end
+        
+        if not (config.Geral.weapons[getPedWeapon (player)]) then
+            return sendMessage ('server', player, 'Use outro tipo de armamento.', 'error');
+        end
+
+        if (instance.info_marker[element].faction == faction) then
+            sendMessage ('server', player, 'A '..(faction)..' já domina essa área.', 'error');
+            return false;
+        end
+
+        local playerInsMarker = getElementsWithinMarker (element);
+
+        for i, v in ipairs (playerInsMarker) do
+            if (v and isElement (v) and getElementType (v) == 'player') then
+                exports["guetto_progress"]:callProgress(player, "Dominação", "Você está domindando uma area!", "martelo", 3 * 10000) 
+            end
+        end
+
+        instance.countPlayersInMarker[player] = {
+            players = playerInsMarker;
+            count = #playerInsMarker;
+        };
+
+        if (instance.info_marker[element].faction ~= 'nil') then
+            local r, g, b = getColorFaction (config.Groups[index].acl);
+            local hex = convertRGBToHex (r, g, b);
+
+            sendMessage ('server', root, 'A '..(faction)..' esta tentando dominar a área da '..(config.Groups[index].acl)..'!', 'info');
+            outputChatBox ('#8d6af0[GUETTO] #FFFFFFEstão tentando dominar a área da '..hex..''..(config.Groups[index].acl)..'#FFFFFF!', root, 255, 255, 255, true);
+        else
+            sendMessage ('server', root, 'Estão dominando uma area da: '..(config.Groups[index].acl)..'.', 'info');
+            outputChatBox ('#8d6af0[GUETTO] #FFFFFFA organização criminosa: '..(faction)..' esta invadindo a '..(config.Groups[index].acl)..'.', root, 255, 255, 255, true);
+        end
+
+        sendMessage ('server', player, 'Você está dominando essa área, aguarde 2 minutos.', 'info');
+        sendMessage ('server', player, 'Não saia do marker, para não perder a dominação.', 'warning');
+
+        instance.domining_marker[element] = player;
+
+        setRadarAreaFlashing (instance.area[element], true);
+        addEventHandler ('onMarkerLeave', element, leaveMarker);
+
+        instance.timer[player] = setTimer (function (player, element, faction)
+            if (isElement (player)) then
+                instance.domining_marker[element] = false;
+                
+                updateColor (element, faction);
+                removeEventHandler ('onMarkerLeave', element, leaveMarker);
+
+                if not (getIndexFaction (instance.info_marker[element].faction)) then 
+                    instance.info_marker[element] = {
+                        faction = faction;
+                    };
+                end
+
+                setRadarAreaFlashing (instance.area[element], false);
+                sendMessage ('server', player, 'Você dominou com sucesso a área.', 'info');
+                
+                if (instance.info_marker[element].faction ~= 'nil') then
+                    local r, g, b = getColorFaction (instance.info_marker[element].faction);
+                    local hex = convertRGBToHex (r, g, b);
+                    outputChatBox ('#8d6af0[GUETTO] #FFFFFFO jogador #8d6af0'..(string.gsub (getPlayerName (player), '#%x%x%x%x%x%x', ''))..' #'..(getElementData (player, 'ID') or 'N/A')..' #FFFFFFdominou a área da '..hex..''..(config.Groups[index].acl)..'#FFFFFF!', root, 255, 255, 255, true);
+                else
+                    outputChatBox ('#8d6af0[GUETTO] #FFFFFFO jogador #8d6af0'..(string.gsub (getPlayerName (player), '#%x%x%x%x%x%x', ''))..' #'..(getElementData (player, 'ID') or 'N/A')..' #FFFFFFdominou uma nova área!', root, 255, 255, 255, true);
+                end
+
+                if (index == config.Areas[instance.index[element]].index) then
+                    local moneyGroup = exports['guetto_group']:getMoneyCofreFromName (instance.info_marker[element].faction);
+
+                    if (moneyGroup > 100000) then
+                        exports['guetto_group']:takeMoneyCofreFromName (instance.info_marker[element].faction, 100000);
+                        --givePlayerMoney (player, 100000);
+                        sendMessage ('server', player, 'Você dominou a área, e roubou R$100.000 do cofre deles!', 'info');
+                    else
+                        local removeQuantity = 100000 * instance.countPlayersInMarker[player].count;
+
+                        exports['guetto_group']:takeMoneyCofreFromName (instance.info_marker[element].faction, removeQuantity);
+                        --givePlayerMoney (player, removeQuantity);
+                        sendMessage ('server', player, 'Você dominou a área, e roubou R$'..(removeQuantity)..' do cofre deles!', 'info');
+                    end
+
+
+                    instance.countPlayersInMarker[player] = nil;
+                end
+
+                startRoubChest (player, element, config.Groups[index].acl);
+            end
+        end, 3 * 10000, 1, player, element, faction)
+    end
+end
+
+
+function updateColor (element, faction)
+    r, g, b = getColorFaction (faction);
+
+    if (r and g and b) then
+        if (element and isElement (element)) then
+            setMarkerColor (element, r, g, b, 100);
+
+            if (instance.area[element] and isElement (instance.area[element])) then
+                setRadarAreaColor (instance.area[element], r, g, b, 200);
+            end
+        end
+    end
+end
+
+function getIndexFaction (faction)
+    for i, v in ipairs (config.Groups) do
+        if (v.acl == faction) then
+            return i;
+        end
+    end
+
+    return false;
+end
+
+function isPlayerFaction (player)
+    if not (player and isElement (player) and player:getType () == 'player') then
+        return false;
+    end
+
+    for i, v in ipairs (config.Groups) do
+        if (isObjectInACLGroup ('user.'..getAccountName (getPlayerAccount (player)), aclGetGroup (v.acl))) then
+            return v.acl;
+        end
+    end
+
+    return false;
+end
+
+-- event's resource.
+function instance:start ()
+    startDB ();
+    return outputDebugString (Resource.getThis ().name..': Started.', 4, 50, 255, 50);
+end
+addEventHandler ('onResourceStart', resourceRoot, instance.start);
+
+addEventHandler ('onResourceStop', resourceRoot, function ()
+    for i, v in pairs (config.Areas) do
+        if (isElement (instance.marker[i])) then
+            local query = dbPoll (dbQuery (instance.connection, [[SELECT * FROM `domination` WHERE `id` = ?]], i), -1);
+
+            if (#query ~= 0) then
+                dbExec (instance.connection, [[UPDATE `domination` SET `faction` = ? WHERE `id` = ?]], instance.info_marker[instance.marker[i]].faction, i);
+            end
+        end
+    end
+
+    for i, v in pairs (instance.passwordChest) do
+        for _, player in ipairs (getElementsByType ('player')) do
+            if (instance.passwordChest[player]) then
+                local faction = isPlayerFaction (player);
+                local factionInfos = getFactionInfos (faction);
+
+                local pass = tonumber (instance.passwordChest[player]);
+                local acl = tostring (instance.aclChest[player]);
+
+                exports['guetto_bau']:changePasswordChest (factionInfos.idChest, pass);
+                exports['guetto_bau']:changeAclChest (factionInfos.idChest, acl);
+
+                instance.passwordChest[player] = nil;
+                instance.aclChest[player] = nil;
+            end
+
+            if (instance.passwordChest2[player]) then
+                local faction = isPlayerFaction (player);
+                local factionInfos = getFactionInfos (faction);
+
+                local pass = tonumber (instance.passwordChest2[player]);
+                local acl = tostring (instance.aclChest2[player]);
+
+                exports['guetto_bau']:changePasswordChest (factionInfos.idChest2, pass);
+                exports['guetto_bau']:changeAclChest (factionInfos.idChest2, acl);
+
+                instance.passwordChest2[player] = nil;
+                instance.aclChest2[player] = nil;
+            end
+        end
+    end
+end);
+
+addEventHandler ('onPlayerQuit', root, function ()
+    for i, v in pairs (instance.domining_marker) do
+        if (v == source) then
+            removeEventHandler ('onMarkerLeave', instance.marker[i], leaveMarker);
+
+            setRadarAreaFlashing (instance.area[i], false);
+            instance.domining_marker[i] = false;
+
+            if (isTimer (instance.timer[source])) then
+                killTimer (instance.timer[source]);
+            end
+        end
+    end
+end);
+
+addEventHandler ('onPlayerWasted', root, function ()
+    for i, v in pairs (instance.domining_marker) do
+        if (v == source) then
+            removeEventHandler ('onMarkerLeave', instance.marker[i], leaveMarker);
+
+            setRadarAreaFlashing (instance.area[i], false);
+            instance.domining_marker[i] = false;
+
+            if (isTimer (instance.timer[source])) then
+                killTimer (instance.timer[source]);
+            end
+        end
+    end
+end);
+
+addEventHandler ('onVehicleEnter', root, function (player)
+    for i, v in pairs (instance.domining_marker) do
+        if (v == player) then
+            removeEventHandler ('onMarkerLeave', instance.marker[i], leaveMarker);
+
+            setRadarAreaFlashing (instance.area[i], false);
+            instance.domining_marker[i] = false;
+
+            if (isTimer (instance.timer[player])) then
+                killTimer (instance.timer[player]);
+            end
+        end
+    end
+end);
+
+function leaveMarker (player)
+    if (getElementType (player) == 'player' and not getPedOccupiedVehicle (player)) then
+        if (instance.domining_marker[source] == player) then
+            removeEventHandler ('onMarkerLeave', source, leaveMarker);
+
+            if (isTimer (instance.timer[player])) then
+                killTimer (instance.timer[player]);
+                instance.domining_marker[source] = false;
+                setRadarAreaFlashing (instance.area[source], false)
+                sendMessage ('server', player, 'Você se retirou do marker e perdeu a dominação.', 'info');
+            end
+        end
+    end
+end
+
+addEventHandler ('onMarkerHit', resourceRoot, function (player)
+    if isElement (player) and (getElementType (player) == 'player' and not getPedOccupiedVehicle (player)) then
+        for i, element in pairs (instance.marker) do
+            if (element == source) and instance.info_marker[source] then
+                if (instance.info_marker[source].faction == 'nil') then
+                    bindKey (player, config.Geral.key_domination, 'down', dominingArea, source);
+                else
+                    bindKey (player, config.Geral.key_domination, 'down', dominingArea, source);
+                end
+                
+                sendMessage ('server', player, 'Pressione '..(string.upper (config.Geral.key_domination))..' para dominar a área.', 'info');
+            end
+        end
+    end
+end)
+
+addEventHandler ('onMarkerLeave', root, function (player)
+    if (getElementType (player) == 'player' and not getPedOccupiedVehicle (player)) then
+        for i, element in pairs (instance.marker) do
+            if (element == source) and instance.info_marker[source] then
+                unbindKey (player, config.Geral.key_domination, 'down', dominingArea);
+            end
+        end
+    end
+end);
+
+function getElementsWithinMarker(marker)
+    if (not isElement(marker)) or (getElementType(marker) ~= "marker") then
+        return false
+    end
+    local markerColShape = getElementColShape(marker)
+    local elements = getElementsWithinColShape(markerColShape)
+    return elements
+end

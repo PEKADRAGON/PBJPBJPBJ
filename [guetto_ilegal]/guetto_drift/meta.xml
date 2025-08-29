@@ -1,0 +1,5 @@
+<meta>
+    <script src="gMeloSCR.lua" type="shared" />
+    <script src="sMeloSCR.lua" type="server" />
+
+</meta>

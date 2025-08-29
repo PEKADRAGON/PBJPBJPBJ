@@ -1,0 +1,10 @@
+<meta>
+	<info Author='NFCar'/>
+	
+	<script src='nfcarG.lua' type='shared'/>
+	<script src='nfcarC.lua' type='client'/>
+	<script src='nfcarS.lua' type='server'/>
+
+	<file src="Roboto-Medium.ttf" />
+	
+</meta>

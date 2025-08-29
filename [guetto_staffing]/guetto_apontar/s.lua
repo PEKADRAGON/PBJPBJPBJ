@@ -1,0 +1,13 @@
+addEvent("stopPointTheFinger", true)
+addEventHandler("stopPointTheFinger", root, function()
+	takeWeapon(client, 26)
+	toggleControl(client, "fire", true)
+	toggleControl(client, "action", true) 
+end)
+
+addEvent("pointTheFinger", true)
+addEventHandler("pointTheFinger", root, function()
+	toggleControl(client, "action", false) 
+	toggleControl(client, "fire", false)
+	giveWeapon(client, 26,1, true)
+end)

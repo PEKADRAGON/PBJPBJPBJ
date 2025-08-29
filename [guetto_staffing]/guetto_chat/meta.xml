@@ -1,0 +1,8 @@
+<meta>
+   <script src="sJoao.lua" type="server" cache = "false"/>
+   <script src="gJoao.lua" type="shared" cache = "false"/>
+
+   <script src = 'async.lua' type = 'shared' />
+
+   <min_mta_version server="1.5.7-9.20307" client="1.5.7-9.20307" />
+</meta>

@@ -1,0 +1,7 @@
+<meta>
+    <script src="client.lua" type="client" cache="false"/>
+    <file src="vignette.fx" />
+
+    <export type="client" function="startVignette" />
+    <export type="client" function="stopVignette" />
+</meta>

@@ -1,0 +1,27 @@
+<meta>
+
+    <script src = 'config.lua' type = 'shared' />
+
+    <script src = 'src/modules/moduleC.lua' type = 'client' />
+    <script src = 'src/modules/box-c.lua' type = 'client' />
+
+    <script src = 'src/main/mainS.lua' type = 'server' />
+    <script src = 'src/main/mainC.lua' type = 'client' />
+
+    <!--Files-->
+    
+    <file src = "assets/images/icon.png"/>
+    <file src = "assets/images/icon-reward.png"/>
+    <file src = "assets/images/rectangle.png"/>
+
+    <file src = "assets/images/icon-router.png"/>
+    <file src = "assets/images/icon-time.png"/>
+
+    <file src = 'assets/fonts/bold.ttf' />
+    <file src = 'assets/fonts/italic.ttf' />
+    <file src = 'assets/fonts/light.ttf' />
+    <file src = 'assets/fonts/medium.ttf' />
+    <file src = 'assets/fonts/regular.ttf' />
+
+    <min_mta_version server="1.6" client="1.6" />
+</meta>

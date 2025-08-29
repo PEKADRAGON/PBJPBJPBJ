@@ -1,0 +1,235 @@
+local database = dbConnect("sqlite", "assets/database/database.sqlite")
+local resource = { playerHoursData = {} }
+
+local function onPlayerOpenCharacters(player)
+    if getElementData(player, "characterAccount") then 
+        cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE login = ?", accountName), -1)
+    else
+        cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", accountName), -1)
+    end
+
+    local account_name = getAccountName(getPlayerAccount(player))
+
+    local clothes = exports["guetto_custom"]:getPlayerClothes(account_name)
+    local cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", getAccountName(getPlayerAccount(player))), -1)
+
+    return triggerClientEvent(player, "guetto.openCharacters", resourceRoot, cache, hours_played, clothes)
+end
+
+local function onPlayerSaveHours(accountName, totalHours)
+    local account = getAccount(accountName)
+    if account then
+        resource.playerHoursData[accountName] = totalHours
+        dbExec(database, "UPDATE Characters SET hours_played = ? WHERE login = ?", totalHours, accountName)
+    end
+end
+
+local function onPlayerLoadHours()
+    local query = dbQuery(database, "SELECT accountName, hours_played FROM Characters")
+    local result = dbPoll(query, -1)
+    if result then
+        for _, row in ipairs(result) do
+            local accountName = row.accountName
+            local totalHours = tonumber(row.hours_played) or 0
+            resource.playerHoursData[accountName] = totalHours
+        end
+    end
+end
+
+function onResourceStart()
+    if (database and isElement(database)) then 
+        dbExec(database, "CREATE TABLE IF NOT EXISTS Characters (ID INTEGER PRIMARY KEY AUTOINCREMENT, accountName TEXT, login TEXT, name TEXT, city TEXT, gender TEXT, age TEXT, password BLOB, avatar TEXT, hours_played TEXT)")
+        outputDebugString("guetto_characters banco de dados conectado com sucesso.", 4, 0, 255, 0)
+    else
+        outputDebugString("guetto_characters houve um erro ao conectar o banco de dados.", 4, 255, 0, 0)
+    end
+    
+    onPlayerLoadHours()
+
+    setTimer(function()
+        for _, player in ipairs(getElementsByType("player")) do 
+            local playerAccount = getPlayerAccount(player)
+            if playerAccount and not isGuestAccount(playerAccount) then
+                local accountName = getAccountName(playerAccount)
+                if getElementData(player, "characterAccount") then 
+                    cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE login = ?", accountName), -1)
+                else
+                    cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", accountName), -1)
+                end
+                local totalHours = resource.playerHoursData[accountName] or 0
+                totalHours = totalHours + 1
+                resource.playerHoursData[accountName] = totalHours
+                onPlayerSaveHours(cache[1].login, totalHours)
+            end
+        end
+    end, 3600000, 0)
+end
+
+local function onPlayerCreateCharacter(dados)
+    if not client then 
+        return
+    end
+    
+    if dados then 
+        local coins = getElementData(client, config.datas.coins) or 0
+
+        if (tonumber(coins) >= tonumber(config.others.price_characters[dados.index])) then 
+            if (#dados.name > 4) then 
+                if (tonumber(dados.age) >= 18 and tonumber(dados.age) <= 65) then
+                    local cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE name = ?", dados.name), -1)
+
+                    if (cache and #cache == 0) then
+                        local character_login = "character"..dados.index..getAccountName(getPlayerAccount(client))
+                        local password = math.random(10000, 99999)
+                        
+                        if getAccount(character_login) then 
+                            setAccountPassword(getAccount(character_login), password)
+                        else
+                            addAccount(character_login, password)
+                        end
+
+                        dbExec(database, "INSERT INTO Characters (accountName, login, name, city, gender, age, password, avatar, hours_played) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", getAccountName(getPlayerAccount(client)), character_login, dados.name, dados.city, dados.gender, dados.age, password, dados.avatar, 0)
+                        setElementData(client, config.datas.coins, tonumber(coins) - tonumber(config.others.price_characters[dados.index]))
+                        
+                        exports['guetto_gerenciadorvip']:updatePoints(getAccountName(getPlayerAccount(client)), (tonumber(coins) - tonumber(config.others.price_characters[dados.index])))
+
+
+                        setElementData(client, "Avatar", dados.avatar)
+                        sendMessage("server", client, "Personagem criado com sucesso.", "success")
+
+                        local data = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", getAccountName(getPlayerAccount(client))), -1)
+                        local totalHours = (resource.playerHoursData[getAccountName(getPlayerAccount(client))] or 0) / 60
+                        triggerClientEvent(client, "guetto.updateCharactersData", resourceRoot, data, totalHours)
+                    else
+                        sendMessage("server", client, "Esse nome de personagem está sendo usado.", "error")
+                    end
+                else
+                    sendMessage("server", client, "Idade inválida.", "error")
+                end
+            else
+                sendMessage("server", client, "Digite um nome com pelo menos 5 caracteres.", "error")
+            end
+        else
+            sendMessage("server", client, "Você não possui pontos suficiente para realizar essa ação.", "error")
+        end
+    end
+end
+
+local function onPlayerDeleteCharacter(dados)
+    if not client then 
+        return
+    end
+
+    if dados then 
+        if (tonumber(dados.select) == 1) then 
+            return sendMessage("server", client, "Não é possivel excluir seu personagem principal.", "error")
+        end
+
+        dbExec(database, "DELETE FROM Characters WHERE ID = ?", dados.id)
+        sendMessage("server", client, "Personagem excluído com sucesso.", "success")
+
+        local data = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", getAccountName(getPlayerAccount(client))), -1)
+        local totalHours = (resource.playerHoursData[getAccountName(getPlayerAccount(client))] or 0) / 60
+        triggerClientEvent(client, "guetto.updateCharactersData", resourceRoot, data, totalHours)
+    end
+end
+
+local function onPlayerSelectPlayCharacter(dados)
+    if not client then 
+        return 
+    end
+
+    if dados then 
+        
+        if (dados.select ~= 1) then 
+            
+            logOut(client)
+            logIn(client, getAccount(dados.user), dados.password)
+            setElementData(client, "characterAccount", true)
+
+            setPlayerName(client, string.gsub(dados.name, " ", "_"))
+
+            sendMessage("server", client, "Personagem selecionado com sucesso.", "success")
+        end
+
+        setTimer(function(player)
+            if isElement(player) then 
+                triggerEvent("onPlayerCharacterLogin", resourceRoot, player)
+            end
+        end, 2000, 1, client)
+
+        triggerClientEvent(client, "guetto.closeCharacters", resourceRoot)
+    end
+end
+
+local function onPlayerQuit()
+    local accountName = getAccountName(getPlayerAccount(source))
+    local totalHours = resource.playerHoursData[accountName] or 0
+    onPlayerSaveHours(accountName, totalHours)
+end
+
+local function onPlayerLogin()
+    onPlayerLoadHours()
+    local accountName = getAccountName(getPlayerAccount(source))
+    local totalHours = resource.playerHoursData[accountName] or 0
+end
+
+local function deleteAccountCharacter (player, cmd, account)
+    if aclGetGroup('Console') and isObjectInACLGroup('user.'..getAccountName(getPlayerAccount(player)), aclGetGroup('Console')) then 
+        if account then 
+            local cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", account), -1)
+            if cache and #cache > 0 then 
+                dbExec(database, "DELETE FROM Characters WHERE login = ?", account)
+                removeAccount(account)
+                sendMessage('server', player, 'Personagem excluído com sucesso.', 'success')
+            else
+                sendMessage('server', player, 'Nenhum personagem foi encontrado.', 'error')
+            end
+        else
+            sendMessage('server', player, 'Insira a conta.', 'error')
+        end 
+    end
+end
+
+local function deleteAllAccountsCharacter (player, cmd, account)
+    if aclGetGroup('Console') and isObjectInACLGroup('user.'..getAccountName(getPlayerAccount(player)), aclGetGroup('Console')) then 
+        if account then 
+            local cache = dbPoll(dbQuery(database, "SELECT * FROM Characters WHERE accountName = ?", account), -1)
+            if cache and #cache > 0 then 
+                dbExec(database, "DELETE FROM Characters WHERE accountName = ?", account)
+                sendMessage('server', player, 'Personagens excluídos com sucesso.', 'success')
+            else
+                sendMessage('server', player, 'Nenhum personagem foi encontrado.', 'error')
+            end
+        else
+            sendMessage('server', player, 'Insira a conta.', 'error')
+        end 
+    end
+end
+
+registerEvent("guetto.onPlayerOpenCharacters", root, function()
+    onPlayerOpenCharacters(source)
+end)
+
+registerEvent("guetto.select.character", resourceRoot, function ( index, dados )
+    local clothes = {}
+
+    if (index == 1) then 
+        clothes = exports["guetto_custom"]:getPlayerClothes(dados.accountName)
+    else
+        clothes = exports["guetto_custom"]:getPlayerClothes(dados.login)
+    end
+
+    return triggerClientEvent(client, "guetto.update.character.custom", resourceRoot, clothes)
+end)
+
+registerEvent("guetto.onPlayerCreateCharacter", resourceRoot, onPlayerCreateCharacter)
+registerEvent("guetto.onPlayerSelectPlayCharacter", resourceRoot, onPlayerSelectPlayCharacter)
+registerEvent("guetto.onPlayerDeleteCharacter", resourceRoot, onPlayerDeleteCharacter)
+
+addEventHandler("onResourceStart", resourceRoot, onResourceStart)
+addEventHandler("onPlayerQuit", root, onPlayerQuit)
+addEventHandler("onPlayerLogin", root, onPlayerLogin)
+
+addCommandHandler('deletarconta2', deleteAccountCharacter)
+addCommandHandler('deletartodascontas', deleteAllAccountsCharacter)

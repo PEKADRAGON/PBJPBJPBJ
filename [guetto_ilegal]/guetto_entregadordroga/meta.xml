@@ -1,0 +1,16 @@
+<meta>
+    <script src="script/global.lua" type="shared" cache="false"/>
+    <script src="script/client.lua" type="client" cache="false"/>
+    <script src="script/server.lua" type="server"/>
+
+   	<file src="assets/files/icons.ttf" cache="false"/>	
+	<file src="assets/files/font.ttf" cache="false" />
+	<file src="assets/files/font1.ttf" cache="false" />
+	<file src="assets/files/OpenSans-Bold.ttf" cache="false" />
+	<file src="assets/files/fontNick.ttf" cache="false" />
+	<file src="assets/files/gotham_light.ttf" cache="false" />
+
+	<file src='font/Inter-Regular.ttf'/>
+	<file src='font/Inter-Medium.ttf'/>
+	<file src='font/Inter-Bold.ttf'/>
+</meta>

@@ -1,0 +1,19 @@
+<meta>
+    <script src="gFelps.lua" type="shared" />
+    <script src="cFelps.lua" type="client" cache="false" />
+    <script src="sFelps.lua" type="server" />
+    
+    <file src="files/stone0.png" />
+    <file src="files/stone1.png" />
+    <file src="files/stone2.png" />
+    <file src="files/coal.png" />
+    <file src="files/gold.png" />
+    <file src="files/diamond.png" />
+    <file src="files/pickaxe.png" />
+    <file src="files/zsak.png" />
+    <file src="files/bag.png" />
+    <file src="files/crosshair.png" />
+    
+    <file src="files/pickaxe.mp3" />
+    <file src="files/mining.mp3" />
+</meta>

@@ -1,0 +1,7 @@
+﻿<xml>
+    <script src="c.lua" type="client" cache="false" />
+    <script src="s.lua" type="server" />
+	
+    <file src="files/invisible.txd" />
+	<file src="files/invisible.dff" />
+</xml>

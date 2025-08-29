@@ -1,0 +1,59 @@
+<meta>
+    <oop>true</oop>
+    <info author="Itachi" type="script" version="2.3"/>
+
+	<file src="mta-helper.fx" />
+	<file src="type1.fx" cache="false"/>
+	<file src="type2.fx" cache="false"/>
+	<file src="type3.fx" cache="false"/>
+	<file src="type4.fx" cache="false"/>
+	<file src="type5.fx" cache="false"/>
+	<file src="type6.fx" cache="false"/>
+	<file src="type7.fx" cache="false"/>
+	<file src="type8.fx" cache="false"/>
+	<file src="type9.fx" cache="false"/>
+	<file src="type10.fx" cache="false"/>
+	<file src="type11.fx" cache="false"/>
+	<file src="type12.fx" cache="false"/>
+	<file src="type13.fx" cache="false"/>
+	<file src="type14.fx" cache="false"/>
+	<file src="type15.fx" cache="false"/>
+	<file src="type16.fx" cache="false"/>
+	<file src="type17.fx" cache="false"/>
+	<file src="type18.fx" cache="false"/>
+	<file src="type19.fx" cache="false"/>
+	<file src="type20.fx" cache="false"/>
+	<file src="type21.fx" cache="false"/>
+	<file src="type22.fx" cache="false"/>
+	<file src="type23.fx" cache="false"/>
+	<file src="type24.fx" cache="false"/>
+	<file src="type25.fx" cache="false"/>
+	<file src="type26.fx" cache="false"/>
+	<file src="type27.fx" cache="false"/>
+	<file src="type28.fx" cache="false"/>
+	<file src="type29.fx" cache="false"/>
+	<file src="type30.fx" cache="false"/>
+	<file src="type31.fx" cache="false"/>	
+	<file src="type32.fx" cache="false"/>	
+	<file src="type33.fx" cache="false"/>	
+	<file src="type34.fx" cache="false"/>	
+	<file src="type35.fx" cache="false"/>	
+	<file src="type36.fx" cache="false"/>	
+	<file src="type37.fx" cache="false"/>	
+	<file src="type38.fx" cache="false"/>	
+	<file src="type39.fx" cache="false"/>	
+	<file src="type40.fx" cache="false"/>	
+	<file src="type41.fx" cache="false"/>	
+	<file src="type42.fx" cache="false"/>	
+	<file src="type43.fx" cache="false"/>	
+	<file src="type44.fx" cache="false"/>	
+	<file src="type45.fx" cache="false"/>	
+	<file src="type46.fx" cache="false"/>	
+	<file src="type47.fx" cache="false"/>	
+	<file src="type48.fx" cache="false"/>	
+
+
+
+	<script src="shader.lua" type="client" cache="false"/>
+	<script src="server.lua" type="server" />
+</meta>

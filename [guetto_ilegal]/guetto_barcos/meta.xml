@@ -1,0 +1,13 @@
+<meta>
+   <script src='gSchootz.lua' type='shared'/>
+   <script src='files/utils/Utils.lua' type='client' cache='false'/>
+	<script src='files/utils/EditBox.lua' type='client' cache='false'/>
+	<script src='files/utils/Images.lua' type='client' cache='false'/>
+   <script src='cSchootz.lua' type='client' cache="false"/>
+   <script src='sSchootz.lua' type='server'/>
+
+   <file src='files/fonts/RobotoCondensed-Medium.ttf'/>
+   <file src='files/images/base.png'/>
+   <file src='files/images/select.png'/>
+   <file src='files/images/button.png'/>
+</meta>

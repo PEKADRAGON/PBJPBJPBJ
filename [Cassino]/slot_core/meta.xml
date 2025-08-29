@@ -1,0 +1,13 @@
+<meta>
+
+    <script src="client.lua" type="client" cache="false" />
+    <script src="server.lua" type="server" />
+
+    <file src="fontbold.ttf" />
+    <file src="dede.png" />
+    <file src="sweet.png" />
+    <file src="x.png" />
+
+    <export function="getSlotMoney" type="client" />
+    <export function="checkAdmin" type="server" />
+</meta>

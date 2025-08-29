@@ -1,0 +1,82 @@
+<meta>
+    <script src = "config.lua" type = "shared" cache = "false"/>
+    <script src = "client.lua" type = "client" cache = "false"/>
+
+    <file src="models/skins/1.guettodff" />
+    <file src="models/skins/1.guettocol" />
+    <file src="models/skins/2.guettodff" />
+    <file src="models/skins/2.guettocol" />
+
+        <file src="models/acessorios/mascara1.guettocol" />
+    <file src="models/acessorios/mascara1.guettodff" />
+    <file src="models/acessorios/mascara2.guettocol" />
+    <file src="models/acessorios/mascara2.guettodff" />
+    <file src="models/acessorios/mochila1.guettocol" />
+    <file src="models/acessorios/mochila1.guettodff" />
+    <file src="models/acessorios/oculosjuliete.guettocol" />
+    <file src="models/acessorios/oculosjuliete.guettodff" />
+    <file src="models/acessorios/bone1.guettocol" />
+    <file src="models/acessorios/bone1.guettodff" />
+    <file src="models/acessorios/mascara3.guettocol" />
+    <file src="models/acessorios/mascara3.guettodff" />
+    <file src="models/acessorios/mascara5.guettocol" />
+    <file src="models/acessorios/mascara5.guettodff" />
+    <file src="models/acessorios/mascara6.guettocol" />
+    <file src="models/acessorios/mascara6.guettodff" />
+    <file src="models/acessorios/mascara9.guettocol" />
+    <file src="models/acessorios/mascara9.guettodff" />
+    <file src="models/acessorios/mascara11.guettocol" />
+    <file src="models/acessorios/mascara11.guettodff" />
+    <file src="models/acessorios/mascara12.guettocol" />
+    <file src="models/acessorios/mascara12.guettodff" />
+    <file src="models/acessorios/mochila2.guettocol" />
+    <file src="models/acessorios/mochila2.guettodff" />
+    <file src="models/acessorios/mochila3.guettocol" />
+    <file src="models/acessorios/mochila3.guettodff" />
+    <file src="models/acessorios/chapeupalha.guettocol" />
+    <file src="models/acessorios/chapeupalha.guettodff" />
+    <file src="models/acessorios/fone1.guettocol" />
+    <file src="models/acessorios/fone1.guettodff" />
+    <file src="models/acessorios/bagdelivery.guettocol" />
+    <file src="models/acessorios/bagdelivery.guettodff" />
+    <file src="models/acessorios/cabecacap.guettocol" />
+    <file src="models/acessorios/cabecacap.guettodff" />
+    <file src="models/acessorios/orelha_coelho.guettocol" />
+    <file src="models/acessorios/orelha_coelho.guettodff" />
+    <file src="models/acessorios/gorro.guettocol" />
+    <file src="models/acessorios/gorro.guettodff" />
+    <file src="models/acessorios/mochilacat.guettocol" />
+    <file src="models/acessorios/mochilacat.guettodff" />
+    <file src="models/acessorios/oculosaviador.guettocol" />
+    <file src="models/acessorios/oculosaviador.guettodff" />
+    <file src="models/acessorios/bonereto.guettocol" />
+    <file src="models/acessorios/bonereto.guettodff" />
+    <file src="models/acessorios/cap1.guettocol" />
+    <file src="models/acessorios/cap1.guettodff" />
+    <file src="models/acessorios/durag.guettocol" />
+    <file src="models/acessorios/durag.guettodff" />
+    <file src="models/acessorios/helmet_aguia.guettocol" />
+    <file src="models/acessorios/helmet_aguia.guettodff" />
+    <file src="models/acessorios/toca.guettodff" />
+    <file src="models/acessorios/toca.guettocol" />
+    <file src="models/acessorios/maskpaint.guettodff" />
+    <file src="models/acessorios/maskpaint.guettocol" />
+
+    <file src="models/cabelo_male/cabelo1.guettocol" />
+    <file src="models/cabelo_male/cabelo1.guettodff" />
+    <file src="models/cabelo_male/cabelo2.guettocol" />
+    <file src="models/cabelo_male/cabelo2.guettodff" />
+    <file src="models/cabelo_male/cabelo3.guettocol" />
+    <file src="models/cabelo_male/cabelo3.guettodff" />
+    <file src="models/cabelo_male/cabelo4.guettocol" />
+    <file src="models/cabelo_male/cabelo4.guettodff" />
+    <file src="models/cabelo_female/cabelo1.guettocol" />
+    <file src="models/cabelo_female/cabelo1.guettodff" />
+    <file src="models/cabelo_female/cabelo2.guettocol" />
+    <file src="models/cabelo_female/cabelo2.guettodff" />
+    <file src="models/cabelo_female/cabelo3.guettocol" />
+    <file src="models/cabelo_female/cabelo3.guettodff" />
+    <file src="models/cabelo_female/cabelo4.guettocol" />
+    <file src="models/cabelo_female/cabelo4.guettodff" />
+
+</meta>

@@ -1,0 +1,12 @@
+<meta>
+    <info author="Cross" version="1.0" name="Casa Noturna" type="map" />
+
+    <script src="Crs_C.lua" type="client" cache="false"/>
+    <script src="Crs_S.lua" type="server" cache="false"/>
+
+    <map src="PuteiroMap.map" dimension="0"></map>
+
+    <script src="CrsmapS.lua" type="server"></script>
+    <script src="CrsmapC.lua" type="client" validate="false"></script>
+    
+</meta>

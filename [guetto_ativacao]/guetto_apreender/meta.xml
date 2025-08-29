@@ -1,0 +1,9 @@
+<meta>	
+	<script src='gSchootz.lua' type='shared'/>
+	<script src='cSchootz.lua' type='client' cache='false'/>
+	<script src='sSchootz.lua' type='server'/>
+
+	<file src='files/base.png'/>
+	<file src='files/button.png'/>
+	<file src='files/SFProText-Regular.ttf'/>
+</meta>

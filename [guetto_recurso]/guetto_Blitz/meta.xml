@@ -1,0 +1,29 @@
+<meta>
+    <info author='squady developer' version='1.0' description='[BVR]Blitz' />
+
+    <script src='config.lua' type='shared' />
+    
+    <script src='assets/modules/client.lua' type='client' cache='false' />
+    <script src='assets/modules/server.lua' />
+
+    <script src='assets/main/client.lua' type='client' cache='false' />
+    <script src='assets/main/server.lua' />
+
+    <file src='assets/images/background.png' cache='false' />
+    <file src='assets/images/bin.png' cache='false' />
+    <file src='assets/images/info.png' cache='false' />
+    <file src='assets/images/cone-pequeno.png' cache='false' />
+    <file src='assets/images/cone-grande.png' cache='false' />
+    <file src='assets/images/faixa-de-prego.png' cache='false' />
+    <file src='assets/images/barreira.png' cache='false' />
+
+    <file src='assets/fonts/regular.ttf' cache='false' />
+
+    <file src='assets/shader/edge.fx' />
+    <file src='assets/shader/wall.fx' />
+    <file src='assets/shader/wall_mrt.fx' />
+
+    <file src='assets/sounds/spike.wav' cache='false' />
+
+    <min_mta_version server="1.6" client="1.6"/>
+</meta>

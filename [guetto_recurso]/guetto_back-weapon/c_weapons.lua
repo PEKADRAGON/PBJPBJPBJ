@@ -1,0 +1,141 @@
+--[[
+    @author: psychol.
+    @mail: nezymr69@gmail.com
+    @project: Pixel (MTA)
+]]
+
+local weapons={}
+
+local back={
+    [349]=true,
+    [355]=true,
+    [356]=true,
+    [357]=true,
+    [358]=true,
+    [359]=true,
+    [360]=true,
+}
+
+function isEventHandlerAdded( sEventName, pElementAttachedTo, func )
+    if type( sEventName ) == 'string' and isElement( pElementAttachedTo ) and type( func ) == 'function' then
+        local aAttachedFunctions = getEventHandlers( sEventName, pElementAttachedTo )
+        if type( aAttachedFunctions ) == 'table' and #aAttachedFunctions > 0 then
+            for i, v in ipairs( aAttachedFunctions ) do
+                if v == func then
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+
+function attachWeapon(player, weaponID)
+    if(weapons[player])then return end 
+
+    weapons[player] = createObject(weaponID, 0, 0, 0)
+    exports.pAttach:attach(weapons[player], player, 3, 0.15,0.22,0.13,-147.6,-180,0)
+    local tbl_sticker = getElementData(localPlayer, "weapon.style") or false 
+
+    if tbl_sticker and type(tbl_sticker) == 'table' then 
+        triggerEvent("setArmaStickerC", root, localPlayer, tbl_sticker[1], tbl_sticker[2])
+    end
+
+    if not (isEventHandlerAdded("onClientRender", root, render)) then 
+        addEventHandler("onClientRender", root, render)
+    end
+end
+
+function destroyWeapon(player)
+    if(weapons[player] and isElement(weapons[player]))then
+        destroyElement(weapons[player])
+        weapons[player]=nil
+    end
+    removeEventHandler("onClientRender", root, render)
+end
+
+function render()
+    local player=localPlayer
+    if(weapons[player] and isElement(weapons[player]))then
+        setElementDimension(weapons[player], getElementDimension(player))
+        setElementInterior(weapons[player], getElementInterior(player))
+    end
+end
+
+addEventHandler("onClientPlayerWeaponSwitch", localPlayer, function(last)
+    if(weapons[source] and getElementModel(weapons[source]) == getID(getPedWeapon(source)))then
+        setElementData(source, "custom:create_weapon", false)
+        return
+    end
+
+    local weapon=getPedWeapon(source, last)
+    if(weapon and not isPedInVehicle(source))then
+        local id=getID(weapon)
+        if(back[id])then
+            setElementData(source, "custom:create_weapon", id)
+        end
+    end
+end)
+
+addEventHandler("onClientPlayerVehicleExit", localPlayer, function()
+    setElementData(source, "custom:create_weapon", false)
+end)
+
+addEventHandler("onClientPlayerWasted", localPlayer, function()
+    setElementData(source, "custom:create_weapon", false)
+end)
+
+addEventHandler("onClientPlayerQuit", localPlayer, function()
+    setElementData(source, "custom:create_weapon", false)
+end)
+
+addEventHandler("onClientElementDataChange", root, function(data, old, new)
+    if(data == "custom:create_weapon" and isElementStreamedIn(source))then
+        if(not new)then
+            destroyWeapon(source)
+        else
+            attachWeapon(source, new)
+        end
+    elseif(data == "user:faction" and old == "SAPD")then
+        setElementData(source, "custom:create_weapon", false)
+        destroyWeapon(source)
+    end
+end)
+
+addEventHandler("onClientElementStreamIn", root, function()
+    local d=getElementData(source, "custom:create_weapon")
+    if(d)then
+        attachWeapon(source, d)
+    end
+end)
+
+addEventHandler("onClientElementStreamOut", root, function()
+    destroyWeapon(source)
+end)
+
+setElementData(localPlayer, "custom:create_weapon", false)
+
+-- useful
+
+function getID(weapon)
+	local m
+	if weapon > 1 and weapon < 9 then
+		m = 331 + weapon
+	elseif weapon == 9 then
+		m = 341
+	elseif weapon == 15 then
+		m = 326
+	elseif (weapon > 21 and weapon < 30) or (weapon > 32 and weapon < 39) or (weapon > 40 and weapon < 44) then
+		m = 324 + weapon
+	elseif weapon > 29 and weapon < 32 then
+		m = 325 + weapon
+	elseif weapon == 32 then
+		m = 372
+	end
+	return m
+end
+
+addEvent("destroyWeapon", true)
+addEventHandler("destroyWeapon", root, function (weapon)
+    destroyWeapon(localPlayer)
+end)

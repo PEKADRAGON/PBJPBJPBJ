@@ -1,0 +1,24 @@
+<meta>
+    <script src="settings.lua" type="shared" cache="false"/>
+    <script src="c.lua" type="client" cache="false"/>
+    <script src="s.lua" type="server" />
+
+    <file src="files/sound.png" />
+    <file src="files/light.png" />
+
+	<file src="sirens/buzinaAr_Ambulancia.mp3" />
+	<file src="sirens/sireneAmbulancia1.mp3" />
+	<file src="sirens/sireneAmbulancia2.mp3" />
+	<file src="sirens/sireneAmbulancia3.mp3" />
+
+	<file src="sirens/buzinaAr_Policia.mp3" />
+	<file src="sirens/sirenePolicia3.mp3" />
+	<file src="sirens/sirenePolicia2.mp3" />
+	<file src="sirens/sirenePolicia1.mp3" />
+
+	<file src="sirens/RocamBuzina.mp3" />
+	<file src="sirens/RocamAcomp.mp3" />
+	<file src="sirens/RocamAcomp2.mp3" />
+
+    <min_mta_version client="1.5.2" server="1.5.2" />
+</meta>

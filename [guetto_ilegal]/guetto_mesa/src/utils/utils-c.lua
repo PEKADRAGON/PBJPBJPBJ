@@ -1,0 +1,74 @@
+screenW, screenH = guiGetScreenSize()
+sx, sy = (screenW/1920), (screenH/1080)
+
+--/ Ator
+
+function aToR(X, Y, sX, sY)
+    local xd = X/1920 or X
+    local yd = Y/1080 or Y
+    local xsd = sX/1920 or sX
+    local ysd = sY/1080 or sY
+    return xd * screenW, yd * screenH, xsd * screenW, ysd * screenH
+end
+
+_dxDrawCircle = dxDrawCircle
+function dxDrawCircle(x, y, w, h, ...)
+    local x, y, w, h = aToR(x, y, w, h)
+    return _dxDrawCircle(x, y, w, h, ...)
+end
+
+
+_dxDrawRectangle = dxDrawRectangle
+function dxDrawRectangle(x, y, w, h, ...)
+    local x, y, w, h = aToR(x, y, w, h)
+    return _dxDrawRectangle(x, y, w, h, ...)
+end
+
+_dxDrawText = dxDrawText
+function dxDrawText(text, x, y, w, h, ...)
+    local x, y, w, h = aToR(x, y, w + x, h + y)
+    return _dxDrawText(text, x, y, w, h, ...)
+end
+
+_dxDrawImage = dxDrawImage
+function dxDrawImage(x, y, w, h, ...)
+    local x, y, w, h = aToR(x, y, w, h)
+    return _dxDrawImage(x, y, w, h, ...)
+end
+
+_dxDrawImageSection = dxDrawImageSection
+function dxDrawImageSection(x, y, w, h, ...)
+    local x, y, w, h = aToR(x, y, w, h)
+    return _dxDrawImageSection(x, y, w, h, ...)
+end
+
+function isCursorOnElement (x, y, w, h)
+    local x, y, w, h = aToR(x, y, w, h)
+    if isCursorShowing() then
+        local mx, my = getCursorPosition()
+        local resx, resy = guiGetScreenSize()
+        mousex, mousey = mx * resx, my * resy
+        if mousex > x and mousex < x + w and mousey > y and mousey < y + h then
+            return true
+        else
+            return false
+        end
+    end
+end
+
+function getFrontPosition(player)
+    if not isElement(player) or getElementType(player) ~= "player" then
+        return false
+    end
+
+    local x, y, z = getElementPosition(player)
+    local rotation = getPedRotation(player)
+    local distance = -5
+
+    local rotationRad = math.rad(rotation)
+
+    local newX = x + distance * math.sin(rotationRad)
+    local newY = y - distance * math.cos(rotationRad)
+
+    return newX, newY, z
+end

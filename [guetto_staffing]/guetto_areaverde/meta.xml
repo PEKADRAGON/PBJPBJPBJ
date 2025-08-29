@@ -1,0 +1,11 @@
+<meta>
+    <script src="gJoao.lua" type="shared" cache="false" />
+    <script src="cJoao.lua" type="client" cache="false" />
+    <script src="sJoao.lua" type="server" />
+
+    <file src="files/fonts/Roboto-Medium.ttf" />
+    <file src="files/fonts/Roboto-Regular.ttf" />
+    <file src="files/fonts/Roboto-Bold.ttf" />
+    <file src="files/fonts/Roboto-Light.ttf" />
+    <file src="files/fonts/Roboto-Black.ttf" />
+</meta>

@@ -1,0 +1,1061 @@
+<meta>
+    <oop>true</oop>
+
+    <info author = "Guh And MatteO"/>
+
+    <script src="src/async/async.lua" type="shared" />
+    
+    <script src="shopsettings.lua" type="shared" cache="false" />
+    <script src="settings.lua" type="shared" cache="false" />
+
+    <script src="src/utils/utils.lua" type="client" cache="false" />
+   
+    <script src="src/camera/cameraC.lua" type="client" cache="false" />
+    <script src="src/shader/applyShader.lua" type="client" cache="false" />
+
+    <script src="src/ped/ped.lua" type="client" cache="false" />
+
+    <script src="src/main/client.lua" type="client" cache="false" />
+    <script src="src/main/server.lua" type="server" cache="false" />
+    
+    <script src="src/barber/shopbarber.lua" type="client" cache="false" />
+    <script src="src/tatoo/shoptatoo.lua" type="client" cache="false" />
+    <script src="src/shop/shop.lua" type="client" cache="false" />
+    
+    <!-- EXPORTS -->
+    <export function="getTexture" type="client" />
+
+    <export function="createCustomPed" type="client" />
+    <export function="destroyPed" type="client" />
+
+    <export function="loadCharacter" type="client" />
+    <export function="unloadCharacter" type="client" />
+
+    <export function="showCreateCharacter" type="client" />
+
+    <export function="carregarPersonagem" type="server" />
+    <export function = "getPlayerClothes" type = "server"/>
+
+    <export function="saveCharacterPlayer" type="server" />
+    <export function="returntabelaRoupas" type="shared" />
+    <export function="returntabelaFardas" type="shared" />
+    <export function="setNewCharacterData" type="shared" />
+
+    <!-- LOJA DE ROUPAS & BARBEARIA-->
+    
+
+    <file src="assets/images/background.png" cache="false" />
+    <file src="assets/images/faixa.png" cache="false" />
+    <file src="assets/images/cart-background.png" cache="false" />
+    
+    <!-- ROUPAS MASCULINAS -->
+    
+    <file src="assets/images/character/1/texturascorpo/1/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/1/2.dds" />
+    <file src="assets/images/character/1/texturascorpo/1/3.dds" />
+    <file src="assets/images/character/1/texturascorpo/1/4.dds" />
+    <file src="assets/images/character/1/texturascorpo/1/5.dds" />
+    
+    <file src="assets/images/character/1/texturascorpo/2/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/2/2.dds" />
+    <file src="assets/images/character/1/texturascorpo/2/3.dds" />
+    <file src="assets/images/character/1/texturascorpo/2/4.dds" />
+    <file src="assets/images/character/1/texturascorpo/2/5.dds" />
+    
+    <file src="assets/images/character/1/texturascorpo/3/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/3/2.dds" />
+    <file src="assets/images/character/1/texturascorpo/3/3.dds" />
+    <file src="assets/images/character/1/texturascorpo/3/4.dds" />
+    <file src="assets/images/character/1/texturascorpo/3/5.dds" />
+    
+    <file src="assets/images/character/1/texturascorpo/4/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/4/2.dds" />
+    <file src="assets/images/character/1/texturascorpo/4/3.dds" />
+    <file src="assets/images/character/1/texturascorpo/4/4.dds" />
+    <file src="assets/images/character/1/texturascorpo/4/5.dds" />
+    
+    <file src="assets/images/character/1/texturascorpo/5/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/5/2.dds" />
+    <file src="assets/images/character/1/texturascorpo/5/3.dds" />
+    <file src="assets/images/character/1/texturascorpo/5/4.dds" />
+    <file src="assets/images/character/1/texturascorpo/5/5.dds" />
+    
+    <file src="assets/images/character/1/cabelos/cabelo.1/1.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.1/2.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.1/3.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.1/4.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.1/5.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.1/6.dds" />
+    
+    <file src="assets/images/character/1/cabelos/cabelo.2/1.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.2/2.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.2/3.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.2/4.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.2/5.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.2/6.dds" />
+    
+    <file src="assets/images/character/1/cabelos/cabelo.3/1.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.3/2.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.3/3.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.3/4.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.3/5.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.3/6.dds" />
+    
+    <file src="assets/images/character/1/cabelos/cabelo.4/1.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.4/2.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.4/3.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.4/4.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.4/5.dds" />
+    <file src="assets/images/character/1/cabelos/cabelo.4/6.dds" />
+    
+    <file src="assets/images/character/1/texturascorpo/lowhair/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/2.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/3.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/4.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/5.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/6.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/7.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/8.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/9.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/10.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/11.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/12.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/13.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/14.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/15.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/16.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/17.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/18.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/19.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/20.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/21.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/22.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/23.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/24.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/25.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/26.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/27.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/28.dds" />
+    <file src="assets/images/character/1/texturascorpo/lowhair/29.dds" />
+    
+    <file src="assets/images/character/1/texturascorpo/tatuagens/bracos/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/tatuagens/peito/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/tatuagens/estomago/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/tatuagens/costas/1.dds" />
+    <file src="assets/images/character/1/texturascorpo/tatuagens/panturrilha/1.dds" />
+    
+    <file src="assets/images/character/1/texturasface/eyes/1.dds" />
+    <file src="assets/images/character/1/texturasface/eyes/2.dds" />
+    <file src="assets/images/character/1/texturasface/eyes/3.dds" />
+    <file src="assets/images/character/1/texturasface/eyes/4.dds" />
+    <file src="assets/images/character/1/texturasface/eyes/5.dds" />
+    <file src="assets/images/character/1/texturasface/eyes/6.dds" />
+    <file src="assets/images/character/1/texturasface/eyes/7.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/1.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/2.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/3.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/4.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/5.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/6.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/7.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/8.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/9.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/10.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/11.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/12.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/13.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/14.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/15.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/16.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/17.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/18.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/19.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/20.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/21.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/22.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/23.dds" />
+    <file src="assets/images/character/1/texturasface/barbas/24.dds" />
+    <file src="assets/images/character/1/texturasface/blush/1.dds" />
+    <file src="assets/images/character/1/texturasface/blush/2.dds" />
+    <file src="assets/images/character/1/texturasface/blush/3.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/1.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/2.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/3.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/4.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/5.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/6.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/7.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/8.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/9.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/10.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/11.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/12.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/13.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/14.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/15.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/16.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/17.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/18.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/19.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/20.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/21.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/22.dds" />
+    <file src="assets/images/character/1/texturasface/eyebrows/23.dds" />
+    <!-- ROUPAS -->
+    <file src="assets/images/character/1/camisa.1/1.dds" />
+    <file src="assets/images/character/1/camisa.1/2.dds" />
+    <file src="assets/images/character/1/camisa.1/3.dds" />
+    <file src="assets/images/character/1/camisa.1/4.dds" />
+    <file src="assets/images/character/1/camisa.1/5.dds" />
+    <file src="assets/images/character/1/camisa.1/6.dds" />
+    <file src="assets/images/character/1/camisa.1/7.dds" />
+    <file src="assets/images/character/1/camisa.1/8.dds" />
+    <file src="assets/images/character/1/camisa.1/9.dds" />
+    <file src="assets/images/character/1/camisa.1/10.dds" />
+    <file src="assets/images/character/1/camisa.1/11.dds" />
+    <file src="assets/images/character/1/camisa.1/12.dds" />
+    <file src="assets/images/character/1/camisa.1/13.dds" />
+    <file src="assets/images/character/1/camisa.1/14.dds" />
+    <file src="assets/images/character/1/camisa.1/15.dds" />
+    <file src="assets/images/character/1/camisa.1/16.dds" />
+    <file src="assets/images/character/1/camisa.1/17.dds" />
+    <file src="assets/images/character/1/camisa.1/18.dds" />
+    <file src="assets/images/character/1/camisa.1/19.dds" />
+    <file src="assets/images/character/1/camisa.1/20.dds" />
+    <file src="assets/images/character/1/camisa.1/21.dds" />
+    <file src="assets/images/character/1/camisa.1/22.dds" />
+    <file src="assets/images/character/1/camisa.1/23.dds" />
+    <file src="assets/images/character/1/camisa.1/24.dds" />
+    <file src="assets/images/character/1/camisa.1/25.dds" />
+    <file src="assets/images/character/1/camisa.1/26.dds" />
+    <file src="assets/images/character/1/camisa.1/27.dds" />
+    <file src="assets/images/character/1/camisa.1/28.dds" />
+    <file src="assets/images/character/1/camisa.1/29.dds" />
+    <file src="assets/images/character/1/camisa.1/30.dds" />
+    <file src="assets/images/character/1/camisa.1/31.dds" />
+    <file src="assets/images/character/1/camisa.1/32.dds" />
+    <file src="assets/images/character/1/camisa.1/33.dds" />
+    <file src="assets/images/character/1/camisa.1/34.dds" />
+    <file src="assets/images/character/1/camisa.1/35.dds" />
+    <file src="assets/images/character/1/camisa.1/36.dds" />
+    <file src="assets/images/character/1/camisa.1/37.dds" />
+    <file src="assets/images/character/1/camisa.1/38.dds" />
+    <file src="assets/images/character/1/camisa.1/39.dds" />
+    <file src="assets/images/character/1/camisa.1/40.dds" />
+    <file src="assets/images/character/1/camisa.1/41.dds" />
+    <file src="assets/images/character/1/camisa.1/42.dds" />
+    <file src="assets/images/character/1/camisa.1/43.dds" />
+    <file src="assets/images/character/1/camisa.1/44.dds" />
+    <file src="assets/images/character/1/camisa.1/45.dds" />
+    <file src="assets/images/character/1/camisa.1/46.dds" />
+    <file src="assets/images/character/1/camisa.1/47.dds" />
+    <file src="assets/images/character/1/camisa.1/48.dds" />
+    <file src="assets/images/character/1/camisa.1/49.dds" />
+    <file src="assets/images/character/1/camisa.1/50.dds" />
+    <file src="assets/images/character/1/camisa.1/51.dds" />
+    <file src="assets/images/character/1/camisa.1/52.dds" />
+    <file src="assets/images/character/1/camisa.1/53.dds" />
+    <file src="assets/images/character/1/camisa.1/54.dds" />
+    <file src="assets/images/character/1/camisa.1/55.dds" />
+    <file src="assets/images/character/1/camisa.1/56.dds" />
+    <file src="assets/images/character/1/camisa.1/57.dds" />
+    
+    <file src="assets/images/character/1/camisa.2/1.dds" />
+    <file src="assets/images/character/1/camisa.2/2.dds" />
+    <file src="assets/images/character/1/camisa.2/3.dds" />
+    <file src="assets/images/character/1/camisa.2/4.dds" />
+    <file src="assets/images/character/1/camisa.2/5.dds" />
+    <file src="assets/images/character/1/camisa.2/6.dds" />
+    <file src="assets/images/character/1/camisa.2/7.dds" />
+    <file src="assets/images/character/1/camisa.2/8.dds" />
+    <file src="assets/images/character/1/camisa.2/9.dds" />
+    <file src="assets/images/character/1/camisa.2/10.dds" />
+    
+    <file src="assets/images/character/1/camisa.polo/1.dds" />
+    <file src="assets/images/character/1/camisa.polo/2.dds" />
+    <file src="assets/images/character/1/camisa.polo/3.dds" />
+    <file src="assets/images/character/1/camisa.polo/4.dds" />
+    <file src="assets/images/character/1/camisa.polo/5.dds" />
+    <file src="assets/images/character/1/camisa.polo/6.dds" />
+    <file src="assets/images/character/1/camisa.polo/7.dds" />
+    <file src="assets/images/character/1/camisa.polo/8.dds" />
+    <file src="assets/images/character/1/camisa.polo/9.dds" />
+    <file src="assets/images/character/1/camisa.polo/10.dds" />
+    <file src="assets/images/character/1/camisa.polo/11.dds" />
+    <file src="assets/images/character/1/camisa.polo/12.dds" />
+    <file src="assets/images/character/1/camisa.polo/13.dds" />
+    <file src="assets/images/character/1/camisa.polo/14.dds" />
+    <file src="assets/images/character/1/camisa.polo/15.dds" />
+    <file src="assets/images/character/1/camisa.polo/16.dds" />
+    <file src="assets/images/character/1/camisa.polo/17.dds" />
+    <file src="assets/images/character/1/camisa.polo/18.dds" />
+    <file src="assets/images/character/1/camisa.polo/19.dds" />
+    <file src="assets/images/character/1/camisa.polo/20.dds" />
+    <file src="assets/images/character/1/camisa.polo/21.dds" />
+    <file src="assets/images/character/1/camisa.polo/22.dds" />
+    
+    <file src="assets/images/character/1/camisa.social/1.dds" />
+    <file src="assets/images/character/1/camisa.social/2.dds" />
+    <file src="assets/images/character/1/camisa.social/3.dds" />
+    <file src="assets/images/character/1/camisa.social/4.dds" />
+    <file src="assets/images/character/1/camisa.social/5.dds" />
+    <file src="assets/images/character/1/camisa.social/6.dds" />
+    <file src="assets/images/character/1/camisa.social/7.dds" />
+    
+    <file src="assets/images/character/1/camisa.franklin/1.dds" />
+    <file src="assets/images/character/1/camisa.franklin/2.dds" />
+    <file src="assets/images/character/1/camisa.franklin/3.dds" />
+    <file src="assets/images/character/1/camisa.franklin/4.dds" />
+    <file src="assets/images/character/1/camisa.franklin/5.dds" />
+    <file src="assets/images/character/1/camisa.franklin/6.dds" />
+    <file src="assets/images/character/1/camisa.franklin/7.dds" />
+    <file src="assets/images/character/1/camisa.franklin/8.dds" />
+    <file src="assets/images/character/1/camisa.franklin/9.dds" />
+    <file src="assets/images/character/1/camisa.franklin/10.dds" />
+    <file src="assets/images/character/1/camisa.franklin/11.dds" />
+    <file src="assets/images/character/1/camisa.franklin/12.dds" />
+    <file src="assets/images/character/1/camisa.franklin/13.dds" />
+    
+    <file src="assets/images/character/1/regata.1/1.dds" />
+    <file src="assets/images/character/1/regata.1/2.dds" />
+    <file src="assets/images/character/1/regata.1/3.dds" />
+    <file src="assets/images/character/1/regata.1/4.dds" />
+    <file src="assets/images/character/1/regata.1/5.dds" />
+    <file src="assets/images/character/1/regata.1/6.dds" />
+    <file src="assets/images/character/1/regata.1/7.dds" />
+    <file src="assets/images/character/1/regata.1/8.dds" />
+    <file src="assets/images/character/1/regata.1/9.dds" />
+    <file src="assets/images/character/1/regata.1/10.dds" />
+    <file src="assets/images/character/1/regata.1/11.dds" />
+    <file src="assets/images/character/1/regata.1/12.dds" />
+    <file src="assets/images/character/1/regata.1/13.dds" />
+    <file src="assets/images/character/1/regata.1/14.dds" />
+    <file src="assets/images/character/1/regata.1/15.dds" />
+    <file src="assets/images/character/1/regata.1/16.dds" />
+    <file src="assets/images/character/1/regata.1/17.dds" />
+    <file src="assets/images/character/1/regata.1/18.dds" />
+    <file src="assets/images/character/1/regata.1/19.dds" />
+    <file src="assets/images/character/1/regata.1/20.dds" />
+    <file src="assets/images/character/1/regata.1/21.dds" />
+    <file src="assets/images/character/1/regata.1/22.dds" />
+    
+    <file src="assets/images/character/1/jaqueta.1/1.dds" />
+    <file src="assets/images/character/1/jaqueta.1/2.dds" />
+    <file src="assets/images/character/1/jaqueta.1/3.dds" />
+    <file src="assets/images/character/1/jaqueta.1/4.dds" />
+    <file src="assets/images/character/1/jaqueta.1/5.dds" />
+    <file src="assets/images/character/1/jaqueta.1/6.dds" />
+    <file src="assets/images/character/1/jaqueta.1/7.dds" />
+    <file src="assets/images/character/1/jaqueta.1/8.dds" />
+    <file src="assets/images/character/1/jaqueta.1/9.dds" />
+    
+    <file src="assets/images/character/1/blusao.1/1.dds" />
+    <file src="assets/images/character/1/blusao.1/2.dds" />
+    <file src="assets/images/character/1/blusao.1/3.dds" />
+    <file src="assets/images/character/1/blusao.1/4.dds" />
+    <file src="assets/images/character/1/blusao.1/5.dds" />
+    <file src="assets/images/character/1/blusao.1/6.dds" />
+    <file src="assets/images/character/1/blusao.1/7.dds" />
+    <file src="assets/images/character/1/blusao.1/8.dds" />
+    <file src="assets/images/character/1/blusao.1/9.dds" />
+    <file src="assets/images/character/1/blusao.1/10.dds" />
+    <file src="assets/images/character/1/blusao.1/11.dds" />
+    <file src="assets/images/character/1/blusao.1/12.dds" />
+    <file src="assets/images/character/1/blusao.1/13.dds" />
+    <file src="assets/images/character/1/blusao.1/14.dds" />
+    <file src="assets/images/character/1/blusao.1/15.dds" />
+    <file src="assets/images/character/1/blusao.1/16.dds" />
+    <file src="assets/images/character/1/blusao.1/17.dds" />
+    <file src="assets/images/character/1/blusao.1/18.dds" />
+    <file src="assets/images/character/1/blusao.1/19.dds" />
+    <file src="assets/images/character/1/blusao.1/20.dds" />
+    <file src="assets/images/character/1/blusao.1/21.dds" />
+    <file src="assets/images/character/1/blusao.1/22.dds" />
+    <file src="assets/images/character/1/blusao.1/23.dds" />
+    <file src="assets/images/character/1/blusao.1/24.dds" />
+    <file src="assets/images/character/1/blusao.1/25.dds" />
+    <file src="assets/images/character/1/blusao.1/26.dds" />
+    <file src="assets/images/character/1/blusao.1/27.dds" />
+    <file src="assets/images/character/1/blusao.1/28.dds" />
+    <file src="assets/images/character/1/blusao.1/29.dds" />
+    <file src="assets/images/character/1/blusao.1/30.dds" />
+    <file src="assets/images/character/1/blusao.1/31.dds" />
+    <file src="assets/images/character/1/blusao.1/32.dds" />
+    <file src="assets/images/character/1/blusao.1/33.dds" />
+    <file src="assets/images/character/1/blusao.1/34.dds" />
+    <file src="assets/images/character/1/blusao.1/35.dds" />
+
+    
+    <file src="assets/images/character/1/camisa.longa/1.dds" />
+    <file src="assets/images/character/1/camisa.longa/2.dds" />
+    <file src="assets/images/character/1/camisa.longa/3.dds" />
+    <file src="assets/images/character/1/camisa.longa/4.dds" />
+    <file src="assets/images/character/1/camisa.longa/5.dds" />
+    <file src="assets/images/character/1/camisa.longa/6.dds" />
+    <file src="assets/images/character/1/camisa.longa/7.dds" />
+    <file src="assets/images/character/1/camisa.longa/8.dds" />
+    <file src="assets/images/character/1/camisa.longa/9.dds" />
+    <file src="assets/images/character/1/camisa.longa/10.dds" />
+    <file src="assets/images/character/1/camisa.longa/11.dds" />
+    <file src="assets/images/character/1/camisa.longa/12.dds" />
+    <file src="assets/images/character/1/camisa.longa/13.dds" />
+    <file src="assets/images/character/1/camisa.longa/14.dds" />
+    
+    <file src="assets/images/character/1/bermuda.cargo/1.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/2.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/3.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/4.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/5.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/6.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/7.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/8.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/9.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/10.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/11.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/12.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/13.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/14.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/15.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/16.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/17.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/18.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/19.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/20.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/21.dds" />
+    <file src="assets/images/character/1/bermuda.cargo/22.dds" />
+    
+    <file src="assets/images/character/1/bermuda.tactel/1.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/2.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/3.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/4.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/5.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/6.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/7.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/8.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/9.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/10.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/11.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/12.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/13.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/14.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/15.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/16.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/17.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/18.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/19.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/20.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/21.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/22.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/23.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/24.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/25.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/26.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/27.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/28.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/29.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/30.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/31.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/32.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/33.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/34.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/35.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/36.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/37.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/38.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/39.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/40.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/41.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/42.dds" />
+    <file src="assets/images/character/1/bermuda.tactel/43.dds" />
+    
+    <file src="assets/images/character/1/calca.1/1.dds" />
+    <file src="assets/images/character/1/calca.1/2.dds" />
+    <file src="assets/images/character/1/calca.1/3.dds" />
+    <file src="assets/images/character/1/calca.1/4.dds" />
+    <file src="assets/images/character/1/calca.1/5.dds" />
+    
+    <file src="assets/images/character/1/calca.jeans/1.dds" />
+    <file src="assets/images/character/1/calca.jeans/2.dds" />
+    <file src="assets/images/character/1/calca.jeans/3.dds" />
+    <file src="assets/images/character/1/calca.jeans/4.dds" />
+    <file src="assets/images/character/1/calca.jeans/5.dds" />
+    <file src="assets/images/character/1/calca.jeans/6.dds" />
+    <file src="assets/images/character/1/calca.jeans/7.dds" />
+    <file src="assets/images/character/1/calca.jeans/8.dds" />
+    <file src="assets/images/character/1/calca.jeans/9.dds" />
+    <file src="assets/images/character/1/calca.jeans/10.dds" />
+    <file src="assets/images/character/1/calca.jeans/11.dds" />
+    <file src="assets/images/character/1/calca.jeans/12.dds" />
+    <file src="assets/images/character/1/calca.jeans/13.dds" />
+    
+    <file src="assets/images/character/1/calca.militar/1.dds" />
+    <file src="assets/images/character/1/calca.militar/2.dds" />
+    <file src="assets/images/character/1/calca.militar/3.dds" />
+    <file src="assets/images/character/1/calca.militar/4.dds" />
+    <file src="assets/images/character/1/calca.militar/5.dds" />
+    <file src="assets/images/character/1/calca.militar/6.dds" />
+    <file src="assets/images/character/1/calca.militar/7.dds" />
+    
+    <file src="assets/images/character/1/calca.social/1.dds" />
+    <file src="assets/images/character/1/calca.social/2.dds" />
+    <file src="assets/images/character/1/calca.social/3.dds" />
+    <file src="assets/images/character/1/calca.social/4.dds" />
+    <file src="assets/images/character/1/calca.social/5.dds" />
+    <file src="assets/images/character/1/calca.social/6.dds" />
+    
+    <file src="assets/images/character/1/calca.gangster/1.dds" />
+    <file src="assets/images/character/1/calca.gangster/2.dds" />
+    <file src="assets/images/character/1/calca.gangster/3.dds" />
+    <file src="assets/images/character/1/calca.gangster/4.dds" />
+    <file src="assets/images/character/1/calca.gangster/5.dds" />
+    <file src="assets/images/character/1/calca.gangster/6.dds" />
+    <file src="assets/images/character/1/calca.gangster/7.dds" />
+    <file src="assets/images/character/1/calca.gangster/8.dds" />
+    <file src="assets/images/character/1/calca.gangster/9.dds" />
+    <file src="assets/images/character/1/calca.gangster/10.dds" />
+    <file src="assets/images/character/1/calca.gangster/11.dds" />
+    <file src="assets/images/character/1/calca.gangster/12.dds" />
+    <file src="assets/images/character/1/calca.gangster/13.dds" />
+    <file src="assets/images/character/1/calca.gangster/14.dds" />
+    <file src="assets/images/character/1/calca.gangster/15.dds" />
+
+    <file src="assets/images/character/1/calca.largao/1.dds" />
+    <file src="assets/images/character/1/calca.largao/2.dds" />
+    <file src="assets/images/character/1/calca.largao/3.dds" />
+    <file src="assets/images/character/1/calca.largao/4.dds" />
+    <file src="assets/images/character/1/calca.largao/5.dds" />
+    <file src="assets/images/character/1/calca.largao/6.dds" />
+    <file src="assets/images/character/1/calca.largao/7.dds" />
+    <file src="assets/images/character/1/calca.largao/8.dds" />
+    <file src="assets/images/character/1/calca.largao/9.dds" />
+    <file src="assets/images/character/1/calca.largao/10.dds" />
+    <file src="assets/images/character/1/calca.largao/11.dds" />
+    <file src="assets/images/character/1/calca.largao/12.dds" />
+    <file src="assets/images/character/1/calca.largao/13.dds" />
+    <file src="assets/images/character/1/calca.largao/14.dds" />
+    
+    <file src="assets/images/character/1/chinelo.1/1.dds" />
+    <file src="assets/images/character/1/chinelo.1/2.dds" />
+    <file src="assets/images/character/1/chinelo.1/3.dds" />
+    <file src="assets/images/character/1/chinelo.1/4.dds" />
+    <file src="assets/images/character/1/chinelo.1/5.dds" />
+    <file src="assets/images/character/1/chinelo.1/6.dds" />
+    <file src="assets/images/character/1/chinelo.1/7.dds" />
+    <file src="assets/images/character/1/chinelo.1/8.dds" />
+    <file src="assets/images/character/1/chinelo.1/9.dds" />
+    <file src="assets/images/character/1/chinelo.1/10.dds" />
+    <file src="assets/images/character/1/chinelo.1/11.dds" />
+    <file src="assets/images/character/1/chinelo.1/12.dds" />
+    <file src="assets/images/character/1/chinelo.1/13.dds" />
+    <file src="assets/images/character/1/chinelo.1/14.dds" />
+    <file src="assets/images/character/1/chinelo.1/15.dds" />
+    <file src="assets/images/character/1/chinelo.1/16.dds" />
+    
+    <file src="assets/images/character/1/chinelo.meia/1.dds" />
+    <file src="assets/images/character/1/chinelo.meia/2.dds" />
+    <file src="assets/images/character/1/chinelo.meia/3.dds" />
+    <file src="assets/images/character/1/chinelo.meia/4.dds" />
+    <file src="assets/images/character/1/chinelo.meia/5.dds" />
+    <file src="assets/images/character/1/chinelo.meia/6.dds" />
+    <file src="assets/images/character/1/chinelo.meia/7.dds" />
+    <file src="assets/images/character/1/chinelo.meia/8.dds" />
+    <file src="assets/images/character/1/chinelo.meia/9.dds" />
+    
+    <file src="assets/images/character/1/sapato.1/1.dds" />
+    <file src="assets/images/character/1/sapato.1/2.dds" />
+    <file src="assets/images/character/1/sapato.1/3.dds" />
+    <file src="assets/images/character/1/sapato.1/4.dds" />
+    <file src="assets/images/character/1/sapato.1/5.dds" />
+    <file src="assets/images/character/1/sapato.1/6.dds" />
+    
+    <file src="assets/images/character/1/sapato.2/1.dds" />
+    <file src="assets/images/character/1/sapato.2/2.dds" />
+    <file src="assets/images/character/1/sapato.2/3.dds" />
+    <file src="assets/images/character/1/sapato.2/4.dds" />
+    <file src="assets/images/character/1/sapato.2/5.dds" />
+    <file src="assets/images/character/1/sapato.2/6.dds" />
+    <file src="assets/images/character/1/sapato.2/7.dds" />
+    <file src="assets/images/character/1/sapato.2/8.dds" />
+    <file src="assets/images/character/1/sapato.2/9.dds" />
+    <file src="assets/images/character/1/sapato.2/10.dds" />
+    <file src="assets/images/character/1/sapato.2/11.dds" />
+    <file src="assets/images/character/1/sapato.2/12.dds" />
+    
+    <file src="assets/images/character/1/sapato.3/1.dds" />
+    <file src="assets/images/character/1/sapato.3/2.dds" />
+    <file src="assets/images/character/1/sapato.3/3.dds" />
+    <file src="assets/images/character/1/sapato.3/4.dds" />
+    <file src="assets/images/character/1/sapato.3/5.dds" />
+    <file src="assets/images/character/1/sapato.3/6.dds" />
+    <file src="assets/images/character/1/sapato.3/7.dds" />
+    <file src="assets/images/character/1/sapato.3/8.dds" />
+    <file src="assets/images/character/1/sapato.3/9.dds" />
+    <file src="assets/images/character/1/sapato.3/10.dds" />
+    <file src="assets/images/character/1/sapato.3/11.dds" />
+    <file src="assets/images/character/1/sapato.3/12.dds" />
+    <file src="assets/images/character/1/sapato.3/13.dds" />
+    <file src="assets/images/character/1/sapato.3/14.dds" />
+    <file src="assets/images/character/1/sapato.3/15.dds" />
+    
+    <file src="assets/images/character/1/sapato.social/1.dds" />
+    <file src="assets/images/character/1/sapato.social/2.dds" />
+    <file src="assets/images/character/1/sapato.social/3.dds" />
+    <file src="assets/images/character/1/sapato.social/4.dds" />
+    
+    
+    <!-- COLETES BPM -->
+    
+    <file src="assets/images/character/1/colete.bpm/1.dds" />
+    <file src="assets/images/character/1/colete.bpm/2.dds" />
+    <file src="assets/images/character/1/colete.bpm/3.dds" />
+    <file src="assets/images/character/1/colete.bpm/4.dds" />
+    <file src="assets/images/character/1/colete.bpm/5.dds" />
+    <file src="assets/images/character/1/colete.bpm/6.dds" />
+    
+    <!-- COLETES BPM -->
+    
+    
+    <!-- FARDAS MASCULINAS -->
+    <file src="assets/images/character/1/camisa.pm/1.dds" />
+    <file src="assets/images/character/1/camisa.pm/2.dds" />
+    <file src="assets/images/character/1/camisa.pm/3.dds" />
+    <file src="assets/images/character/1/camisa.pm/4.dds" />
+    <file src="assets/images/character/1/camisa.pm/5.dds" />
+    <file src="assets/images/character/1/camisa.pm/6.dds" />
+    <file src="assets/images/character/1/camisa.pm/7.dds" />
+    <file src="assets/images/character/1/camisa.pm/8.dds" />
+    <file src="assets/images/character/1/camisa.pm/9.dds" />
+    <file src="assets/images/character/1/camisa.pm/10.dds" />
+    <file src="assets/images/character/1/camisa.pm/11.dds" />
+    <file src="assets/images/character/1/camisa.pm/12.dds" />
+    <file src="assets/images/character/1/camisa.pm/13.dds" />
+    <file src="assets/images/character/1/camisa.pm/14.dds" />
+    <file src="assets/images/character/1/camisa.pm/15.dds" />
+    
+    <file src="assets/images/character/1/camisa.GPolo/1.dds" />
+    <file src="assets/images/character/1/camisa.GPolo/2.dds" />
+    <file src="assets/images/character/1/camisa.GPolo/3.dds" />
+    
+    <file src="assets/images/character/1/camisaLonga.pm/1.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/2.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/3.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/4.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/5.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/6.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/7.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/8.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/9.dds" />
+    <file src="assets/images/character/1/camisaLonga.pm/10.dds" />
+    
+    <file src="assets/images/character/1/calca.grupo/1.dds" />
+    <file src="assets/images/character/1/calca.grupo/2.dds" />
+    <file src="assets/images/character/1/calca.grupo/3.dds" />
+    
+    <file src="assets/images/character/1/calca.pm/1.dds" />
+    <file src="assets/images/character/1/calca.pm/2.dds" />
+    
+    <file src="assets/images/character/1/coturno.1/1.dds" />
+    <file src="assets/images/character/1/coturno.1/2.dds" />
+    
+    <file src="assets/images/character/1/sapato.grupo/1.dds" />
+    
+    <file src="assets/images/character/1/cinturao.pm/1.dds" />
+    <file src="assets/images/character/1/coldre.1/1.dds" />
+    <file src="assets/images/character/1/estetoscopio/1.dds" />
+    <file src="assets/images/character/1/luva.pm/1.dds" />
+    <file src="assets/images/character/1/luva.pm/2.dds" />
+    <file src="assets/images/character/1/luva.pm/3.dds" />
+    <file src="assets/images/character/1/mask.1/1.dds" />
+    <file src="assets/images/character/1/mask.1/2.dds" />
+    
+    <file src="assets/images/character/1/camisa.mec/1.dds" />
+    <file src="assets/images/character/1/camisa.mec/2.dds" />
+    <file src="assets/images/character/1/camisa.mec/3.dds" />
+    <file src="assets/images/character/1/camisa.mec/4.dds" />
+    
+    <file src="assets/images/character/1/calca.mec/1.dds" />
+    <file src="assets/images/character/1/calca.mec/2.dds" />
+    <file src="assets/images/character/1/calca.mec/3.dds" />
+    <file src="assets/images/character/1/calca.mec/4.dds" />
+    
+    <file src="assets/images/character/1/cinto.mec/1.dds" />
+    
+    <file src="assets/images/character/1/sapato.mec/1.dds" />
+    
+    <!-- FARDAS MASCULINAS -->
+    
+    
+    <!-- FEMININO -->
+    
+    <file src="assets/images/character/2/texturascorpo/1/1.dds" />
+    <file src="assets/images/character/2/texturascorpo/1/2.dds" />
+    <file src="assets/images/character/2/texturascorpo/1/3.dds" />
+    <file src="assets/images/character/2/texturascorpo/1/4.dds" />
+    <file src="assets/images/character/2/texturascorpo/1/5.dds" />
+    
+    <file src="assets/images/character/2/texturascorpo/2/1.dds" />
+    <file src="assets/images/character/2/texturascorpo/2/2.dds" />
+    <file src="assets/images/character/2/texturascorpo/2/3.dds" />
+    <file src="assets/images/character/2/texturascorpo/2/4.dds" />
+    <file src="assets/images/character/2/texturascorpo/2/5.dds" />
+    
+    <file src="assets/images/character/2/texturascorpo/3/1.dds" />
+    <file src="assets/images/character/2/texturascorpo/3/2.dds" />
+    <file src="assets/images/character/2/texturascorpo/3/3.dds" />
+    <file src="assets/images/character/2/texturascorpo/3/4.dds" />
+    <file src="assets/images/character/2/texturascorpo/3/5.dds" />
+    
+    <file src="assets/images/character/2/texturascorpo/4/1.dds" />
+    <file src="assets/images/character/2/texturascorpo/4/2.dds" />
+    <file src="assets/images/character/2/texturascorpo/4/3.dds" />
+    <file src="assets/images/character/2/texturascorpo/4/4.dds" />
+    <file src="assets/images/character/2/texturascorpo/4/5.dds" />
+    
+    <file src="assets/images/character/2/texturascorpo/5/1.dds" />
+    <file src="assets/images/character/2/texturascorpo/5/2.dds" />
+    <file src="assets/images/character/2/texturascorpo/5/3.dds" />
+    <file src="assets/images/character/2/texturascorpo/5/4.dds" />
+    <file src="assets/images/character/2/texturascorpo/5/5.dds" />
+    
+    <file src="assets/images/character/2/cabelos/cabelo.1/1.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.1/2.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.1/3.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.1/4.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.1/5.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.1/6.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.1/7.dds" />
+    
+    <file src="assets/images/character/2/cabelos/cabelo.2/1.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.2/2.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.2/3.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.2/4.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.2/5.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.2/6.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.2/7.dds" />
+    
+    <file src="assets/images/character/2/cabelos/cabelo.3/1.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.3/2.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.3/3.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.3/4.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.3/5.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.3/6.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.3/7.dds" />
+    
+    <file src="assets/images/character/2/cabelos/cabelo.4/1.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.4/2.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.4/3.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.4/4.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.4/5.dds" />
+    <file src="assets/images/character/2/cabelos/cabelo.4/6.dds" />
+    
+    <file src="assets/images/character/2/texturasface/eyes/1.dds" />
+    <file src="assets/images/character/2/texturasface/eyes/2.dds" />
+    <file src="assets/images/character/2/texturasface/eyes/3.dds" />
+    <file src="assets/images/character/2/texturasface/eyes/4.dds" />
+    <file src="assets/images/character/2/texturasface/eyes/5.dds" />
+    <file src="assets/images/character/2/texturasface/eyes/6.dds" />
+    <file src="assets/images/character/2/texturasface/eyes/7.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/1.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/2.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/3.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/4.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/5.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/6.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/7.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/8.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/9.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/10.dds" />
+    <file src="assets/images/character/2/texturasface/lipstick/11.dds" />
+    <file src="assets/images/character/2/texturasface/makeup/1.dds" />
+    <file src="assets/images/character/2/texturasface/makeup/2.dds" />
+    <file src="assets/images/character/2/texturasface/makeup/3.dds" />
+    <file src="assets/images/character/2/texturasface/blush/1.dds" />
+    <file src="assets/images/character/2/texturasface/blush/2.dds" />
+    <file src="assets/images/character/2/texturasface/blush/3.dds" />
+    <file src="assets/images/character/2/texturasface/blush/4.dds" />
+    
+    <!-- ROUPAS -->
+    
+    <file src="assets/images/character/2/sutia.1/1.dds" />
+    
+    <file src="assets/images/character/2/saia/1.dds" />
+    <file src="assets/images/character/2/saia/2.dds" />
+    <file src="assets/images/character/2/saia/3.dds" />
+    <file src="assets/images/character/2/saia/4.dds" />
+    <file src="assets/images/character/2/saia/5.dds" />
+    <file src="assets/images/character/2/saia/6.dds" />
+    <file src="assets/images/character/2/saia/7.dds" />
+    <file src="assets/images/character/2/saia/8.dds" />
+    <file src="assets/images/character/2/saia/9.dds" />
+    <file src="assets/images/character/2/saia/10.dds" />
+    <file src="assets/images/character/2/saia/11.dds" />
+    <file src="assets/images/character/2/saia/12.dds" />
+    
+    <file src="assets/images/character/2/tomara.qcaia/1.dds" />
+    <file src="assets/images/character/2/tomara.qcaia/2.dds" />
+    <file src="assets/images/character/2/tomara.qcaia/3.dds" />
+    <file src="assets/images/character/2/tomara.qcaia/4.dds" />
+    <file src="assets/images/character/2/tomara.qcaia/5.dds" />
+    
+    <file src="assets/images/character/2/camisa.1/1.dds" />
+    <file src="assets/images/character/2/camisa.1/2.dds" />
+    <file src="assets/images/character/2/camisa.1/3.dds" />
+    <file src="assets/images/character/2/camisa.1/4.dds" />
+    <file src="assets/images/character/2/camisa.1/5.dds" />
+    <file src="assets/images/character/2/camisa.1/6.dds" />
+    <file src="assets/images/character/2/camisa.1/7.dds" />
+    <file src="assets/images/character/2/camisa.1/8.dds" />
+    <file src="assets/images/character/2/camisa.1/9.dds" />
+    <file src="assets/images/character/2/camisa.1/10.dds" />
+    <file src="assets/images/character/2/camisa.1/11.dds" />
+    <file src="assets/images/character/2/camisa.1/12.dds" />
+    <file src="assets/images/character/2/camisa.1/13.dds" />
+    <file src="assets/images/character/2/camisa.1/14.dds" />
+    <file src="assets/images/character/2/camisa.1/15.dds" />
+    <file src="assets/images/character/2/camisa.1/16.dds" />
+    <file src="assets/images/character/2/camisa.1/17.dds" />
+    <file src="assets/images/character/2/camisa.1/18.dds" />
+    <file src="assets/images/character/2/camisa.1/19.dds" />
+    <file src="assets/images/character/2/camisa.1/20.dds" />
+    <file src="assets/images/character/2/camisa.1/21.dds" />
+    <file src="assets/images/character/2/camisa.1/22.dds" />
+    <file src="assets/images/character/2/camisa.1/23.dds" />
+    <file src="assets/images/character/2/camisa.1/24.dds" />
+    <file src="assets/images/character/2/camisa.1/25.dds" />
+    <file src="assets/images/character/2/camisa.1/26.dds" />
+    <file src="assets/images/character/2/camisa.1/27.dds" />
+    <file src="assets/images/character/2/camisa.1/28.dds" />
+    <file src="assets/images/character/2/camisa.1/29.dds" />
+    <file src="assets/images/character/2/camisa.1/30.dds" />
+    <file src="assets/images/character/2/camisa.1/31.dds" />
+    <file src="assets/images/character/2/camisa.1/32.dds" />
+    
+    <file src="assets/images/character/2/camisa.polo/1.dds" />
+    <file src="assets/images/character/2/camisa.polo/2.dds" />
+    <file src="assets/images/character/2/camisa.polo/3.dds" />
+    <file src="assets/images/character/2/camisa.polo/4.dds" />
+    <file src="assets/images/character/2/camisa.polo/5.dds" />
+    <file src="assets/images/character/2/camisa.polo/6.dds" />
+    <file src="assets/images/character/2/camisa.polo/7.dds" />
+    <file src="assets/images/character/2/camisa.polo/8.dds" />
+    <file src="assets/images/character/2/camisa.polo/9.dds" />
+    <file src="assets/images/character/2/camisa.polo/10.dds" />
+    <file src="assets/images/character/2/camisa.polo/11.dds" />
+    <file src="assets/images/character/2/camisa.polo/12.dds" />
+    <file src="assets/images/character/2/camisa.polo/13.dds" />
+    <file src="assets/images/character/2/camisa.polo/14.dds" />
+    <file src="assets/images/character/2/camisa.polo/15.dds" />
+    <file src="assets/images/character/2/camisa.polo/16.dds" />
+    <file src="assets/images/character/2/camisa.polo/17.dds" />
+    <file src="assets/images/character/2/camisa.polo/18.dds" />
+    <file src="assets/images/character/2/camisa.polo/19.dds" />
+    <file src="assets/images/character/2/camisa.polo/20.dds" />
+    
+    <file src="assets/images/character/2/top/1.dds" />
+    <file src="assets/images/character/2/top/2.dds" />
+    <file src="assets/images/character/2/top/3.dds" />
+    
+    <file src="assets/images/character/2/blusao.1/1.dds" />
+    <file src="assets/images/character/2/blusao.1/2.dds" />
+    <file src="assets/images/character/2/blusao.1/3.dds" />
+    <file src="assets/images/character/2/blusao.1/4.dds" />
+    <file src="assets/images/character/2/blusao.1/5.dds" />
+    <file src="assets/images/character/2/blusao.1/6.dds" />
+    
+    <file src="assets/images/character/2/jaqueta.1/1.dds" />
+    <file src="assets/images/character/2/jaqueta.1/2.dds" />
+    <file src="assets/images/character/2/jaqueta.1/3.dds" />
+    <file src="assets/images/character/2/jaqueta.1/4.dds" />
+    <file src="assets/images/character/2/jaqueta.1/5.dds" />
+    <file src="assets/images/character/2/jaqueta.1/6.dds" />
+    
+    <file src="assets/images/character/2/short.1/1.dds" />
+    <file src="assets/images/character/2/short.1/2.dds" />
+    <file src="assets/images/character/2/short.1/3.dds" />
+    <file src="assets/images/character/2/short.1/4.dds" />
+    <file src="assets/images/character/2/short.1/5.dds" />
+    <file src="assets/images/character/2/short.1/6.dds" />
+    <file src="assets/images/character/2/short.1/7.dds" />
+    <file src="assets/images/character/2/short.1/8.dds" />
+    <file src="assets/images/character/2/short.1/9.dds" />
+    <file src="assets/images/character/2/short.1/10.dds" />
+    <file src="assets/images/character/2/short.1/11.dds" />
+    <file src="assets/images/character/2/short.1/12.dds" />
+    <file src="assets/images/character/2/short.1/13.dds" />
+    
+    <file src="assets/images/character/2/calca.1/1.dds" />
+    <file src="assets/images/character/2/calca.1/2.dds" />
+    <file src="assets/images/character/2/calca.1/3.dds" />
+    <file src="assets/images/character/2/calca.1/4.dds" />
+    <file src="assets/images/character/2/calca.1/5.dds" />
+    <file src="assets/images/character/2/calca.1/6.dds" />
+    <file src="assets/images/character/2/calca.1/7.dds" />
+    <file src="assets/images/character/2/calca.1/8.dds" />
+    <file src="assets/images/character/2/calca.1/9.dds" />
+    <file src="assets/images/character/2/calca.1/10.dds" />
+    <file src="assets/images/character/2/calca.1/11.dds" />
+    <file src="assets/images/character/2/calca.1/12.dds" />
+    <file src="assets/images/character/2/calca.1/13.dds" />
+    <file src="assets/images/character/2/calca.1/14.dds" />
+    <file src="assets/images/character/2/calca.1/15.dds" />
+    
+    <file src="assets/images/character/2/calca.2/1.dds" />
+    <file src="assets/images/character/2/calca.2/2.dds" />
+    <file src="assets/images/character/2/calca.2/3.dds" />
+    <file src="assets/images/character/2/calca.2/4.dds" />
+    <file src="assets/images/character/2/calca.2/5.dds" />
+    <file src="assets/images/character/2/calca.2/6.dds" />
+    <file src="assets/images/character/2/calca.2/7.dds" />
+    <file src="assets/images/character/2/calca.2/8.dds" />
+    <file src="assets/images/character/2/calca.2/9.dds" />
+    <file src="assets/images/character/2/calca.2/10.dds" />
+    <file src="assets/images/character/2/calca.2/11.dds" />
+    <file src="assets/images/character/2/calca.2/12.dds" />
+    <file src="assets/images/character/2/calca.2/13.dds" />
+    <file src="assets/images/character/2/calca.2/14.dds" />
+    
+    <file src="assets/images/character/2/chinelo.1/1.dds" />
+    <file src="assets/images/character/2/chinelo.1/2.dds" />
+    <file src="assets/images/character/2/chinelo.1/3.dds" />
+    <file src="assets/images/character/2/chinelo.1/4.dds" />
+    <file src="assets/images/character/2/chinelo.1/5.dds" />
+    <file src="assets/images/character/2/chinelo.1/6.dds" />
+    <file src="assets/images/character/2/chinelo.1/7.dds" />
+    <file src="assets/images/character/2/chinelo.1/8.dds" />
+    <file src="assets/images/character/2/chinelo.1/9.dds" />
+    <file src="assets/images/character/2/chinelo.1/10.dds" />
+    <file src="assets/images/character/2/chinelo.1/11.dds" />
+    <file src="assets/images/character/2/chinelo.1/12.dds" />
+    <file src="assets/images/character/2/chinelo.1/13.dds" />
+    <file src="assets/images/character/2/chinelo.1/14.dds" />
+    <file src="assets/images/character/2/chinelo.1/15.dds" />
+    <file src="assets/images/character/2/chinelo.1/16.dds" />
+    
+    <file src="assets/images/character/2/chinelo.meia/1.dds" />
+    <file src="assets/images/character/2/chinelo.meia/2.dds" />
+    <file src="assets/images/character/2/chinelo.meia/3.dds" />
+    <file src="assets/images/character/2/chinelo.meia/4.dds" />
+    <file src="assets/images/character/2/chinelo.meia/5.dds" />
+    <file src="assets/images/character/2/chinelo.meia/6.dds" />
+    <file src="assets/images/character/2/chinelo.meia/7.dds" />
+    <file src="assets/images/character/2/chinelo.meia/8.dds" />
+    <file src="assets/images/character/2/chinelo.meia/9.dds" />
+    
+    <file src="assets/images/character/2/sapatilha.1/1.dds" />
+    <file src="assets/images/character/2/sapatilha.1/2.dds" />
+    <file src="assets/images/character/2/sapatilha.1/3.dds" />
+    <file src="assets/images/character/2/sapatilha.1/4.dds" />
+    <file src="assets/images/character/2/sapatilha.1/5.dds" />
+    <file src="assets/images/character/2/sapatilha.1/6.dds" />
+    <file src="assets/images/character/2/sapatilha.1/7.dds" />
+    <file src="assets/images/character/2/sapatilha.1/8.dds" />
+    <file src="assets/images/character/2/sapatilha.1/9.dds" />
+    <file src="assets/images/character/2/sapatilha.1/10.dds" />
+    <file src="assets/images/character/2/sapatilha.1/11.dds" />
+    <file src="assets/images/character/2/sapatilha.1/12.dds" />
+    <file src="assets/images/character/2/sapatilha.1/13.dds" />
+    <file src="assets/images/character/2/sapatilha.1/14.dds" />
+    <file src="assets/images/character/2/sapatilha.1/15.dds" />
+    <file src="assets/images/character/2/sapatilha.1/16.dds" />
+    
+    <file src="assets/images/character/2/sapato.1/1.dds" />
+    <file src="assets/images/character/2/sapato.1/2.dds" />
+    <file src="assets/images/character/2/sapato.1/3.dds" />
+    <file src="assets/images/character/2/sapato.1/4.dds" />
+    <file src="assets/images/character/2/sapato.1/5.dds" />
+    <file src="assets/images/character/2/sapato.1/6.dds" />
+    <file src="assets/images/character/2/sapato.1/7.dds" />
+    <file src="assets/images/character/2/sapato.1/8.dds" />
+    <file src="assets/images/character/2/sapato.1/9.dds" />
+    <file src="assets/images/character/2/sapato.1/10.dds" />
+    <file src="assets/images/character/2/sapato.1/11.dds" />
+    
+    <file src="assets/images/character/2/sapato.2/1.dds" />
+    <file src="assets/images/character/2/sapato.2/2.dds" />
+    <file src="assets/images/character/2/sapato.2/3.dds" />
+    <file src="assets/images/character/2/sapato.2/4.dds" />
+    
+    <file src="assets/images/character/2/tamanco/1.dds" />
+    <file src="assets/images/character/2/tamanco/2.dds" />
+    <file src="assets/images/character/2/tamanco/3.dds" />
+    <file src="assets/images/character/2/tamanco/4.dds" />
+    
+    <file src="assets/images/character/2/sapato.3/1.dds" />
+    <file src="assets/images/character/2/sapato.3/2.dds" />
+    <file src="assets/images/character/2/sapato.3/3.dds" />
+    <file src="assets/images/character/2/sapato.3/4.dds" />
+    <file src="assets/images/character/2/sapato.3/5.dds" />
+    <file src="assets/images/character/2/sapato.3/6.dds" />
+    <file src="assets/images/character/2/sapato.3/7.dds" />
+    <file src="assets/images/character/2/sapato.3/8.dds" />
+    <file src="assets/images/character/2/sapato.3/9.dds" />
+    <file src="assets/images/character/2/sapato.3/10.dds" />
+    <file src="assets/images/character/2/sapato.3/11.dds" />
+    <file src="assets/images/character/2/sapato.3/12.dds" />
+    <file src="assets/images/character/2/sapato.3/13.dds" />
+    <file src="assets/images/character/2/sapato.3/14.dds" />
+    <file src="assets/images/character/2/sapato.3/15.dds" />
+    <file src="assets/images/character/2/sapato.3/16.dds" />
+    
+    <file src="assets/images/character/2/top.2/1.dds" />
+    <file src="assets/images/character/2/top.2/2.dds" />
+    <file src="assets/images/character/2/top.2/3.dds" />
+    <file src="assets/images/character/2/top.2/4.dds" />
+    <file src="assets/images/character/2/top.2/5.dds" />
+    <file src="assets/images/character/2/top.2/6.dds" />
+    <file src="assets/images/character/2/top.2/7.dds" />
+    <file src="assets/images/character/2/top.2/8.dds" />
+    <file src="assets/images/character/2/top.2/9.dds" />
+    <file src="assets/images/character/2/top.2/10.dds" />
+    
+    <!-- FARDAS FEMININAS -->
+    <file src="assets/images/character/2/camisa.pm1/1.dds" />
+    <file src="assets/images/character/2/camisa.pm1/2.dds" />
+    <file src="assets/images/character/2/camisa.pm1/3.dds" />
+    <file src="assets/images/character/2/camisa.pm1/4.dds" />
+    <file src="assets/images/character/2/camisa.pm1/5.dds" />
+    <file src="assets/images/character/2/camisa.pm1/6.dds" />
+    <file src="assets/images/character/2/camisa.pm1/7.dds" />
+    <file src="assets/images/character/2/camisa.pm1/8.dds" />
+    <file src="assets/images/character/2/camisa.pm1/9.dds" />
+    <file src="assets/images/character/2/camisa.pm1/10.dds" />
+    <file src="assets/images/character/2/camisa.pm1/11.dds" />
+    <file src="assets/images/character/2/camisa.pm1/12.dds" />
+    <file src="assets/images/character/2/camisa.pm1/13.dds" />
+    <file src="assets/images/character/2/camisa.pm1/14.dds" />
+    <file src="assets/images/character/2/camisa.pm1/15.dds" />
+    <file src="assets/images/character/2/camisa.pm1/16.dds" />
+    
+    <file src="assets/images/character/2/camisaLonga.pm/1.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/2.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/3.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/4.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/5.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/6.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/7.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/8.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/9.dds" />
+    <file src="assets/images/character/2/camisaLonga.pm/10.dds" />
+    
+    <file src="assets/images/character/2/calca.pm/1.dds" />
+    <file src="assets/images/character/2/calca.pm/2.dds" />
+    
+    <file src="assets/images/character/2/calca.grupo/1.dds" />
+    <file src="assets/images/character/2/calca.grupo/2.dds" />
+    <file src="assets/images/character/2/calca.grupo/3.dds" />
+    
+    <file src="assets/images/character/2/coturno.1/1.dds" />
+    <file src="assets/images/character/2/coturno.1/2.dds" />
+    <file src="assets/images/character/2/sapato.grupo/1.dds" />
+    <file src="assets/images/character/2/cinturao.pm/1.dds" />
+    <file src="assets/images/character/2/cinturao.pm2/1.dds" />
+    <file src="assets/images/character/2/coldre.1/1.dds" />
+    <file src="assets/images/character/2/estetoscopio/1.dds" />
+    <file src="assets/images/character/2/luva.pm/1.dds" />
+    <file src="assets/images/character/2/luva.pm/2.dds" />
+    <file src="assets/images/character/2/luva.pm/3.dds" />
+    <file src="assets/images/character/2/mask.1/1.dds" />
+    <file src="assets/images/character/2/mask.1/2.dds" />
+    <!-- FARDAS FEMININAS -->
+    <min_mta_version client="1.3.0"></min_mta_version>
+</meta>

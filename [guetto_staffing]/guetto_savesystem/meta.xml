@@ -1,0 +1,5 @@
+<meta>
+	<script src="sMeloSCR.lua" type="server" />
+	<export function="saveDate" type="server" />
+	<export function="getLastPosition" type="server" />
+</meta>
